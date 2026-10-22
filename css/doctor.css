@@ -1,0 +1,47 @@
+/* ===== 06. 의료진 소개 (피그마 의료진소개 1921×1754, ABOUT 포함) ===== */
+.doctor { position: relative; z-index: 2; background: #fff url('../assets/img/section/doctor-bg.webp') center top / 100% auto no-repeat; padding-top: calc(118 * var(--s)); }
+.doctor__top { position: relative; height: calc(827 * var(--s)); }
+.doctor__info { position: relative; z-index: 2; width: calc(704 * var(--s)); }
+.doctor__text { margin-top: calc(115 * var(--s)); }
+.doctor__name { font-weight: 700; font-size: calc(70 * var(--s)); line-height: calc(40 * var(--s)); }
+.doctor__name small { margin-left: calc(28 * var(--s)); font-weight: 400; font-size: calc(30 * var(--s)); }
+.doctor__lead { margin-top: calc(50 * var(--s)); font-size: calc(40 * var(--s)); line-height: calc(60 * var(--s)); }
+.doctor__lead strong { font-weight: 700; }
+.doctor__lead b { color: var(--navy); }
+.doctor__desc { margin-top: calc(50 * var(--s)); font-size: calc(30 * var(--s)); line-height: calc(46 * var(--s)); color: var(--gray); }
+.doctor__text .btn { margin-top: calc(50 * var(--s)); }
+.doctor__photo { position: absolute; top: calc(-10 * var(--s)); left: calc(769 * var(--s)); width: calc(505 * var(--s)); height: calc(862 * var(--s)); }
+.doctor__photo > img:first-child { position: absolute; left: calc(37 * var(--s)); top: calc(32 * var(--s)); width: calc(432 * var(--s)); height: auto; }
+.doctor__badge { position: absolute; left: calc(368 * var(--s)); top: calc(568 * var(--s)); width: calc(118 * var(--s)); height: auto; }
+
+@media (min-width: 1921px) { .doctor { background-size: cover; } }
+@media (max-width: 1024px) {
+  .doctor { padding-top: 80px; background-size: cover; }
+  .doctor__top { height: auto; display: grid; grid-template-columns: 1fr 260px; gap: 32px; align-items: start; }
+  .doctor__info { width: auto; }
+  .doctor__text { margin-top: 40px; }
+  .doctor__name { font-size: 36px; line-height: 1.2; }
+  .doctor__name small { margin-left: 12px; font-size: 18px; }
+  .doctor__lead { margin-top: 20px; font-size: 21px; line-height: 1.55; }
+  .doctor__desc { margin-top: 18px; font-size: 16px; line-height: 1.6; }
+  .doctor__text .btn { margin-top: 26px; }
+  .doctor__photo { position: relative; top: auto; left: auto; width: 100%; height: auto; }
+  .doctor__photo > img:first-child { position: static; width: 100%; }
+  .doctor__badge { left: auto; right: -6px; top: auto; bottom: 18%; width: 72px; }
+}
+/* 모바일: 사진 가운데 220 폭 → 이름·소개 가운데 정렬 (피그마 Mobile) */
+@media (max-width: 767px) {
+  .doctor { padding-top: 56px; }
+  .doctor__top { display: flex; flex-direction: column; gap: 0; }
+  .doctor__info { display: contents; }
+  .doctor__info .sec-head { order: 0; align-self: stretch; }
+  .doctor__photo { order: 1; width: 188px; margin: 24px auto 0; }
+  .doctor__badge { right: -16px; bottom: 0; width: 56px; }
+  .doctor__text { order: 2; margin-top: 24px; text-align: center; }
+  .doctor__name { font-size: 24px; }
+  .doctor__name small { font-size: 15px; margin-left: 8px; }
+  .doctor__lead { margin-top: 14px; font-size: 19px; line-height: 1.45; }
+  .doctor__lead br, .doctor__desc br { display: none; }
+  .doctor__desc { margin-top: 12px; font-size: 14px; }
+  .doctor__text .btn { margin-top: 20px; }
+}

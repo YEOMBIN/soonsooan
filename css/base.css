@@ -1,0 +1,104 @@
+/* =========================================================
+   순수안피부과 — 공통 토큰 · 폰트 · 리셋
+   PC(1025px 이상)는 1920 디자인 기준 비례 단위 --s (1920에서 1px)
+   ========================================================= */
+/* 사이트 전용 글꼴(사용 글자만 추린 서브셋) — 파일로 바로 열어도 보이도록 css/fonts.css 에 내장 */
+
+:root {
+  --navy: #144895;
+  --sky: #77c3e6;
+  --pale: #c8eafe;
+  --sky-50: #d8f0ff;
+  --gray: #767676;
+  --gray-2: #7b7b7b;
+  --ink: #000000;
+  --white: #ffffff;
+
+  --f-sans: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --f-eng: 'KMU80', 'Times New Roman', serif;
+  --f-serif: 'Bookk Myungjo', 'Noto Serif KR', serif;
+
+  /* 1920 디자인 → 화면 폭 비례 (최대 1px) */
+  --s: min(1px, calc(100vw / 1920));
+  --gnb-h: calc(100 * var(--s));
+
+  /* 모션 기준 */
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --ease-inout: cubic-bezier(.65, 0, .35, 1);
+  --t-hover: .45s;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--f-sans); color: var(--ink); background: #fff; letter-spacing: -0.05em; word-break: keep-all; overflow-x: clip; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+ul, ol, dl, dd, figure, p, h1, h2, h3 { margin: 0; padding: 0; }
+ul { list-style: none; }
+address { font-style: normal; }
+:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; }
+
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 1000; padding: 10px 16px; background: var(--navy); color: #fff; border-radius: 6px; }
+.skip-link:focus { top: 12px; }
+
+/* ----- 레이아웃 ----- */
+section[id], #premium { scroll-margin-top: var(--gnb-h); }
+.inner { width: calc(1254 * var(--s)); margin-inline: auto; }
+
+/* ----- 섹션 제목 ----- */
+.eyebrow { font-family: var(--f-eng); font-size: calc(30 * var(--s)); line-height: calc(40 * var(--s)); letter-spacing: .05em; color: var(--navy); }
+.eyebrow--sm { font-size: calc(25 * var(--s)); }
+.eyebrow--pale { color: var(--pale); }
+.sec-title { font-weight: 600; font-size: calc(50 * var(--s)); line-height: calc(40 * var(--s)); margin-top: calc(20 * var(--s)); }
+.sec-title--white { color: #fff; }
+.sec-desc { font-size: calc(30 * var(--s)); line-height: calc(40 * var(--s)); color: var(--gray); margin-top: calc(20 * var(--s)); }
+.sec-desc--pale { color: var(--pale); }
+.sec-head--center { text-align: center; }
+
+/* ----- 버튼 (피그마 Button 컴포넌트) ----- */
+.btn { display: inline-flex; align-items: center; justify-content: center; width: calc(196 * var(--s)); height: calc(46 * var(--s)); border-radius: 999px; font-weight: 500; font-size: calc(20 * var(--s)); transition: background-color var(--t-hover) var(--ease-out), color var(--t-hover) var(--ease-out), transform var(--t-hover) var(--ease-out); }
+.btn--primary { background: var(--navy); color: #fff; }
+.btn--primary:hover { background: #0f3a7a; }
+.btn--white { background: #fff; color: var(--sky); box-shadow: 0 4px 18px rgb(20 72 149 / .08); }
+.btn--white:hover { background: var(--navy); color: #fff; }
+.btn--light { background: var(--sky-50); color: var(--navy); }
+.btn--light:hover { background: var(--navy); color: #fff; }
+.btn--lg { width: calc(438 * var(--s)); height: calc(70 * var(--s)); font-size: calc(40 * var(--s)); }
+
+/* 슬라이드 화살표 (피그마 Slider Arrow) */
+.arrow { width: calc(50 * var(--s)); height: calc(50 * var(--s)); border-radius: 50%; background: rgb(20 72 149 / .5) url('../assets/img/icon/icon-arrow.svg') center / 44% auto no-repeat; transition: background-color var(--t-hover) var(--ease-out); }
+.arrow:hover { background-color: rgb(20 72 149 / .85); }
+.arrow--prev { transform: scaleX(-1); }
+
+/* 스크롤 등장 (js/main.js) — JS가 없을 때도 보이도록 .js-on 일 때만 숨김 */
+.js-on [data-reveal], .js-on [data-reveal-group] > * { opacity: 0; transform: translate3d(0, 40px, 0); }
+
+/* ----- 태블릿 (768~1024) ----- */
+@media (max-width: 1024px) {
+  :root { --s: 1px; --gnb-h: 72px; }
+  .inner { width: auto; margin-inline: 40px; }
+  .eyebrow { font-size: 20px; line-height: 1.3; }
+  .eyebrow--sm { font-size: 18px; }
+  .sec-title { font-size: 34px; line-height: 1.3; margin-top: 12px; }
+  .sec-desc { font-size: 20px; line-height: 1.4; margin-top: 12px; }
+  .btn { width: auto; min-width: 176px; height: 46px; padding-inline: 24px; font-size: 17px; }
+  .btn--lg { width: 100%; height: 60px; font-size: 22px; }
+  .arrow { width: 44px; height: 44px; }
+}
+/* ----- 모바일 (767 이하) ----- */
+@media (max-width: 767px) {
+  :root { --gnb-h: 64px; }
+  .inner { margin-inline: 20px; }
+  .eyebrow { font-size: 14px; }
+  .eyebrow--sm { font-size: 14px; }
+  .sec-title { font-size: 24px; margin-top: 8px; }
+  .sec-desc { font-size: 15px; margin-top: 8px; }
+  .btn { min-width: 150px; height: 42px; font-size: 15px; }
+  .btn--lg { height: 52px; font-size: 18px; }
+  .arrow { width: 36px; height: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  .js-on [data-reveal], .js-on [data-reveal-group] > * { opacity: 1; transform: none; }
+}

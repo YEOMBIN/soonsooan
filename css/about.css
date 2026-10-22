@@ -1,0 +1,91 @@
+/* ===== 07. ABOUT SOONSOOAN — 카드 아코디언 (card-accordion 모듈 + 피그마 인사말 카드 디자인)
+   1920 기준: 펼친 카드 1080 + 접힌 카드 104 × 3 + 간격 16 × 3 = 1440, 높이 450, 모서리 50 ===== */
+.about { padding: calc(94 * var(--s)) 0 calc(57 * var(--s)); text-align: center; }
+.about__eyebrow { text-align: center; }
+
+.ca.about-ca {
+  --ca-closed: calc(104 * var(--s));
+  --ca-open: calc(1080 * var(--s));
+  --ca-gap: calc(16 * var(--s));
+  position: relative; display: flex; gap: var(--ca-gap);
+  width: calc(1440 * var(--s)); height: calc(450 * var(--s)); margin: calc(61 * var(--s)) auto 0; text-align: left;
+}
+.about-ca input { position: absolute; opacity: 0; pointer-events: none; }
+.about-ca .ca__card {
+  position: relative; flex: 0 0 var(--ca-closed); min-width: 0; overflow: hidden; cursor: pointer;
+  border-radius: calc(50 * var(--s)); background: #0f2f63;
+  box-shadow: 0 5px 100px rgb(31 65 98 / .2);
+  transition: flex-basis .8s var(--ease-inout);
+}
+.about-ca input:checked + .ca__card { flex-basis: var(--ca-open); cursor: default; }
+.about-ca input:focus-visible + .ca__card { outline: 3px solid var(--sky); outline-offset: 3px; }
+
+/* 카드 배경: 피그마 카드 배경(이미지+그라데이션) 원본 그대로, 왼쪽 기준 고정 */
+.acard__bg { position: absolute; left: 0; top: 0; width: var(--ca-open); height: 100%; background: var(--img) left center / cover no-repeat; }
+
+/* 카드 내용: 펼친 카드(1080) 기준 왼쪽에서 잰 좌표 → 펼침 중에도 글자가 밀리지 않음 */
+.acard__list, .acard__badge, .acard__tag, .acard__title, .acard__desc { position: absolute; opacity: 0; transition: opacity .3s var(--ease-out), transform .3s var(--ease-out); }
+.acard__list { left: calc(62 * var(--s)); top: calc(85 * var(--s)); display: flex; flex-direction: column; font-family: var(--f-eng); font-size: calc(40 * var(--s)); line-height: calc(70 * var(--s)); letter-spacing: 0; color: #fff; white-space: nowrap; }
+.acard__list span { opacity: .5; }
+.acard__list b { font-weight: 400; margin-left: calc(-8 * var(--s)); }
+.acard__list em { position: absolute; left: calc(250 * var(--s)); top: calc(var(--row, 0) * 70 * var(--s) + 19 * var(--s)); font-family: var(--f-sans); font-style: normal; font-weight: 600; font-size: calc(20 * var(--s)); line-height: calc(30 * var(--s)); letter-spacing: -0.05em; }
+.acard--2 .acard__list em { --row: 1; }
+.acard--3 .acard__list em { --row: 2; }
+.acard--4 .acard__list em { --row: 3; }
+.acard__badge { left: calc(932 * var(--s)); top: calc(85 * var(--s)); width: calc(78 * var(--s)); height: auto; }
+.acard__tag { left: calc(1080 * var(--s)); top: calc(100 * var(--s)); transform: translateX(-100%); padding: 0 calc(27 * var(--s)); height: calc(43 * var(--s)); display: inline-flex; align-items: center; border-radius: 50px 0 0 50px; background: rgb(200 234 254 / .7); font-weight: 500; font-size: calc(20 * var(--s)); color: var(--navy); white-space: nowrap; }
+.acard__title { left: calc(1010 * var(--s)); top: calc(188 * var(--s)); transform: translateX(-100%); text-align: right; white-space: nowrap; font-weight: 300; font-size: calc(40 * var(--s)); line-height: 1.2; color: #000; }
+.acard__title strong { font-weight: 700; color: var(--navy); }
+.acard--2 .acard__title, .acard--3 .acard__title, .acard--4 .acard__title { top: calc(177 * var(--s)); }
+.acard__desc { left: calc(1010 * var(--s)); top: calc(309 * var(--s)); transform: translateX(-100%); text-align: right; white-space: nowrap; font-weight: 300; font-size: calc(15 * var(--s)); line-height: 1.6; color: var(--gray-2); }
+
+.about-ca input:checked + .ca__card :is(.acard__list, .acard__badge, .acard__tag, .acard__title, .acard__desc) { opacity: 1; transition: opacity .6s var(--ease-out) .35s, transform .6s var(--ease-out) .35s; }
+
+/* 접힌 카드: 남색 막 + 세로 키워드 */
+.about-ca .ca__shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(20 72 149 / .9), rgb(12 40 88 / .95)); transition: opacity .45s var(--ease-out) .3s; }
+.about-ca .ca__num { position: absolute; top: calc(36 * var(--s)); left: 50%; transform: translateX(-50%); font-weight: 600; font-size: calc(16 * var(--s)); letter-spacing: .08em; color: rgb(255 255 255 / .75); transition: opacity .3s var(--ease-out) .35s; }
+.about-ca .ca__label { position: absolute; left: 50%; bottom: calc(40 * var(--s)); transform: translateX(-50%); color: #fff; transition: opacity .3s var(--ease-out) .35s; }
+.about-ca .ca__word { display: block; writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--f-eng); font-size: calc(30 * var(--s)); line-height: 1; letter-spacing: .04em; white-space: nowrap; }
+.about-ca input:checked + .ca__card :is(.ca__shade, .ca__num, .ca__label) { opacity: 0; transition-delay: 0s; transition-duration: .25s; }
+@media (hover: hover) {
+  .about-ca input:not(:checked) + .ca__card:hover .ca__shade { opacity: .78; transition-delay: 0s; }
+}
+
+.about__more { display: flex; justify-content: center; margin-top: calc(61 * var(--s)); }
+
+/* ===== 태블릿·모바일: 세로로 쌓이는 아코디언 (탭으로 펼침) ===== */
+@media (max-width: 1024px) {
+  .about { padding: 72px 40px 64px; }
+  .ca.about-ca { --ca-closed: 64px; --ca-open: 300px; --ca-gap: 10px; flex-direction: column; width: 100%; height: auto; margin-top: 28px; }
+  .about-ca .ca__card { flex: 0 0 var(--ca-closed); border-radius: 24px; }
+  .acard__bg { width: 100%; background-position: left center; }
+  .acard__list span, .acard__badge, .acard__tag { display: none; }
+  .acard__list { left: 32px; top: 36px; flex-direction: row; align-items: baseline; gap: 12px; font-size: 24px; line-height: 1.3; }
+  .acard__list b { margin-left: 0; }
+  .acard__list em { position: static; font-size: 15px; line-height: 1.3; }
+  .acard__title, .acard--2 .acard__title, .acard--3 .acard__title, .acard--4 .acard__title { left: 32px; right: 32px; top: 96px; transform: none; text-align: left; white-space: normal; font-size: 28px; line-height: 1.35; }
+  .acard__desc { left: 32px; right: 32px; top: 196px; transform: none; text-align: left; white-space: normal; font-size: 15px; line-height: 1.6; }
+  .about-ca .ca__shade { background: linear-gradient(90deg, rgb(20 72 149 / .96), rgb(12 40 88 / .96)); }
+  .about-ca .ca__num { top: 50%; left: 28px; transform: translateY(-50%); font-size: 13px; }
+  .about-ca .ca__label { top: 50%; bottom: auto; left: 68px; transform: translateY(-50%); }
+  .about-ca .ca__word { writing-mode: horizontal-tb; transform: none; font-size: 24px; }
+  .about__more { margin-top: 32px; }
+}
+/* 모바일: 피그마 Mobile 카드 335×234 */
+@media (max-width: 767px) {
+  .about { padding: 56px 20px 48px; }
+  .ca.about-ca { --ca-closed: 54px; --ca-open: 234px; --ca-gap: 8px; margin-top: 20px; }
+  .about-ca .ca__card { border-radius: 20px; }
+  .acard__list { left: 22px; top: 28px; gap: 8px; font-size: 18px; }
+  .acard__list em { font-size: 12px; }
+  .acard__title, .acard--2 .acard__title, .acard--3 .acard__title, .acard--4 .acard__title { left: 22px; right: 22px; top: 78px; font-size: 20px; line-height: 1.4; }
+  .acard__desc { left: 22px; right: 22px; top: 146px; font-size: 13px; line-height: 1.55; }
+  .acard__desc br { display: none; }
+  .about-ca .ca__num { left: 20px; font-size: 12px; }
+  .about-ca .ca__label { left: 52px; }
+  .about-ca .ca__word { font-size: 20px; }
+  .about__more { margin-top: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-ca .ca__card, .about-ca .ca__card * { transition: none !important; }
+}

@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>순수안피부과</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+KR:wght@700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+<!-- 상단헤더 (Figma 59:85) -->
+<header class="header" id="top">
+  <div class="header-inner">
+    <a class="logo" href="#" aria-label="순수안피부과 홈"><img src="../assets/logo.png" alt="순수안피부과 SOONSOOAN DERMATOLOGY"></a>
+    <nav class="gnb" aria-label="주 메뉴">
+      <a href="#">순수안 소개</a>
+      <a href="#">순수안 프리미엄</a>
+      <a href="#">시술 및 진료 분야</a>
+      <a href="#">온라인상담</a>
+      <a href="#">순수안 소식</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn-login" href="#">로그인 ㅣ 회원가입</a>
+      <button class="btn-hamburger" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 햄버거 메뉴 (1439px 이하) -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-dim" data-close></div>
+  <aside class="drawer-panel" aria-label="전체 메뉴">
+    <div class="drawer-head">
+      <img src="../assets/logo.png" alt="순수안피부과">
+      <button class="btn-close" type="button" aria-label="메뉴 닫기" data-close><span></span><span></span></button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="#">순수안 소개</a>
+      <a href="#">순수안 프리미엄</a>
+      <a href="#">시술 및 진료 분야</a>
+      <a href="#">온라인상담</a>
+      <a href="#">순수안 소식</a>
+    </nav>
+    <a class="btn-login drawer-login" href="#">로그인 ㅣ 회원가입</a>
+  </aside>
+</div>
+
+<main>
+  <!-- 메인 배너 1~4 (Figma 67:87, 64:64, 65:63, 66:58) -->
+  <section class="hero" aria-roledescription="carousel" aria-label="메인 배너">
+    <div class="hero-track">
+
+      <!-- 배너 1: 고품격 장비 -->
+      <article class="slide slide--1 is-active" aria-roledescription="slide" aria-label="1 / 4">
+        <img class="slide-bg" src="../assets/b1-bg.jpg" alt="">
+        <div class="devices devices--pc" aria-hidden="true">
+          <img class="d-hollywood" src="../assets/dev-hollywood.png" alt="">
+          <img class="d-ulthera" src="../assets/dev-ulthera.png" alt="">
+          <img class="d-accent" src="../assets/dev-accent.png" alt="">
+          <img class="d-vro" src="../assets/dev-vro.png" alt="">
+          <img class="d-thermage" src="../assets/dev-thermage.png" alt="">
+        </div>
+        <div class="devices devices--m" aria-hidden="true">
+          <img class="d-hollywood" src="../assets/dev-hollywood-m.png" alt="">
+          <img class="d-vro" src="../assets/dev-vro.png" alt="">
+          <img class="d-accent" src="../assets/dev-accent-m.png" alt="">
+          <img class="d-ulthera" src="../assets/dev-ulthera.png" alt="">
+          <img class="d-thermage" src="../assets/dev-thermage.png" alt="">
+        </div>
+        <div class="slide-content">
+          <div class="heading">
+            <p class="eyebrow">HEALTHY SKIN &amp; NATURAL BEAUTY</p>
+            <h2 class="title">오랜 세월이 흘러도 가치가 변하지 않을<br><em>고품격 장비를 엄선</em>하여 시술합니다.</h2>
+          </div>
+          <a class="btn-primary" href="#">장비소개 바로가기</a>
+        </div>
+      </article>
+
+      <!-- 배너 2: 건강하고, 맑은 피부 -->
+      <article class="slide slide--2" aria-roledescription="slide" aria-label="2 / 4">
+        <img class="slide-bg" src="../assets/b2-bg.jpg" alt="">
+        <div class="slide-fade" aria-hidden="true"></div>
+        <div class="slide-content">
+          <div class="text">
+            <div class="heading">
+              <p class="eyebrow">HEALTHY SKIN &amp; NATURAL BEAUTY</p>
+              <div class="titles">
+                <h2 class="title">건강하고, 맑은 피부.</h2>
+                <p class="subtitle">건강하고 맑은 피부는 피부의 속부터 시작됩니다.</p>
+              </div>
+            </div>
+            <p class="body">순수안은 건강하고 맑은 피부를 위하여, <strong>원인과 증상에 따른 개개인 맞춤 진료</strong>를 통하여<br class="br-pc"> 피부 속부터 개선하고, 피부 콤플렉스를 덜어드리기 위해 최선을 다합니다.</p>
+          </div>
+          <a class="btn-primary" href="#">상담 / 예약 문의하기</a>
+        </div>
+      </article>
+
+      <!-- 배너 3: 피부과 전문의 진료 -->
+      <article class="slide slide--3" aria-roledescription="slide" aria-label="3 / 4">
+        <img class="slide-bg" src="../assets/b3-bg.jpg" alt="">
+        <img class="glow" src="../assets/b3-glow.svg" alt="" aria-hidden="true">
+        <div class="slide-content">
+          <div class="text">
+            <p class="eyebrow">HEALTHY SKIN &amp; NATURAL BEAUTY</p>
+            <div class="titles">
+              <h2 class="title">피부과 전문의 진료</h2>
+              <p class="subtitle">피부 고민을 공감할 수 있는 피부과 전문의가 진료합니다.</p>
+            </div>
+            <p class="body">풍부한 경험을 바탕으로 마음까지 공감하는 진료를 약속합니다.<br class="br-pc"> 피부과학적 전문성에 고객님들의 마음까지 헤아리는 진료를 시행하겠습니다.</p>
+          </div>
+          <img class="badge" src="../assets/b3-badge.png" alt="피부과 전문의">
+        </div>
+      </article>
+
+      <!-- 배너 4: 자연스러운 아름다움 -->
+      <article class="slide slide--4" aria-roledescription="slide" aria-label="4 / 4">
+        <div class="slide-bg-flip"><img class="slide-bg" src="../assets/b4-bg.jpg" alt=""></div>
+        <div class="slide-shade" aria-hidden="true"></div>
+        <div class="slide-content">
+          <div class="heading">
+            <p class="eyebrow">HEALTHY SKIN &amp; NATURAL BEAUTY</p>
+            <h2 class="title">순수안은 <span>자연스러운,</span><br><span>아름다움을 추구합니다.</span></h2>
+          </div>
+          <span class="line" aria-hidden="true"><img src="../assets/b4-line.svg" alt=""></span>
+          <p class="body">순수안은 건강하고 맑은 피부를 위하여, <strong>원인과 증상에 따른 개개인 맞춤 진료</strong>를 통해<br class="br-pc"> 피부 속부터 개선하고, 피부 콤플렉스를 덜어드리기 위해 최선을 다합니다.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="hero-dots" role="tablist" aria-label="배너 선택">
+      <button type="button" role="tab" aria-selected="true" aria-label="배너 1"></button>
+      <button type="button" role="tab" aria-selected="false" aria-label="배너 2"></button>
+      <button type="button" role="tab" aria-selected="false" aria-label="배너 3"></button>
+      <button type="button" role="tab" aria-selected="false" aria-label="배너 4"></button>
+    </div>
+  </section>
+
+  <!-- 2. 치료 프로그램 + 장비 (Figma 28:1629 · 28:1652) -->
+  <section class="treat" id="program">
+    <div class="treat-bg" aria-hidden="true"></div>
+    <div class="zi">
+      <header class="sec-head center">
+        <p class="sec-eyebrow">SIGNATURE SOLUTION</p>
+        <h2 class="sec-title">피부 고민별 치료 프로그램</h2>
+      </header>
+      <ul class="prog-grid">
+        <li><a href="#" class="prog-card"><img class="o80" src="../assets/home/prog-1.png" alt=""><span>여드름 · 트러블</span></a></li>
+        <li><a href="#" class="prog-card"><img class="o80" src="../assets/home/prog-2.png" alt=""><span>색소 · 피부톤</span></a></li>
+        <li><a href="#" class="prog-card"><img class="cov" src="../assets/home/prog-3.png" alt=""><span>홍조 · 혈관</span></a></li>
+        <li><a href="#" class="prog-card"><img src="../assets/home/prog-4.png" alt=""><span>탄력 · 리프팅</span></a></li>
+        <li><a href="#" class="prog-card"><img class="cov" src="../assets/home/prog-5.png" alt=""><span>주름 · 볼륨</span></a></li>
+        <li><a href="#" class="prog-card"><img class="cov" src="../assets/home/prog-6.png" alt=""><span>흉터 · 피부결</span></a></li>
+      </ul>
+
+      <div class="equip" id="premium">
+        <header class="sec-head center">
+          <p class="sec-eyebrow">SOONSOOAN PREMIUM</p>
+          <h2 class="sec-title">피부 고민을 위한 프리미엄 라인업</h2>
+        </header>
+        <div class="equip-stage" aria-roledescription="carousel" aria-label="프리미엄 장비">
+          <div class="eq-card" data-title="울쎄라피 프라임" data-desc="">
+            <div class="eq-ulthera"><img src="../assets/dev-ulthera.png" alt="울쎄라피 프라임"></div>
+          </div>
+          <div class="eq-card" data-title="써마지 FLX" data-desc="피부 속 콜라겐을 재생시키는 섬세한 고주파">
+            <img class="eq-full" src="../assets/home/equip-thermage.png" alt="써마지 FLX · 정품팁 사용">
+          </div>
+          <div class="eq-card" data-title="브이로" data-desc="">
+            <div class="eq-vro"><img src="../assets/home/equip3-src.png" alt="브이로"></div>
+          </div>
+          <button class="car-btn prev" type="button" aria-label="이전 장비"><img src="../assets/home/arrow-l.svg" alt=""></button>
+          <button class="car-btn next" type="button" aria-label="다음 장비"><img src="../assets/home/arrow-r.svg" alt=""></button>
+        </div>
+        <div class="equip-cap" aria-live="polite"><h3></h3><p></p></div>
+      </div>
+    </div>
+    <div class="marquee" aria-hidden="true"><div class="marquee-track"><span>SOONSOOAN DERMATOLOGY</span><span>SOONSOOAN DERMATOLOGY</span><span>SOONSOOAN DERMATOLOGY</span><span>SOONSOOAN DERMATOLOGY</span><span>SOONSOOAN DERMATOLOGY</span><span>SOONSOOAN DERMATOLOGY</span></div></div>
+  </section>
+
+  <!-- 브랜딩 문장 (Figma 28:1863) -->
+  <section class="brand">
+    <div class="brand-tex" aria-hidden="true"></div>
+    <div class="zi">
+      <p class="sec-eyebrow">SOONSOOAN, FOR YOUR SKIN</p>
+      <h2 class="sec-title">본연의 아름다움이 자연스럽게 머물도록</h2>
+    </div>
+  </section>
+
+  <!-- 인사말 (Figma 28:1827) -->
+  <section class="greet" id="about">
+    <div class="zi">
+      <header class="sec-head center"><p class="sec-eyebrow">ABOUT SOONSOOAN</p></header>
+      <div class="greet-stage" aria-roledescription="carousel" aria-label="순수안 소개">
+        <article class="gr-card gr-1">
+          <div class="gr-bg"><img src="../assets/home/greet-1.jpg" alt=""></div>
+          <div class="gr-en"><p><i>(SPECIALIST)</i><b>피부과 전문의 진료</b></p><p>EXPERIENCE</p><p>DERMATOLOGY</p><p>TREATMENT</p></div>
+          <div class="gr-body">
+            <img class="gr-badge" src="../assets/b3-badge.png" alt="피부과 전문의">
+            <h3><span>피부고민을 공감할 수 있는,</span><strong>피부과 전문의</strong></h3>
+            <p>경험을 바탕으로 한 마음까지 공감하는 진료,<br>피부과학적 전문성에 고객님의 마음까지 헤아리는 진료를 하겠습니다.</p>
+          </div>
+        </article>
+        <article class="gr-card gr-2">
+          <div class="gr-bg"><img src="../assets/home/greet-2.png" alt=""></div>
+          <div class="gr-en"><p>SPECIALIST</p><p><i>(EXPERIENCE)</i><b>오랜 경력과 다양한 경험</b></p><p>DERMATOLOGY</p><p>TREATMENT</p></div>
+          <div class="gr-body">
+            <span class="gr-pill">대학병원 피부과, 대형 피부과의원에서 쌓은 오랜 경력</span>
+            <h3><strong>수년간 쌓은</strong><span>풍부한 치료 노하우</span></h3>
+            <p>수많은 장비들과 시술들을 직접 경험해보고 얻은 노하우를<br>종합한 치료프로그램을 준비했습니다. 유행 타는 시술은 권하지 않습니다.</p>
+          </div>
+        </article>
+        <article class="gr-card gr-3">
+          <div class="gr-bg"><img src="../assets/home/greet-3.png" alt=""></div>
+          <div class="gr-en"><p>SPECIALIST</p><p>EXPERIENCE</p><p>DERMATOLOGY</p><p><i>(TREATMENT)</i><b>개인별 맞춤 치료</b></p></div>
+          <div class="gr-body">
+            <span class="gr-pill">화상·상처 치료, 사마귀·티눈 제거, 광선치료, 국소주사요법까지</span>
+            <h3><span>정확한 진단을 통한</span><strong>피부 고민 해결</strong></h3>
+            <p>정확한 상담과 진단을 통해 피부 상태를 세심하게 파악하고,<br>필요한 시술을 우선순위에 따라 맞춤형으로 진행합니다.</p>
+          </div>
+        </article>
+        <button class="car-btn prev" type="button" aria-label="이전 소개"><img src="../assets/home/arrow-l.svg" alt=""></button>
+        <button class="car-btn next" type="button" aria-label="다음 소개"><img src="../assets/home/arrow-r.svg" alt=""></button>
+      </div>
+      <a class="pill-btn" href="#">view more ⟶</a>
+    </div>
+  </section>
+
+  <!-- 의료진 소개 (Figma 28:1788) -->
+  <section class="doctor" id="doctor">
+    <div class="zi">
+      <div class="doc-text">
+        <p class="sec-eyebrow sm">SOONSOOAN DOCTOR</p>
+        <h2 class="sec-title">의료진 소개</h2>
+        <p class="doc-name"><strong>김민호</strong><span>대표원장</span></p>
+        <p class="doc-lead">오랜 경력과 풍부한 치료 노하우.<br><b><em>피부과 전문의</em>가 책임지고, 진료합니다.</b></p>
+        <p class="doc-desc">폭넓은 전문 지식과 다양한 임상경험을 바탕으로,<br>맞춤형 토탈케어를 통한 여러분의 평생 피부주치의가 되겠습니다.</p>
+        <a class="pill-btn white" href="#">view more ⟶</a>
+      </div>
+      <div class="doc-photo"><img src="../assets/home/doctor-src.png" alt="김민호 대표원장"></div>
+      <img class="doc-badge" src="../assets/b3-badge.png" alt="피부과 전문의">
+    </div>
+  </section>
+
+  <!-- 순수안 소식 (Figma 28:1800) -->
+  <section class="news" id="news">
+    <div class="zi">
+      <div class="news-head">
+        <header class="sec-head">
+          <p class="sec-eyebrow">NOTICE</p>
+          <h2 class="sec-title">순수안 소식</h2>
+          <p class="sec-sub">순수안피부과의 다양한 소식을 확인해보세요.</p>
+        </header>
+        <div class="news-tabs" role="tablist" aria-label="소식 분류">
+          <button type="button" role="tab" aria-selected="true">공지사항</button>
+          <button type="button" role="tab" aria-selected="false">이벤트</button>
+          <button type="button" role="tab" aria-selected="false">블로그</button>
+        </div>
+      </div>
+      <div class="news-row">
+        <ul class="news-list">
+          <li><a href="#"><span class="thumb"><img src="../assets/home/news-1.png" alt=""></span><strong>[순수안 보톡스 가이드 ③]<br>이마 보톡스 총정리</strong><time>2026.09.08</time></a></li>
+          <li><a href="#"><span class="thumb"><img src="../assets/home/news-2.png" alt=""></span><strong>[순수안 보톡스 가이드 ②]<br>보톡스 효과 시기와 유지 기간</strong><time>2026.08.12</time></a></li>
+          <li><a href="#"><span class="thumb"><img src="../assets/home/news-3.png" alt=""></span><strong>[순수안 보톡스 가이드 ①]<br>보톡스 내성의 모든 것</strong><time>2026.07.23</time></a></li>
+          <li><a href="#"><span class="thumb"><img src="../assets/home/news-4.png" alt=""></span><strong>[울쎄라피 프라임]<br>울쎄라 샷수별 효과 가이드</strong><time>2026.06.19</time></a></li>
+        </ul>
+        <a class="news-more" href="#"><span>공지사항 더보기<br>⟶</span></a>
+      </div>
+      <div class="news-bar" aria-hidden="true"><i></i></div>
+    </div>
+  </section>
+
+  <!-- 빠른상담신청 (Figma 28:1868) -->
+  <section class="contact" id="contact">
+    <div class="zi">
+      <form class="contact-form" novalidate>
+        <div class="ct-left">
+          <header class="sec-head">
+            <p class="sec-eyebrow">CONTACT</p>
+            <h2 class="sec-title">빠른상담신청</h2>
+            <p class="sec-sub">부담없이, 무엇이든 물어보세요!</p>
+          </header>
+          <label class="ct-agree"><input type="checkbox" id="ct-agree" name="agree"><span>개인정보수집동의 <a href="#">[개인정보취급방침]</a></span></label>
+          <button class="ct-submit" type="submit">- 상담 신청하기 -</button>
+          <p class="ct-msg" role="status"></p>
+        </div>
+        <div class="ct-fields">
+          <label class="ct-row"><span>이 름</span><input type="text" id="ct-name" name="name" placeholder="홍길동" autocomplete="name"></label>
+          <label class="ct-row"><span>연락처</span><input type="tel" id="ct-tel" name="tel" placeholder="010-0000-0000" autocomplete="tel"></label>
+          <label class="ct-row ta"><span>내 용</span><textarea id="ct-msg" name="message" placeholder="문의 내용을 입력해주세요."></textarea></label>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- 오시는 길 (Figma 28:1918) -->
+  <section class="location" id="location">
+    <div class="zi">
+      <header class="sec-head center">
+        <p class="sec-eyebrow">LOCATION</p>
+        <h2 class="sec-title">순수안피부과의원 오시는 길</h2>
+      </header>
+      <div class="loc-body">
+        <img class="loc-map" src="../assets/home/map.png" alt="강남역 인근 약도 · 풀바셋 서초본점 건물 4F">
+        <div class="loc-info">
+          <h3><img src="../assets/home/ic-clock.svg" alt="">진료시간</h3>
+          <dl class="hours">
+            <dt>월 · 수</dt><dd>AM 10:00 - PM 07:30</dd>
+            <dt>화 · 목 · 금</dt><dd>AM 10:00 - PM 08:00</dd>
+            <dt>토요일</dt><dd>AM 10:00 - PM 03:00</dd>
+            <dt>점심시간</dt><dd>PM 01:00 - PM 02:00</dd>
+            <dt class="off">정기휴무</dt><dd>매주 일요일</dd>
+          </dl>
+          <hr>
+          <h3><img class="pin" src="../assets/home/ic-pin.svg" alt="">오시는 길</h3>
+          <p class="addr">서울 서초구 사임당로 157 릿타워 4층 407호</p>
+          <p class="subway"><span class="l2">2</span><span class="sb">신분당</span>강남역 5번 출구에서 574m</p>
+          <div class="maps">
+            <a href="#"><img src="../assets/home/ic-naver.png" alt="">네이버 지도</a>
+            <a href="#"><img src="../assets/home/ic-kakao.png" alt="">카카오 지도</a>
+            <a href="#"><img src="../assets/home/ic-google.png" alt="">구글 지도</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="loc-call"><span class="lb">✆ 대표상담전화</span><span class="no">02-522-8975</span></div>
+  </section>
+</main>
+
+<!-- 하단 푸터 (Figma 61:106) -->
+<footer class="footer">
+  <div class="footer-inner">
+    <a class="footer-logo" href="#"><img src="../assets/logo.png" alt="순수안피부과 SOONSOOAN DERMATOLOGY"></a>
+    <div class="footer-info">
+      <div class="footer-top">
+        <p class="legal"><a href="#">개인정보처리방침</a> ㅣ <a href="#">이용약관</a></p>
+        <div class="socials">
+          <a href="#" aria-label="카카오톡"><img src="../assets/social-kakao.svg" alt=""></a>
+          <a href="#" aria-label="인스타그램"><img src="../assets/social-instagram.svg" alt=""></a>
+          <a href="#" aria-label="블로그"><img src="../assets/social-blog.svg" alt=""></a>
+        </div>
+      </div>
+      <address class="company">
+        <p><span>순수안피부과</span><span>대표원장 김민호</span></p>
+        <p><span>서울 서초구 사임당로 157 릿타워 4층 407호</span></p>
+        <p><span>전화 : 02-522-8975</span><span>팩스 : 02-522-8976</span><span>대표자 : 김민호</span><span>사업자등록번호 : 407-08-65554</span></p>
+        <p><span>COPYRIGHTⓒ2018 SOONSOOAN DERMATOLOGY. ALL RIGHTS RESERVED</span></p>
+      </address>
+    </div>
+  </div>
+</footer>
+
+<!-- 퀵 메뉴 (Figma 72:130) -->
+<aside class="quick" aria-label="빠른 메뉴">
+  <nav class="quick-menu">
+    <a href="#"><img class="ic-online" src="../assets/q-online.svg" alt=""><span>온라인 상담</span></a>
+    <a href="#"><img class="ic-kakao" src="../assets/q-kakao.svg" alt=""><span>카카오톡 상담</span></a>
+    <a href="#"><img class="ic-map" src="../assets/q-map.svg" alt=""><span>오시는 길</span></a>
+    <a href="#"><img class="ic-insta" src="../assets/q-insta.svg" alt=""><span>인스타그램</span></a>
+    <a href="#"><img class="ic-blog" src="../assets/q-blog.svg" alt=""><span>블로그</span></a>
+  </nav>
+  <button class="btn-top" type="button" data-top aria-label="맨 위로"><span class="txt">TOP ▲</span><img class="ic" src="../assets/q-top-mobile.svg" alt=""></button>
+</aside>
+
+<script src="js/main.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+/* ===== 08. 빠른상담신청 (피그마 156:791) ===== */
+.contact { position: relative; z-index: 2; height: calc(700 * var(--s)); padding-top: calc(139 * var(--s)); background: url('../assets/img/section/contact-bg.webp') center / cover no-repeat, linear-gradient(180deg, #144895, #002151); color: #fff; }
+.contact__inner { display: flex; justify-content: space-between; }
+.contact__side { width: calc(438 * var(--s)); }
+.contact__side .sec-title { margin-top: calc(20 * var(--s)); }
+.contact__agree { display: flex; align-items: center; gap: calc(17 * var(--s)); margin-top: calc(110 * var(--s)); font-size: calc(18 * var(--s)); line-height: calc(40 * var(--s)); color: var(--pale); cursor: pointer; }
+.contact__agree input { appearance: none; -webkit-appearance: none; flex: none; width: calc(25 * var(--s)); height: calc(25 * var(--s)); margin: 0; border: 1px solid #000; background: #fff; cursor: pointer; display: grid; place-items: center; }
+.contact__agree input::after { content: ""; width: 55%; height: 30%; border: solid var(--navy); border-width: 0 0 2px 2px; transform: rotate(-45deg) translate(1px, -1px) scale(0); transition: transform .3s var(--ease-out); }
+.contact__agree input:checked::after { transform: rotate(-45deg) translate(1px, -1px) scale(1); }
+.contact__agree a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.contact__agree.is-error { color: #ffd3d3; }
+.contact__side .btn--lg { margin-top: calc(21 * var(--s)); }
+
+.contact__form { position: relative; width: calc(737 * var(--s)); display: grid; gap: calc(30 * var(--s)); }
+.field { display: flex; justify-content: space-between; align-items: flex-start; }
+.field label { padding-top: calc(12 * var(--s)); font-weight: 600; font-size: calc(25 * var(--s)); line-height: calc(46 * var(--s)); white-space: nowrap; }
+.field input, .field textarea { width: calc(639 * var(--s)); height: calc(70 * var(--s)); padding: calc(12 * var(--s)) calc(20 * var(--s)); border: 2px solid transparent; border-radius: calc(10 * var(--s)); background: #fff; font: 300 calc(25 * var(--s)) / calc(46 * var(--s)) var(--f-sans); letter-spacing: -0.05em; color: #000; transition: border-color .35s var(--ease-out), box-shadow .35s var(--ease-out); }
+.field textarea { height: calc(201 * var(--s)); resize: none; }
+.field input::placeholder, .field textarea::placeholder { color: #cecece; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--sky); box-shadow: 0 0 0 4px rgb(119 195 230 / .25); }
+.field.is-error input, .field.is-error textarea { border-color: #ff8a8a; }
+.contact__notice { position: absolute; left: calc(98 * var(--s)); top: 100%; margin-top: calc(14 * var(--s)); font-size: calc(18 * var(--s)); color: var(--pale); }
+
+@media (max-width: 1024px) {
+  .contact { height: auto; padding: 72px 0; }
+  .contact__inner { flex-direction: column; gap: 0; }
+  .contact__side { width: auto; display: contents; }
+  .contact__side .sec-title { margin-top: 12px; }
+  .contact__form { order: 4; width: 100%; gap: 20px; margin-top: 28px; }
+  .contact__agree { order: 5; margin-top: 22px; gap: 10px; font-size: 15px; line-height: 1.6; }
+  .contact__agree input { width: 20px; height: 20px; }
+  .contact__side .btn--lg { order: 6; margin-top: 14px; }
+  .field { flex-direction: column; gap: 8px; }
+  .field label { padding-top: 0; font-size: 16px; line-height: 1.6; }
+  .field input, .field textarea { width: 100%; height: 56px; padding: 12px 18px; border-radius: 10px; font-size: 16px; line-height: 1.6; }
+  .field textarea { height: 150px; }
+  .contact__notice { position: static; margin-top: 0; font-size: 14px; }
+}
+/* 모바일: 피그마 Mobile 입력창 335×48 / 120 */
+@media (max-width: 767px) {
+  .contact { padding: 56px 0; }
+  .contact__form { margin-top: 22px; }
+  .contact__form { gap: 14px; }
+  .field { gap: 8px; }
+  .field label { font-size: 14px; }
+  .field input, .field textarea { height: 48px; padding: 10px 16px; font-size: 15px; }
+  .field textarea { height: 120px; }
+  .contact__agree { font-size: 13px; }
+  .contact__agree input { width: 18px; height: 18px; }
+}

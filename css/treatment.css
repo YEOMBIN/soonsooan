@@ -1,0 +1,64 @@
+/* ===== 03. 피부 고민별 치료 프로그램 (피그마 2. 치료 프로그램 · 카드 Hover 28:632) =====
+   .cover-under: 다음 브랜드 섹션이 위로 덮을 때 이 묶음은 화면에 고정 (js/brand-water.js 에서 top 계산) */
+.cover-under { position: relative; z-index: 1; }
+.cover-under.is-sticky { position: sticky; top: var(--cover-top, 0px); }
+
+.treat { position: relative; padding: calc(121 * var(--s)) 0 calc(80 * var(--s)); background: linear-gradient(180deg, #fff 0%, #eef9ff 100%); overflow: hidden; }
+.treat::before { content: ""; position: absolute; inset: 0 0 auto; height: calc(1628 * var(--s)); background: url('../assets/img/section/treat-texture.webp') center top / 100% auto no-repeat; opacity: .3; pointer-events: none; }
+.treat > .inner, .premium { position: relative; }
+
+.treat__grid { display: grid; grid-template-columns: repeat(3, calc(403 * var(--s))); gap: calc(23 * var(--s)) calc(22 * var(--s)); justify-content: center; margin-top: calc(90 * var(--s)); }
+.tcard { position: relative; display: block; height: calc(289 * var(--s)); border-radius: calc(30 * var(--s)); text-align: center; isolation: isolate; }
+/* 배경: 흰색 + 이미지(80%) 합성본. 홍조 카드만 원본(100%) 이미지라 흰 바탕 위 80%로 맞춤 */
+.tcard__bg { position: absolute; inset: 0; z-index: -1; border-radius: inherit; overflow: hidden; background: #fff; }
+.tcard__bg::before { content: ""; position: absolute; inset: 0; background: var(--img) center / cover no-repeat; transition: opacity .5s var(--ease-out); }
+.tcard--raw .tcard__bg::before { opacity: .8; }
+.tcard__bg::after { content: ""; position: absolute; inset: 0; background: rgb(20 72 149 / .7); opacity: 0; transition: opacity .5s var(--ease-out); }
+/* 테두리: 그라데이션 1px (Hover 시 바깥 3px) */
+.tcard::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(180deg, #c8eafe, #f0fafe); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); pointer-events: none; transition: inset .45s var(--ease-out), padding .45s var(--ease-out); }
+
+.tcard__title { position: absolute; left: 0; right: 0; top: calc(126 * var(--s)); font-weight: 600; font-size: calc(40 * var(--s)); line-height: calc(40 * var(--s)); color: var(--navy); transition: top .55s var(--ease-out), color .45s var(--ease-out); }
+.tcard__line { position: absolute; left: 50%; top: calc(125 * var(--s)); width: calc(298 * var(--s)); height: 1px; margin-left: calc(-149 * var(--s)); background: #fff; transform: scaleX(0); transition: transform .55s var(--ease-out) .05s; }
+.tcard__desc { position: absolute; left: 0; right: 0; top: calc(154 * var(--s)); font-weight: 600; font-size: calc(25 * var(--s)); line-height: calc(40 * var(--s)); color: #fff; opacity: 0; transform: translate3d(0, calc(16 * var(--s)), 0); transition: opacity .45s var(--ease-out), transform .55s var(--ease-out); }
+
+.tcard.is-open .tcard__bg::after { opacity: 1; }
+.tcard.is-open::after { inset: -3px; padding: 3px; }
+.tcard.is-open .tcard__title { top: calc(58 * var(--s)); color: rgb(255 255 255 / .5); }
+.tcard.is-open .tcard__line { transform: scaleX(1); }
+.tcard.is-open .tcard__desc { opacity: 1; transform: none; transition-delay: .1s; }
+@media (hover: hover) and (pointer: fine) {
+  .tcard:hover .tcard__bg::after, .tcard:focus-visible .tcard__bg::after { opacity: 1; }
+  .tcard:hover::after, .tcard:focus-visible::after { inset: -3px; padding: 3px; }
+  .tcard:hover .tcard__title, .tcard:focus-visible .tcard__title { top: calc(58 * var(--s)); color: rgb(255 255 255 / .5); }
+  .tcard:hover .tcard__line, .tcard:focus-visible .tcard__line { transform: scaleX(1); }
+  .tcard:hover .tcard__desc, .tcard:focus-visible .tcard__desc { opacity: 1; transform: none; transition-delay: .1s; }
+}
+
+/* ===== 태블릿 ===== */
+@media (max-width: 1024px) {
+  .treat { padding: 80px 0 56px; }
+  .treat::before { height: 60vw; }
+  .treat__grid { grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+  .tcard { height: auto; aspect-ratio: 403 / 289; border-radius: 20px; }
+  .tcard__title { top: 50%; transform: translateY(-50%); font-size: 20px; line-height: 1.3; transition: top .55s var(--ease-out), transform .55s var(--ease-out), color .45s var(--ease-out); }
+  .tcard__line { top: 46%; width: 70%; margin-left: -35%; }
+  .tcard__desc { top: 52%; padding-inline: 10px; font-size: 13px; line-height: 1.55; }
+  .tcard__desc br { display: none; }
+  .tcard.is-open .tcard__title { top: 22%; transform: none; }
+}
+@media (max-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .tcard:hover .tcard__title, .tcard:focus-visible .tcard__title { top: 22%; transform: none; }
+}
+/* ===== 모바일 (피그마 카드 161×115, 2열, 간격 12) ===== */
+@media (max-width: 767px) {
+  .treat { padding: 56px 0 40px; }
+  .treat__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 28px; }
+  .tcard { border-radius: 16px; aspect-ratio: 161 / 115; }
+  .tcard__title { font-size: 16px; }
+  .tcard__line { top: 44%; width: 76%; margin-left: -38%; }
+  .tcard__desc { top: 49%; padding-inline: 8px; font-size: 11.5px; line-height: 1.5; letter-spacing: -0.06em; }
+  .tcard.is-open .tcard__title { top: 16%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cover-under.is-sticky { position: relative; top: auto; }
+}

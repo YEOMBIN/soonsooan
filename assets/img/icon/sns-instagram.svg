@@ -1,0 +1,7 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon">
+<rect id="Camera outline" x="1" y="1" width="26" height="26" rx="3.25" stroke="#008FD9" stroke-width="2"/>
+<circle id="Lens" cx="14.5" cy="14.5" r="6.5" stroke="#008FD9" stroke-width="2"/>
+<circle id="Viewfinder indicator" cx="22.1538" cy="5.15385" r="2.15385" fill="#008FD9"/>
+</g>
+</svg>

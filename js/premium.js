@@ -1,0 +1,82 @@
+/* =========================================================
+   04. 프리미엄 라인업 — 끊김 없는 무한 흐름
+   마우스를 올리면 부드럽게 멈춤 · 화살표로 한 칸씩 이동 · 아래 영문은 반대 방향
+   ========================================================= */
+(function () {
+  'use strict';
+
+  var view = document.querySelector('.premium__viewport');
+  if (!view) return;
+  var track = view.querySelector('.premium__track');
+  var text = document.querySelector('.premium__marquee-track');
+  var wrap = document.querySelector('.cover-under');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 복제본으로 한 바퀴 더 이어 붙임 (복제본은 보조기기·탭 이동에서 제외)
+  function cloneSet(parent) {
+    Array.from(parent.children).forEach(function (n) {
+      var c = n.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');
+      c.querySelectorAll('a').forEach(function (a) { a.tabIndex = -1; });
+      parent.appendChild(c);
+    });
+  }
+  var count = track.children.length;
+  cloneSet(track);
+  if (text) cloneSet(text);
+
+  var setW = 0, textW = 0, pitch = 0;
+  function measure() {
+    var first = track.children[0], firstClone = track.children[count];
+    setW = firstClone.offsetLeft - first.offsetLeft;
+    pitch = track.children[1].offsetLeft - first.offsetLeft;
+    if (text) textW = text.scrollWidth / 2;
+  }
+  measure();
+  window.addEventListener('resize', measure);
+  window.addEventListener('load', measure);
+
+  var x = 0, tx = 0, speed = 0, target = 1, nudge = 0, last = 0, visible = false;
+  function base() { return 70 * Math.min(1, window.innerWidth / 1920) + 18; } // px/s
+
+  function frame(t) {
+    requestAnimationFrame(frame);
+    var dt = last ? Math.min((t - last) / 1000, 0.05) : 0;
+    last = t;
+    if (!visible || document.hidden || (wrap && wrap.classList.contains('is-covered'))) return;
+
+    // 속도는 천천히 목표치로 (멈출 때·다시 흐를 때 모두 부드럽게)
+    speed += ((reduce ? 0 : target) - speed) * Math.min(1, dt * 3);
+    x -= base() * speed * dt;
+    // 화살표 이동분을 부드럽게 반영
+    var step = nudge * Math.min(1, dt * 4.5);
+    nudge -= step; x += step;
+    if (setW) { x = ((x % setW) - setW) % setW; }
+    track.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
+
+    if (text && textW && !reduce) {
+      tx += base() * 0.6 * dt;
+      if (tx >= 0) tx -= textW;
+      if (tx < -textW) tx += textW;
+      text.style.transform = 'translate3d(' + tx.toFixed(2) + 'px,0,0)';
+    }
+  }
+  if (text) tx = -1;
+
+  view.addEventListener('mouseenter', function () { target = 0; });
+  view.addEventListener('mouseleave', function () { target = 1; });
+  view.addEventListener('focusin', function () { target = 0; });
+  view.addEventListener('focusout', function (e) { if (!view.contains(e.relatedTarget)) target = 1; });
+  view.querySelector('.premium__prev').addEventListener('click', function () { nudge += pitch; });
+  view.querySelector('.premium__next').addEventListener('click', function () { nudge -= pitch; });
+
+  // 터치: 손가락으로 끌어서 넘기기
+  var dragging = false, px = 0;
+  track.addEventListener('pointerdown', function (e) { if (e.pointerType === 'mouse') return; dragging = true; px = e.clientX; target = 0; });
+  window.addEventListener('pointermove', function (e) { if (!dragging) return; x += e.clientX - px; px = e.clientX; });
+  window.addEventListener('pointerup', function () { if (dragging) { dragging = false; target = 1; } });
+  track.style.touchAction = 'pan-y';
+
+  new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { rootMargin: '100px 0px' }).observe(view);
+  requestAnimationFrame(frame);
+})();

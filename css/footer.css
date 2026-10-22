@@ -1,0 +1,45 @@
+/* ===== 10. FOOTER (피그마 하단 푸터 1921×297) + footer-reveal 모듈 ===== */
+.fr-main { position: relative; z-index: 2; background: #fff; }
+.fr-footer { position: relative; z-index: 1; }
+.fr-on .fr-footer { position: sticky; bottom: 0; }
+.fr-on [data-fr-content] { will-change: transform, opacity; transform-origin: 50% 0; }
+
+.foot { background: #fff; }
+.foot__inner { position: relative; height: calc(297 * var(--s)); width: 100%; max-width: 1920px; margin-inline: auto; }
+.foot__logo { position: absolute; left: calc(357 * var(--s)); top: calc(92 * var(--s)); width: calc(399 * var(--s)); height: auto; }
+.foot__info { position: absolute; left: calc(864 * var(--s)); top: calc(67 * var(--s)); width: calc(760 * var(--s)); color: var(--gray-2); }
+.foot__links { font-weight: 700; font-size: calc(20 * var(--s)); line-height: calc(30 * var(--s)); }
+.foot__links a:hover { color: var(--navy); }
+.foot address { margin-top: calc(14 * var(--s)); font-size: calc(20 * var(--s)); line-height: calc(30 * var(--s)); }
+.foot address span { margin-right: calc(16 * var(--s)); white-space: nowrap; }
+.foot__sns { position: absolute; left: calc(1266 * var(--s)); top: calc(67 * var(--s)); display: flex; gap: calc(51 * var(--s)); }
+.sns { display: grid; place-items: center; width: calc(59 * var(--s)); height: calc(59 * var(--s)); border-radius: 50%; background: #e8f6ff; transition: background-color var(--t-hover) var(--ease-out), transform var(--t-hover) var(--ease-out); }
+.sns img { width: 50%; height: auto; }
+a.sns:hover { background: #cfeaff; transform: translate3d(0, -3px, 0); }
+span.sns { cursor: help; }
+
+@media (max-width: 1024px) {
+  .foot__inner { height: auto; padding: 48px 40px 56px; display: grid; grid-template-columns: auto 1fr; gap: 24px 40px; }
+  .foot__logo, .foot__info, .foot__sns { position: static; }
+  .foot__logo { width: 220px; }
+  .foot__sns { justify-self: end; align-self: start; gap: 14px; }
+  .foot__info { grid-column: 1 / -1; width: auto; }
+  .foot__links { font-size: 15px; line-height: 1.5; }
+  .foot address { margin-top: 10px; font-size: 14px; line-height: 1.6; }
+  .foot address span { margin-right: 14px; }
+  .sns { width: 46px; height: 46px; }
+}
+/* 모바일: 로고 180, 글자 14/21 */
+@media (max-width: 767px) {
+  .foot__inner { padding: 40px 20px 44px; gap: 24px 12px; }
+  .foot__logo { width: 150px; }
+  .foot__sns { gap: 8px; }
+  .sns { width: 38px; height: 38px; }
+  .foot__links { font-size: 14px; }
+  .foot address { font-size: 13px; line-height: 1.62; }
+  .foot address span { display: inline-block; margin-right: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fr-on .fr-footer { position: relative; }
+  [data-fr-content] { opacity: 1 !important; transform: none !important; }
+}
