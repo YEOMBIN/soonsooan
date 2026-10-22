@@ -1,0 +1,46 @@
+/* ===== 메인 팝업 (피그마 32:132) =====
+   화면 전체 어둡게(검정 70%) + 이미지 3장 가로 배치(간격 16, 모서리 30) + 오른쪽 위 '오늘 열지 않기'·닫기(흰 원 60)
+   1920×1080: 위에서 160px, 가운데. 화면이 좁거나 낮으면 --p 배율로 함께 줄어 잘리지 않음
+   모바일: 이미지를 옆으로 넘겨 보는 띠(스와이프)로 바꿈 */
+.pop { --p: min(1px, calc((100vw - 48px) / 1413), calc((100vh - 60px) / 814)); position: fixed; inset: 0; z-index: 300; }
+@supports (height: 100svh) { .pop { --p: min(1px, calc((100vw - 48px) / 1413), calc((100svh - 60px) / 814)); } }
+.pop:focus { outline: none; }
+.pop__dim { position: absolute; inset: 0; background: rgb(0 0 0 / .7); opacity: 0; transition: opacity .45s ease; }
+.pop__panel { position: absolute; left: 50%; top: calc(160 * var(--p)); width: calc(1413 * var(--p)); opacity: 0; transform: translate3d(-50%, 16px, 0); transition: opacity .55s var(--ease-out), transform .65s var(--ease-out); }
+.pop.is-open .pop__dim { opacity: 1; }
+.pop.is-open .pop__panel { opacity: 1; transform: translate3d(-50%, 0, 0); }
+
+.pop__bar { display: flex; justify-content: flex-end; align-items: center; gap: calc(38 * var(--p)); height: calc(60 * var(--p)); }
+.pop__today { display: inline-flex; align-items: center; gap: calc(17 * var(--p)); color: #fff; font-size: calc(20 * var(--p)); line-height: calc(40 * var(--p)); cursor: pointer; user-select: none; }
+.pop__today input { appearance: none; -webkit-appearance: none; flex: none; width: calc(25 * var(--p)); height: calc(25 * var(--p)); margin: 0; border: 1px solid #fff; background: transparent; cursor: pointer; display: grid; place-items: center; transition: background-color .25s ease; }
+.pop__today input::after { content: ""; width: 55%; height: 30%; border: solid var(--navy); border-width: 0 0 2px 2px; transform: rotate(-45deg) translate(1px, -1px) scale(0); transition: transform .25s var(--ease-out); }
+.pop__today input:checked { background: #fff; }
+.pop__today input:checked::after { transform: rotate(-45deg) translate(1px, -1px) scale(1); }
+.pop__today input:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; }
+.pop__close { flex: none; display: grid; place-items: center; width: calc(60 * var(--p)); height: calc(60 * var(--p)); border-radius: 50%; background: #fff; transition: transform .35s var(--ease-out); }
+.pop__close img { width: calc(25 * var(--p)); height: auto; }
+.pop__close:hover { transform: rotate(90deg); }
+.pop__close:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+
+.pop__list { display: flex; align-items: flex-start; gap: calc(16 * var(--p)); margin-top: calc(22 * var(--p)); }
+.pop__item { position: relative; display: block; flex: none; width: calc(var(--w) * var(--p)); height: calc(var(--h) * var(--p)); border-radius: calc(30 * var(--p)); overflow: hidden; background: #fff; }
+.pop__item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease-out); }
+a.pop__item:hover img, a.pop__item:focus-visible img { transform: scale(1.03); }
+a.pop__item:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+
+/* 모바일: 위쪽 헤더 아래부터, 이미지는 옆으로 넘겨 보기 (화면을 다 가리지 않도록 높이 제한) */
+@media (max-width: 767px) {
+  .pop__panel { left: 16px; right: 16px; top: calc(var(--gnb-h) + 12px); width: auto; transform: translate3d(0, 16px, 0); }
+  .pop.is-open .pop__panel { transform: none; }
+  .pop__bar { gap: 16px; height: 44px; }
+  .pop__today { gap: 8px; font-size: 14px; line-height: 1.4; }
+  .pop__today input { width: 20px; height: 20px; }
+  .pop__close { width: 44px; height: 44px; }
+  .pop__close img { width: 18px; }
+  .pop__list { gap: 12px; margin-top: 12px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; padding-bottom: 4px; }
+  .pop__list::-webkit-scrollbar { display: none; }
+  .pop__item { height: min(58svh, 460px); width: auto; aspect-ratio: var(--w) / var(--h); border-radius: 16px; scroll-snap-align: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pop__dim, .pop__panel, .pop__close, .pop__item img { transition: none; }
+}
