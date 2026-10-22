@@ -1,6 +1,7 @@
 /* ===== 04. 프리미엄 라인업 (피그마 157:1912) — 카드 90% 크기, 끊김 없는 무한 흐름 ===== */
 .premium { margin-top: calc(181 * var(--s)); }
-.premium__viewport { position: relative; margin-top: calc(20 * var(--s)); overflow: hidden; }
+/* 아래 여백 = 호버 CTA 자리 (카드 밖이라 잘리지 않게). 영문 흐름까지의 전체 간격은 피그마(설명 아래 210)와 같음 */
+.premium__viewport { position: relative; margin-top: calc(20 * var(--s)); padding-bottom: calc(56 * var(--s)); overflow: hidden; }
 .premium__track { display: flex; gap: calc(50 * var(--s)); width: max-content; will-change: transform; }
 .pcard { flex: none; width: calc(751 * var(--s)); }
 .pcard > a, .pcard__inner { display: block; text-align: center; }
@@ -12,7 +13,8 @@
 /* 피그마 153:907: 카드 바탕 = 투명(위) → #bde6ff(아래) 그라데이션, 테두리·그림자 없음. 이미지는 장비만(투명 배경) */
 .pcard__media { display: block; border-radius: calc(45 * var(--s)); overflow: hidden; background: linear-gradient(180deg, rgb(189 230 255 / 0) 0%, #bde6ff 100%); }
 .pcard__media img { border-radius: 0; transform-origin: 50% 58%; transition: transform .6s var(--ease-out); }
-.pcard__cta { display: inline-flex; align-items: center; gap: .35em; margin-top: calc(14 * var(--s)); padding-bottom: 3px; font-style: normal; font-weight: 600; font-size: calc(24 * var(--s)); line-height: 1.3; color: var(--navy); border-bottom: 1px solid rgb(20 72 149 / .35); opacity: 0; transform: translate3d(0, 10px, 0); transition: opacity .4s var(--ease-out), transform .45s var(--ease-out); }
+/* 자리를 차지하지 않도록 설명 아래에 겹쳐 둠 → 장비명·설명·아래 영문 간격은 피그마 그대로 */
+.pcard__cta { position: absolute; left: 0; right: 0; top: 100%; width: max-content; margin-left: auto; margin-right: auto; display: inline-flex; align-items: center; gap: .35em; margin-top: calc(14 * var(--s)); padding-bottom: 3px; font-style: normal; font-weight: 600; font-size: calc(24 * var(--s)); line-height: 1.3; color: var(--navy); border-bottom: 1px solid rgb(20 72 149 / .35); opacity: 0; transform: translate3d(0, 10px, 0); transition: opacity .4s var(--ease-out), transform .45s var(--ease-out); }
 .pcard__cta i { font-style: normal; transition: transform .45s var(--ease-out); }
 @media (hover: hover) and (pointer: fine) {
   .pcard > a:hover .pcard__media img, .pcard > a:focus-visible .pcard__media img { transform: scale(1.07); }
@@ -23,47 +25,35 @@
 @media (hover: none), (pointer: coarse) {
   .pcard__cta { opacity: 1; transform: none; }
 }
-.premium__prev, .premium__next { position: absolute; z-index: 3; top: calc(317 * var(--s)); margin-top: calc(-25 * var(--s)); }
-.premium__prev { left: calc(437 * var(--s)); }
-.premium__next { right: calc(437 * var(--s)); }
 
-/* 하단 흐르는 영문 (피그마: KMU80 70px, 그라데이션 #395d93 20%→100%, 투명도 50%) */
-.premium__marquee { margin-top: calc(170 * var(--s)); overflow: hidden; opacity: .5; }
+/* 하단 흐르는 영문 (피그마: KMU80 70px, 그라데이션 #395d93 20%→100%, 투명도 50%)
+   피그마: 설명 문구 아래 210px에 영문 줄(줄 높이 40)이 시작 → 글자 가운데가 설명 아래 230px. 여기 줄 높이는 84(70×1.2)라 230-42 = 188 */
+.premium__marquee { margin-top: calc(132 * var(--s)); overflow: hidden; opacity: .5; }
 .premium__marquee-track { display: flex; width: max-content; will-change: transform; }
 .premium__marquee-track span { flex: none; padding-right: calc(110 * var(--s)); font-family: var(--f-eng); font-size: calc(70 * var(--s)); line-height: 1.2; letter-spacing: 0; white-space: nowrap; background: linear-gradient(90deg, rgb(57 93 147 / .2), #395d93); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
-@media (min-width: 1921px) {
-  .premium__prev { left: calc(50% - 523px); }
-  .premium__next { right: calc(50% - 523px); }
-}
 @media (max-width: 1024px) {
   .premium { margin-top: 72px; }
-  .premium__viewport { margin-top: 32px; }
+  .premium__viewport { margin-top: 32px; padding-bottom: 36px; }
   .premium__track { gap: 24px; }
   .pcard { width: 380px; }
   .pcard img, .pcard__media { border-radius: 26px; }
   .pcard__cta { margin-top: 10px; font-size: 15px; }
   .pcard strong { margin-top: 16px; font-size: 26px; line-height: 1.4; }
   .pcard strong + span { font-size: 17px; line-height: 1.5; }
-  .premium__prev, .premium__next { top: 160px; margin-top: -22px; }
-  .premium__prev { left: 24px; }
-  .premium__next { right: 24px; }
-  .premium__marquee { margin-top: 48px; }
+  .premium__marquee { margin-top: 46px; }
   .premium__marquee-track span { font-size: 40px; padding-right: 64px; }
 }
 /* 모바일: 피그마 카드 255×215, 화살표 32 */
 @media (max-width: 767px) {
   .premium { margin-top: 64px; }
-  .premium__viewport { margin-top: 24px; }
+  .premium__viewport { margin-top: 24px; padding-bottom: 30px; }
   .premium__track { gap: 16px; }
   .pcard { width: 255px; }
   .pcard img, .pcard__media { border-radius: 15px; }
   .pcard__cta { margin-top: 8px; font-size: 13px; }
   .pcard strong { margin-top: 14px; font-size: 20px; line-height: 1.5; }
   .pcard strong + span { font-size: 14px; line-height: 1.5; }
-  .premium__prev, .premium__next { top: 108px; margin-top: -16px; width: 32px; height: 32px; }
-  .premium__prev { left: 12px; }
-  .premium__next { right: 12px; }
-  .premium__marquee { margin-top: 28px; }
+  .premium__marquee { margin-top: 27px; }
   .premium__marquee-track span { font-size: 28px; padding-right: 40px; }
 }

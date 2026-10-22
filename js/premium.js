@@ -66,8 +66,6 @@
   view.addEventListener('mouseleave', function () { target = 1; });
   view.addEventListener('focusin', function () { target = 0; });
   view.addEventListener('focusout', function (e) { if (!view.contains(e.relatedTarget)) target = 1; });
-  view.querySelector('.premium__prev').addEventListener('click', function () { nudge += pitch; });
-  view.querySelector('.premium__next').addEventListener('click', function () { nudge -= pitch; });
 
   // 터치: 손가락으로 끌어서 넘기기
   var dragging = false, px = 0, moved = 0;

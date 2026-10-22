@@ -81,7 +81,7 @@
     .hero { --s: min(1px, calc(100vw / 1920), calc(100svh / 1080)); height: 100svh; }
   }
   .hero__copy { margin-top: 0; }
-  .hero__slide--1 .hero__copy { top: calc(100% - (1080 - 139) * var(--s)); }
+  .hero__slide--1 .hero__copy { top: calc(100% - (1080 - 169) * var(--s)); }
   .hero__slide--2 .hero__copy { top: calc(100% - (1080 - 169) * var(--s)); left: calc(50% + (241 - 960) * var(--s)); }
   .hero__copy--s3 { top: calc(100% - (1080 - 226) * var(--s)); }
   .hero__copy--s4 { top: calc(100% - (1080 - 169) * var(--s)); left: calc(50% + (209 - 960) * var(--s)); }
