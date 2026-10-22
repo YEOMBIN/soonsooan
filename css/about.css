@@ -1,6 +1,7 @@
 /* ===== 07. ABOUT SOONSOOAN — 카드 아코디언 (card-accordion 모듈 + 피그마 인사말 카드 디자인)
    1920 기준: 펼친 카드 1080 + 접힌 카드 104 × 3 + 간격 16 × 3 = 1440, 높이 450, 모서리 50 ===== */
-.about { padding: calc(94 * var(--s)) 0 calc(57 * var(--s)); text-align: center; }
+/* 피그마(영문 아래 102 / 아래 48)보다 위아래 여백을 넉넉히 */
+.about { padding: calc(142 * var(--s)) 0 calc(110 * var(--s)); text-align: center; }
 .about__eyebrow { text-align: center; }
 
 .ca.about-ca {
@@ -51,7 +52,7 @@
 
 /* ===== 태블릿·모바일: 세로로 쌓이는 아코디언 (탭으로 펼침) ===== */
 @media (max-width: 1024px) {
-  .about { padding: 72px 40px 64px; }
+  .about { padding: 64px 40px 88px; }
   .ca.about-ca { --ca-closed: 64px; --ca-open: 300px; --ca-gap: 10px; flex-direction: column; width: 100%; height: auto; margin-top: 28px; }
   .about-ca .ca__card { flex: 0 0 var(--ca-closed); border-radius: 24px; }
   .acard__bg { width: 100%; background-position: left center; }
@@ -68,7 +69,7 @@
 }
 /* 모바일: 피그마 Mobile 카드 335×234 */
 @media (max-width: 767px) {
-  .about { padding: 56px 20px 48px; }
+  .about { padding: 48px 20px 64px; }
   .ca.about-ca { --ca-closed: 54px; --ca-open: 234px; --ca-gap: 8px; margin-top: 20px; }
   .about-ca .ca__card { border-radius: 20px; }
   .acard__list { left: 22px; top: 28px; gap: 8px; font-size: 18px; }

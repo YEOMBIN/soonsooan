@@ -9,7 +9,7 @@
 .ss-cover { position: relative; z-index: 1; }
 .ss-stack.is-immersive .treat { box-shadow: 0 -30px 60px -30px rgb(10 40 90 / .22); }
 
-.treat { position: relative; padding: calc(121 * var(--s)) 0 calc(80 * var(--s)); background: linear-gradient(180deg, #fff 0%, #eef9ff 100%); overflow: hidden; }
+.treat { position: relative; padding: calc(121 * var(--s)) 0 calc(180 * var(--s)); background: linear-gradient(180deg, #fff 0%, #eef9ff 100%); overflow: hidden; }
 .treat::before { content: ""; position: absolute; inset: 0 0 auto; height: calc(1628 * var(--s)); background: url('../assets/img/section/treat-texture.webp') center top / 100% auto no-repeat; opacity: .3; pointer-events: none; }
 .treat > .inner, .premium { position: relative; }
 

@@ -1,5 +1,6 @@
 /* ===== 06. 의료진 소개 (피그마 의료진소개 1921×1754, ABOUT 포함) ===== */
-.doctor { position: relative; z-index: 2; background: #fff url('../assets/img/section/doctor-bg.webp') center top / 100% auto no-repeat; padding-top: calc(118 * var(--s)); }
+/* 배경(피그마 1921×1929)이 ABOUT 여백까지 늘어난 섹션 전체를 덮도록 cover (비율 유지, 위 기준) */
+.doctor { position: relative; z-index: 2; background: #fff url('../assets/img/section/doctor-bg.webp') center top / cover no-repeat; padding-top: calc(118 * var(--s)); }
 .doctor__top { position: relative; height: calc(827 * var(--s)); }
 .doctor__info { position: relative; z-index: 2; width: calc(704 * var(--s)); }
 .doctor__text { margin-top: calc(115 * var(--s)); }
@@ -16,6 +17,11 @@
 .doctor__mask img { position: absolute; left: 7.33%; top: 3.71%; width: 85.54%; height: auto; }
 .doctor__badge { position: absolute; left: calc(368 * var(--s)); top: calc(568 * var(--s)); width: calc(118 * var(--s)); height: auto; }
 
+/* 흐르는 영문 (피그마 156:1315: KMU80 70px, #395d93 20%→100% 그라데이션, 투명도 50%, 글자 가운데 y1079) */
+.doc-marquee { margin-top: calc(92 * var(--s)); overflow: hidden; opacity: .5; }
+.doc-marquee__track { display: flex; width: max-content; will-change: transform; }
+.doc-marquee__track span { flex: none; padding-right: calc(110 * var(--s)); font-family: var(--f-eng); font-size: calc(70 * var(--s)); line-height: 1.2; letter-spacing: 0; white-space: nowrap; background: linear-gradient(90deg, rgb(57 93 147 / .2), #395d93); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
 @media (min-width: 1921px) { .doctor { background-size: cover; } }
 @media (max-width: 1024px) {
   .doctor { padding-top: 80px; background-size: cover; }
@@ -31,6 +37,8 @@
   .doctor__top { grid-template-columns: 1fr 300px; }
   .doctor__photo { position: relative; top: auto; left: auto; width: 300px; height: 512px; }
   .doctor__badge { left: 76.67%; top: 84.38%; width: 70px; }
+  .doc-marquee { margin-top: 48px; }
+  .doc-marquee__track span { font-size: 40px; padding-right: 64px; }
 }
 /* 모바일: 사진 가운데 220 폭 → 이름·소개 가운데 정렬 (피그마 Mobile) */
 @media (max-width: 767px) {
@@ -48,4 +56,6 @@
   .doctor__lead br, .doctor__desc br { display: none; }
   .doctor__desc { margin-top: 12px; font-size: 14px; }
   .doctor__text .btn { margin-top: 20px; }
+  .doc-marquee { margin-top: 36px; }
+  .doc-marquee__track span { font-size: 28px; padding-right: 40px; }
 }

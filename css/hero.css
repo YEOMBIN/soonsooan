@@ -87,7 +87,8 @@
   .hero__copy--s4 { top: calc(100% - (1080 - 169) * var(--s)); left: calc(50% + (209 - 960) * var(--s)); }
   /* 1번 장비 이미지(1920×1180, 위 100px은 헤더 뒤 여백)는 무대 배율로 아래·가운데 정렬 */
   .hero__media--devices img { position: absolute; left: calc(50% - 960 * var(--s)); bottom: 0; width: calc(1920 * var(--s)); height: calc(1180 * var(--s)); object-fit: fill; }
-  .hero__controls { bottom: clamp(40px, 5vh, 60px); }
+  /* PC: 컨트롤러 2배(110% → 220%), 화면 아래에서 조금 더 위로 */
+  .hero__controls { bottom: clamp(70px, 9vh, 110px); transform: translateX(-50%) scale(2.2); }
 }
 
 /* ===== 태블릿 ===== */

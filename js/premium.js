@@ -1,6 +1,6 @@
 /* =========================================================
    04. 프리미엄 라인업 — 끊김 없는 무한 흐름
-   마우스를 올리면 부드럽게 멈춤 · 화살표로 한 칸씩 이동 · 아래 영문은 반대 방향
+   마우스를 올리면 부드럽게 멈춤 · 화살표로 한 칸씩 이동
    ========================================================= */
 (function () {
   'use strict';
@@ -8,7 +8,6 @@
   var view = document.querySelector('.premium__viewport');
   if (!view) return;
   var track = view.querySelector('.premium__track');
-  var text = document.querySelector('.premium__marquee-track');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // 복제본으로 한 바퀴 더 이어 붙임 (복제본은 보조기기·탭 이동에서 제외)
@@ -22,20 +21,18 @@
   }
   var count = track.children.length;
   cloneSet(track);
-  if (text) cloneSet(text);
 
-  var setW = 0, textW = 0, pitch = 0;
+  var setW = 0, pitch = 0;
   function measure() {
     var first = track.children[0], firstClone = track.children[count];
     setW = firstClone.offsetLeft - first.offsetLeft;
     pitch = track.children[1].offsetLeft - first.offsetLeft;
-    if (text) textW = text.scrollWidth / 2;
   }
   measure();
   window.addEventListener('resize', measure);
   window.addEventListener('load', measure);
 
-  var x = 0, tx = 0, speed = 0, target = 1, nudge = 0, last = 0, visible = false;
+  var x = 0, speed = 0, target = 1, nudge = 0, last = 0, visible = false;
   function base() { return 70 * Math.min(1, window.innerWidth / 1920) + 18; } // px/s
 
   function frame(t) {
@@ -53,14 +50,7 @@
     if (setW) { x = ((x % setW) - setW) % setW; }
     track.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
 
-    if (text && textW && !reduce) {
-      tx += base() * 0.6 * dt;
-      if (tx >= 0) tx -= textW;
-      if (tx < -textW) tx += textW;
-      text.style.transform = 'translate3d(' + tx.toFixed(2) + 'px,0,0)';
-    }
   }
-  if (text) tx = -1;
 
   view.addEventListener('mouseenter', function () { target = 0; });
   view.addEventListener('mouseleave', function () { target = 1; });

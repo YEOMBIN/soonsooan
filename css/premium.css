@@ -1,5 +1,6 @@
 /* ===== 04. 프리미엄 라인업 (피그마 157:1912) — 카드 90% 크기, 끊김 없는 무한 흐름 ===== */
-.premium { margin-top: calc(181 * var(--s)); }
+/* 피그마 181 → 영문 흐름이 의료진 섹션으로 옮겨가 아래가 비어 섹션을 60px 아래로 */
+.premium { margin-top: calc(241 * var(--s)); }
 /* 아래 여백 = 호버 CTA 자리 (카드 밖이라 잘리지 않게). 영문 흐름까지의 전체 간격은 피그마(설명 아래 210)와 같음 */
 .premium__viewport { position: relative; margin-top: calc(20 * var(--s)); padding-bottom: calc(56 * var(--s)); overflow: hidden; }
 .premium__track { display: flex; gap: calc(50 * var(--s)); width: max-content; will-change: transform; }
@@ -26,11 +27,6 @@
   .pcard__cta { opacity: 1; transform: none; }
 }
 
-/* 하단 흐르는 영문 (피그마: KMU80 70px, 그라데이션 #395d93 20%→100%, 투명도 50%)
-   피그마: 설명 문구 아래 210px에 영문 줄(줄 높이 40)이 시작 → 글자 가운데가 설명 아래 230px. 여기 줄 높이는 84(70×1.2)라 230-42 = 188 */
-.premium__marquee { margin-top: calc(132 * var(--s)); overflow: hidden; opacity: .5; }
-.premium__marquee-track { display: flex; width: max-content; will-change: transform; }
-.premium__marquee-track span { flex: none; padding-right: calc(110 * var(--s)); font-family: var(--f-eng); font-size: calc(70 * var(--s)); line-height: 1.2; letter-spacing: 0; white-space: nowrap; background: linear-gradient(90deg, rgb(57 93 147 / .2), #395d93); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
 @media (max-width: 1024px) {
   .premium { margin-top: 72px; }
@@ -41,8 +37,6 @@
   .pcard__cta { margin-top: 10px; font-size: 15px; }
   .pcard strong { margin-top: 16px; font-size: 26px; line-height: 1.4; }
   .pcard strong + span { font-size: 17px; line-height: 1.5; }
-  .premium__marquee { margin-top: 46px; }
-  .premium__marquee-track span { font-size: 40px; padding-right: 64px; }
 }
 /* 모바일: 피그마 카드 255×215, 화살표 32 */
 @media (max-width: 767px) {
@@ -54,6 +48,4 @@
   .pcard__cta { margin-top: 8px; font-size: 13px; }
   .pcard strong { margin-top: 14px; font-size: 20px; line-height: 1.5; }
   .pcard strong + span { font-size: 14px; line-height: 1.5; }
-  .premium__marquee { margin-top: 27px; }
-  .premium__marquee-track span { font-size: 28px; padding-right: 40px; }
 }

@@ -60,7 +60,8 @@ section[id], #premium { scroll-margin-top: var(--gnb-h); }
 .btn { display: inline-flex; align-items: center; justify-content: center; width: calc(196 * var(--s)); height: calc(46 * var(--s)); border-radius: 999px; font-weight: 500; font-size: calc(20 * var(--s)); transition: background-color var(--t-hover) var(--ease-out), color var(--t-hover) var(--ease-out), transform var(--t-hover) var(--ease-out); }
 .btn--primary { background: var(--navy); color: #fff; }
 .btn--primary:hover { background: #0f3a7a; }
-.btn--white { background: #fff; color: var(--sky); box-shadow: 0 4px 18px rgb(20 72 149 / .08); }
+/* 밝은 배경 위에서도 구분되도록 그림자를 진하게 */
+.btn--white { background: #fff; color: var(--sky); box-shadow: 0 6px 20px rgb(20 72 149 / .22), 0 1px 3px rgb(20 72 149 / .14); }
 .btn--white:hover { background: var(--navy); color: #fff; }
 .btn--light { background: var(--sky-50); color: var(--navy); }
 .btn--light:hover { background: var(--navy); color: #fff; }

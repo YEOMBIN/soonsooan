@@ -18,11 +18,11 @@
 .ncard { display: block; }
 .ncard__thumb { position: relative; display: block; width: 100%; aspect-ratio: 284 / 285; border-radius: calc(20 * var(--s)); border: 1px solid var(--pale); overflow: hidden; background: #eef6fc; }
 .ncard__thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .6s var(--ease-out); }
-/* 유튜브: 세로 카드(284×411) 안에 쇼츠 썸네일 전체가 보이도록 contain, 남는 좌우는 카드 바탕색 */
-.ncard--youtube .ncard__thumb { aspect-ratio: 284 / 411; background: linear-gradient(180deg, #eef7fd 0%, #dff1fb 100%); }
-.ncard--youtube .ncard__thumb img { object-fit: contain; object-position: center; }
-.news.is-youtube { height: calc(1173 * var(--s)); }
-.news.is-youtube .ncard-more { margin-top: calc(100% * 126 / 2 / 284); }
+/* 유튜브: 카드 = 쇼츠 대표 이미지 비율(402×720) 그대로, 좌우 여백 없이 전체 노출 */
+.ncard--youtube .ncard__thumb { aspect-ratio: 402 / 720; }
+.ncard--youtube .ncard__thumb img { object-fit: cover; object-position: center; }
+.news.is-youtube { height: calc(1271 * var(--s)); }
+.news.is-youtube .ncard-more { margin-top: calc(100% * (284 * 720 / 402 - 285) / 2 / 284); }
 .ncard__title { display: -webkit-box; display: block; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: calc(17 * var(--s)); font-weight: 600; font-size: calc(25 * var(--s)); line-height: calc(35 * var(--s)); color: #000; transition: color var(--t-hover) var(--ease-out); }
 .ncard__date { display: block; margin-top: calc(7 * var(--s)); font-size: calc(20 * var(--s)); line-height: calc(40 * var(--s)); color: var(--gray); }
 @media (hover: hover) {
