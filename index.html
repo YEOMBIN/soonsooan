@@ -28,6 +28,7 @@
 <link rel="stylesheet" href="css/location.css">
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/quick.css">
 </head>
 <body>
 <a class="skip-link" href="#main">본문 바로가기</a>
@@ -499,6 +500,18 @@
   </div>
 </footer>
 
+<!-- ===================== 우측 퀵 메뉴 (피그마 72:130) ===================== -->
+<aside class="quick" aria-label="빠른 메뉴">
+  <ul class="quick__menu">
+    <li><a class="quick__item" href="pages/consult/online.html"><img src="assets/img/icon/quick-consult.svg" alt="" width="35" height="29"><span>온라인 상담</span></a></li>
+    <li><a class="quick__item" href="https://pf.kakao.com/_sxeSmG" target="_blank" rel="noopener" aria-label="카카오톡 상담 (새 창)"><img src="assets/img/icon/quick-kakao.svg" alt="" width="30" height="28"><span>카카오톡 상담</span></a></li>
+    <li><a class="quick__item" href="pages/about/location.html"><img src="assets/img/icon/quick-pin.svg" alt="" width="21" height="28"><span>오시는 길</span></a></li>
+    <li><a class="quick__item" href="https://www.instagram.com/soonsooan8975/" target="_blank" rel="noopener" aria-label="인스타그램 (새 창)"><img src="assets/img/icon/quick-insta.svg" alt="" width="28" height="28"><span>인스타그램</span></a></li>
+    <li><a class="quick__item" href="https://blog.naver.com/soonsooan" target="_blank" rel="noopener" aria-label="블로그 (새 창)"><img src="assets/img/icon/quick-blog.svg" alt="" width="31" height="28"><span>블로그</span></a></li>
+  </ul>
+  <button class="quick__top" type="button" aria-label="맨 위로 이동"><span class="quick__top-label">TOP ▲</span><img class="quick__top-arrow" src="assets/img/icon/quick-top.svg" alt="" width="19" height="11"></button>
+</aside>
+
 <!-- 라이브러리는 모두 로컬 파일 (assets/libraries) — 인터넷 없이 실행 -->
 <script src="assets/libraries/gsap/gsap.min.js"></script>
 <script src="assets/libraries/gsap/ScrollTrigger.min.js"></script>
@@ -519,5 +532,6 @@
 <script src="js/contact.js"></script>
 <script src="js/location.js"></script>
 <script src="js/footer-reveal.js"></script>
+<script src="js/quick.js"></script>
 </body>
 </html>

@@ -1,0 +1,46 @@
+/* ===== 우측 퀵 메뉴 (피그마 72:130 · Device=PC / Tablet / Mobile) =====
+   PC: 오른쪽 끝에 붙은 80px 세로 메뉴 + TOP 버튼, 헤더 아래 영역의 세로 가운데에 고정
+   태블릿: 피그마 Tablet 크기(68px)
+   모바일: 화면 아래 가로 바 + 오른쪽 위 둥근 TOP 버튼 */
+.quick { position: fixed; z-index: 90; right: 0; top: calc(50% + var(--gnb-h) / 2); transform: translateY(-50%); display: flex; flex-direction: column; align-items: center; gap: 20px; width: 80px; }
+.quick__menu { width: 100%; overflow: hidden; border-radius: 12px 0 0 12px; background: #fff; box-shadow: -4px 0 20px rgb(0 0 0 / .18); }
+.quick__item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; height: 77px; padding: 12px 0; border-bottom: 1px solid #c8eafe; font-weight: 600; font-size: 12px; line-height: 20px; letter-spacing: -0.03em; color: #000; white-space: nowrap; transition: background-color .35s var(--ease-out), color .35s var(--ease-out); }
+.quick__menu li:last-child .quick__item { border-bottom: 0; }
+.quick__item img { width: auto; height: 28px; transition: transform .4s var(--ease-out); }
+.quick__item:hover, .quick__item:focus-visible { background: #eef7fd; color: var(--navy); outline: none; }
+.quick__item:hover img, .quick__item:focus-visible img { transform: translate3d(0, -3px, 0); }
+.quick__item:focus-visible { box-shadow: inset 0 0 0 2px var(--sky); }
+
+.quick__top { display: flex; align-items: center; justify-content: center; width: 80px; height: 28px; border-radius: 100px; background: var(--navy); color: #fff; font-weight: 600; font-size: 12px; line-height: 20px; box-shadow: 0 4px 4px rgb(0 0 0 / .25); transition: background-color .35s var(--ease-out), transform .35s var(--ease-out); }
+.quick__top:hover { background: #0f3a7a; transform: translate3d(0, -2px, 0); }
+.quick__top:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; }
+.quick__top-arrow { display: none; }
+
+/* 태블릿: 피그마 Device=Tablet (0.85배) */
+@media (max-width: 1024px) {
+  .quick { width: 68px; gap: 17px; }
+  .quick__menu { border-radius: 10px 0 0 10px; box-shadow: -3px 0 17px rgb(0 0 0 / .18); }
+  .quick__item { height: 65px; padding: 10px 0; gap: 4px; font-size: 10.2px; line-height: 17px; }
+  .quick__item img { height: 24px; }
+  .quick__top { width: 68px; height: 24px; font-size: 10.2px; line-height: 17px; }
+}
+
+/* 모바일: 피그마 Device=Mobile — 아래 가로 바(61px) + 오른쪽 둥근 TOP(44px) */
+@media (max-width: 767px) {
+  body { padding-bottom: calc(61px + env(safe-area-inset-bottom, 0px)); }
+  .quick { left: 0; right: 0; top: auto; bottom: 0; transform: none; width: auto; gap: 12px; align-items: flex-end; }
+  .quick__top { order: -1; width: 44px; height: 44px; margin-right: 16px; padding-top: 0; border-radius: 22px; box-shadow: 0 4px 10px rgb(0 0 0 / .2); }
+  .quick__top-label { display: none; }
+  .quick__top-arrow { display: block; width: 16px; height: auto; margin-top: -3px; }
+  .quick__menu { display: flex; border-radius: 0; box-shadow: 0 -4px 20px rgb(0 0 0 / .18); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .quick__menu li { flex: 1 1 0; min-width: 0; }
+  .quick__item { height: 61px; padding: 8px 0; gap: 4px; border-bottom: 0; border-right: 1px solid #c8eafe; font-size: 11px; line-height: 18px; }
+  .quick__menu li:last-child .quick__item { border-right: 0; }
+  .quick__item img { height: 22px; }
+  /* 스크롤을 조금 내린 뒤에만 TOP 버튼 표시 */
+  .quick__top { opacity: 0; visibility: hidden; transform: translate3d(0, 8px, 0); transition: opacity .35s var(--ease-out), transform .35s var(--ease-out), visibility 0s linear .35s, background-color .35s; }
+  .quick.is-scrolled .quick__top { opacity: 1; visibility: visible; transform: none; transition: opacity .35s var(--ease-out), transform .35s var(--ease-out), visibility 0s, background-color .35s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .quick__item, .quick__item img, .quick__top { transition: none; }
+}
