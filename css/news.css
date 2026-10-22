@@ -1,5 +1,6 @@
 /* ===== 02. 순수안 소식 (청라빛안과 공지사항 방식: 탭 + 드래그 카드 슬라이드 + 커서) ===== */
-.news { position: relative; height: calc(1000 * var(--s)); padding-top: calc(94 * var(--s)); background: linear-gradient(180deg, #fff 0%, #dff3ff 100%); overflow: hidden; }
+/* 하단 여백: 피그마 1000 + 70 (다음 섹션이 덮기 전 소식을 충분히 보도록) */
+.news { position: relative; height: calc(1070 * var(--s)); padding-top: calc(94 * var(--s)); background: linear-gradient(180deg, #fff 0%, #dff3ff 100%); overflow: hidden; }
 .news__head { display: flex; justify-content: space-between; align-items: flex-end; }
 .news__tabs { display: flex; gap: calc(55 * var(--s)); transform: translateY(calc(94 * var(--s))); }
 .news__tabs button { font-weight: 600; font-size: calc(30 * var(--s)); line-height: calc(40 * var(--s)); color: #000; transition: color var(--t-hover) var(--ease-out); position: relative; }
@@ -20,7 +21,7 @@
 /* 유튜브: 세로 카드(284×411) 안에 쇼츠 썸네일 전체가 보이도록 contain, 남는 좌우는 카드 바탕색 */
 .ncard--youtube .ncard__thumb { aspect-ratio: 284 / 411; background: linear-gradient(180deg, #eef7fd 0%, #dff1fb 100%); }
 .ncard--youtube .ncard__thumb img { object-fit: contain; object-position: center; }
-.news.is-youtube { height: calc(1103 * var(--s)); }
+.news.is-youtube { height: calc(1173 * var(--s)); }
 .news.is-youtube .ncard-more { margin-top: calc(100% * 126 / 2 / 284); }
 .ncard__title { display: -webkit-box; display: block; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: calc(17 * var(--s)); font-weight: 600; font-size: calc(25 * var(--s)); line-height: calc(35 * var(--s)); color: #000; transition: color var(--t-hover) var(--ease-out); }
 .ncard__date { display: block; margin-top: calc(7 * var(--s)); font-size: calc(20 * var(--s)); line-height: calc(40 * var(--s)); color: var(--gray); }
@@ -47,7 +48,7 @@
 .news__swiper.is-grabbing, .news__swiper.is-grabbing a { cursor: grabbing; }
 
 @media (max-width: 1024px) {
-  .news, .news.is-youtube { height: auto; padding: 80px 0 64px; }
+  .news, .news.is-youtube { height: auto; padding: 80px 0 134px; }
   .news__head { flex-direction: column; align-items: flex-start; gap: 28px; }
   .news__tabs { transform: none; gap: 28px; }
   .news__tabs button { font-size: 20px; line-height: 1.4; }

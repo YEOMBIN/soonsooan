@@ -33,6 +33,8 @@
     if (!target) return;
     e.preventDefault();
     var y = id === 'top' ? 0 : target.getBoundingClientRect().top + window.scrollY - gnb.offsetHeight;
+    var cover = target.closest('.ss-cover');
+    if (cover && window.gsap) y -= gsap.getProperty(cover, 'y'); // 덮기 연출로 옮겨진 만큼 빼서 원래 위치로
     window.SS.autoScrolling = true;   // 이동 중에는 자동 덮기(cover-reveal)가 끼어들지 않게
     var done = function () { window.SS.autoScrolling = false; };
     if (lenis) lenis.scrollTo(y, { duration: 1.4, onComplete: done });

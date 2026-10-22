@@ -52,7 +52,8 @@
 .hero__copy--s4 .hero__desc strong { color: #fff; }
 
 /* ===== 하단 컨트롤: 01 ─── 04 ‹ ❙❙ › (피그마 '배너 컨트롤') ===== */
-.hero__controls { --c: var(--navy); --track: rgb(20 72 149 / .25); position: absolute; z-index: 5; left: 50%; bottom: calc(100 * var(--s)); transform: translateX(-50%); display: flex; align-items: center; gap: calc(16 * var(--s)); color: var(--c); padding: calc(6 * var(--s)) calc(22 * var(--s)); border-radius: 999px; transition: background-color .6s var(--ease-out), color .6s var(--ease-out); }
+/* 크기 110% (아래 가운데 기준으로 키움) */
+.hero__controls { --c: var(--navy); --track: rgb(20 72 149 / .25); position: absolute; z-index: 5; left: 50%; bottom: calc(100 * var(--s)); transform: translateX(-50%) scale(1.1); transform-origin: 50% 100%; display: flex; align-items: center; gap: calc(16 * var(--s)); color: var(--c); padding: calc(6 * var(--s)) calc(22 * var(--s)); border-radius: 999px; transition: background-color .6s var(--ease-out), color .6s var(--ease-out); }
 .hero__controls[data-tone="white"] { --c: #fff; --track: rgb(255 255 255 / .3); }
 .hero__controls[data-tone="pill"] { background: rgb(255 255 255 / .78); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
 .hero__pages { display: flex; align-items: center; gap: calc(16 * var(--s)); }
@@ -80,7 +81,7 @@
     .hero { --s: min(1px, calc(100vw / 1920), calc(100svh / 1080)); height: 100svh; }
   }
   .hero__copy { margin-top: 0; }
-  .hero__slide--1 .hero__copy { top: calc(100% - (1080 - 169) * var(--s)); }
+  .hero__slide--1 .hero__copy { top: calc(100% - (1080 - 139) * var(--s)); }
   .hero__slide--2 .hero__copy { top: calc(100% - (1080 - 169) * var(--s)); left: calc(50% + (241 - 960) * var(--s)); }
   .hero__copy--s3 { top: calc(100% - (1080 - 226) * var(--s)); }
   .hero__copy--s4 { top: calc(100% - (1080 - 169) * var(--s)); left: calc(50% + (209 - 960) * var(--s)); }
