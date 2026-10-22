@@ -5,37 +5,37 @@ window.SS_FEEDS = {
   "categories": {
     "notice": {
       "label": "공지사항",
-      "more": "https://soonsooan.co.kr/s_4_1",
+      "more": "pages/news/notice.html",
       "moreLabel": "공지사항 더보기",
       "items": [
         {
           "title": "[휴진 안내] 2026년 10월 3일(토) - 11일(일) 휴진",
           "date": "2026.09.16",
-          "url": "https://soonsooan.co.kr/s_4_1/5685",
+          "url": "pages/news/notice-5685.html",
           "thumb": "assets/img/data/notice-5685.webp"
         },
         {
           "title": "[순수안 보톡스 가이드 ③] 이마 보톡스: 효과, 부작용(눈 무거움/사무라이 눈썹), 표정 습관 교정까지 총정리",
           "date": "2026.09.08",
-          "url": "https://soonsooan.co.kr/s_4_1/5610",
+          "url": "pages/news/notice-5610.html",
           "thumb": "assets/img/news/news-5610.webp"
         },
         {
           "title": "강남역 순수안피부과의원 2026 가을 이벤트 프로그램",
           "date": "2026.08.31",
-          "url": "https://soonsooan.co.kr/s_4_1/5624",
+          "url": "pages/news/notice-5624.html",
           "thumb": "assets/img/data/notice-5624.webp"
         },
         {
           "title": "[순수안 보톡스 가이드 ②] 보톡스 효과는 언제 나타날까요? 효과 유지 기간과 200% 오래 유지하는 방법",
           "date": "2026.08.12",
-          "url": "https://soonsooan.co.kr/s_4_1/5580",
+          "url": "pages/news/notice-5580.html",
           "thumb": "assets/img/news/news-5580.webp"
         },
         {
           "title": "[순수안 보톡스 가이드 ①] \"보톡스 계속 맞으면 효과 없나요?\" 피부과전문의가 답하는 보톡스 내성의 모든 것",
           "date": "2026.07.23",
-          "url": "https://soonsooan.co.kr/s_4_1/5457",
+          "url": "pages/news/notice-5457.html",
           "thumb": "assets/img/news/news-5457.webp"
         }
       ]

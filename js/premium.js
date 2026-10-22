@@ -9,7 +9,6 @@
   if (!view) return;
   var track = view.querySelector('.premium__track');
   var text = document.querySelector('.premium__marquee-track');
-  var wrap = document.querySelector('.cover-under');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // 복제본으로 한 바퀴 더 이어 붙임 (복제본은 보조기기·탭 이동에서 제외)
@@ -43,7 +42,7 @@
     requestAnimationFrame(frame);
     var dt = last ? Math.min((t - last) / 1000, 0.05) : 0;
     last = t;
-    if (!visible || document.hidden || (wrap && wrap.classList.contains('is-covered'))) return;
+    if (!visible || document.hidden) return;
 
     // 속도는 천천히 목표치로 (멈출 때·다시 흐를 때 모두 부드럽게)
     speed += ((reduce ? 0 : target) - speed) * Math.min(1, dt * 3);
@@ -71,10 +70,12 @@
   view.querySelector('.premium__next').addEventListener('click', function () { nudge -= pitch; });
 
   // 터치: 손가락으로 끌어서 넘기기
-  var dragging = false, px = 0;
-  track.addEventListener('pointerdown', function (e) { if (e.pointerType === 'mouse') return; dragging = true; px = e.clientX; target = 0; });
-  window.addEventListener('pointermove', function (e) { if (!dragging) return; x += e.clientX - px; px = e.clientX; });
+  var dragging = false, px = 0, moved = 0;
+  track.addEventListener('pointerdown', function (e) { moved = 0; if (e.pointerType === 'mouse') return; dragging = true; px = e.clientX; target = 0; });
+  window.addEventListener('pointermove', function (e) { if (!dragging) return; moved += Math.abs(e.clientX - px); x += e.clientX - px; px = e.clientX; });
   window.addEventListener('pointerup', function () { if (dragging) { dragging = false; target = 1; } });
+  // 끌어서 넘긴 직후의 탭은 카드 이동으로 처리하지 않음
+  track.addEventListener('click', function (e) { if (moved > 8) { e.preventDefault(); e.stopPropagation(); } }, true);
   track.style.touchAction = 'pan-y';
 
   new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { rootMargin: '100px 0px' }).observe(view);

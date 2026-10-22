@@ -9,6 +9,8 @@
 .map__live { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .6s var(--ease-inout), visibility 0s linear .6s; }
 .map__live iframe { width: 100%; height: 100%; border: 0; display: block; }
 .map__hint { position: absolute; z-index: 2; left: 50%; bottom: calc(22 * var(--s)); transform: translateX(-50%); padding: 8px 16px; border-radius: 999px; background: rgb(20 72 149 / .82); color: #fff; font-size: calc(16 * var(--s)); white-space: nowrap; pointer-events: none; transition: opacity .4s var(--ease-out); }
+.map.is-ask .map__hint { background: var(--navy); transform: translateX(-50%) translateY(-4px); }
+.map__hint { transition: opacity .4s var(--ease-out), transform .4s var(--ease-out), background-color .4s var(--ease-out); }
 .map.is-live { cursor: default; }
 .map.is-live .map__img { opacity: 0; transform: scale(1.03); }
 .map.is-live .map__live { opacity: 1; visibility: visible; transition: opacity .6s var(--ease-inout), visibility 0s; }

@@ -1,7 +1,10 @@
 /* ===== 03. 피부 고민별 치료 프로그램 (피그마 2. 치료 프로그램 · 카드 Hover 28:632) =====
-   .cover-under: 다음 브랜드 섹션이 위로 덮을 때 이 묶음은 화면에 고정 (js/brand-water.js 에서 top 계산) */
-.cover-under { position: relative; z-index: 1; }
-.cover-under.is-sticky { position: sticky; top: var(--cover-top, 0px); }
+   스크롤 리빌 와이어프레임 (HfojThAnJysSSjGBbEMA4Z): 순수안 소식은 화면에 멈춰 있고
+   치료 프로그램 묶음이 위로 올라와 덮은 뒤 → 제목 → 카드 순서로 등장 (js/cover-reveal.js) */
+.ss-stack { position: relative; isolation: isolate; }
+.ss-stack.is-immersive > [data-under] { position: sticky; top: var(--under-top, 0px); z-index: 0; }
+.ss-cover { position: relative; z-index: 1; }
+.ss-stack.is-immersive .treat { box-shadow: 0 -30px 60px -30px rgb(10 40 90 / .22); }
 
 .treat { position: relative; padding: calc(121 * var(--s)) 0 calc(80 * var(--s)); background: linear-gradient(180deg, #fff 0%, #eef9ff 100%); overflow: hidden; }
 .treat::before { content: ""; position: absolute; inset: 0 0 auto; height: calc(1628 * var(--s)); background: url('../assets/img/section/treat-texture.webp') center top / 100% auto no-repeat; opacity: .3; pointer-events: none; }
@@ -60,5 +63,5 @@
   .tcard.is-open .tcard__title { top: 16%; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .cover-under.is-sticky { position: relative; top: auto; }
+  .ss-stack.is-immersive > [data-under] { position: relative; top: auto; }
 }

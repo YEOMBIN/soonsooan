@@ -9,10 +9,8 @@
 <script>document.documentElement.classList.add('js-on');</script>
 <link rel="icon" href="assets/img/icon/logo-header.webp">
 
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preload" href="assets/img/banner/banner1-bg.webp" as="image">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+<link rel="stylesheet" href="assets/libraries/swiper/swiper-bundle.min.css">
 
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/base.css">
@@ -21,40 +19,152 @@
 <link rel="stylesheet" href="css/news.css">
 <link rel="stylesheet" href="css/treatment.css">
 <link rel="stylesheet" href="css/premium.css">
+<link rel="stylesheet" href="css/gradient-hero.css">
 <link rel="stylesheet" href="css/brand.css">
 <link rel="stylesheet" href="css/doctor.css">
 <link rel="stylesheet" href="css/about.css">
 <link rel="stylesheet" href="css/contact.css">
 <link rel="stylesheet" href="css/location.css">
 <link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
 <a class="skip-link" href="#main">본문 바로가기</a>
 
 <!-- ===================== HEADER ===================== -->
-<header class="gnb" id="gnb">
+<header class="gnb" id="gnb" data-tone="light">
   <div class="gnb__inner">
-    <a class="gnb__logo" href="#top" aria-label="순수안피부과 홈">
-      <img src="assets/img/icon/logo-header.webp" alt="순수안피부과 SOONSOOAN DERMATOLOGY" width="209" height="50">
+    <a class="gnb__logo" href="index.html" aria-label="순수안피부과 홈">
+      <img class="gnb__logo-color" src="assets/img/icon/logo-footer.webp" alt="순수안피부과 SOONSOOAN DERMATOLOGY" width="399" height="96">
+      <img class="gnb__logo-white" src="assets/img/icon/logo-white.png" alt="" width="284" height="68" aria-hidden="true">
     </a>
     <nav class="gnb__nav" aria-label="주 메뉴">
-      <a href="#doctor">순수안 소개</a>
-      <a href="#premium">순수안 프리미엄</a>
-      <a href="#treatment">시술 및 진료 분야</a>
-      <a href="#contact">온라인상담</a>
-      <a href="#news">순수안 소식</a>
+      <ul class="gnb__list">
+      <li class="gnb__item">
+        <a class="gnb__link" href="pages/about/greeting.html" id="gnb-1" aria-haspopup="true" aria-expanded="false" aria-controls="gnb-drop-1">순수안 소개</a>
+        <div class="gnb__drop" id="gnb-drop-1" role="region" aria-labelledby="gnb-1">
+          <ul>
+            <li><a href="pages/about/greeting.html">인사말</a></li>
+            <li><a href="pages/about/doctors.html">의료진소개</a></li>
+            <li><a href="pages/about/facility.html">시설안내</a></li>
+            <li><a href="pages/about/location.html">진료시간 / 오시는길</a></li>
+            <li><a href="pages/about/equipment.html">보유장비소개</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="gnb__item">
+        <a class="gnb__link" href="pages/premium/thermage.html" id="gnb-2" aria-haspopup="true" aria-expanded="false" aria-controls="gnb-drop-2">순수안 프리미엄</a>
+        <div class="gnb__drop gnb__drop--wide" id="gnb-drop-2" role="region" aria-labelledby="gnb-2">
+          <ul>
+            <li><a href="pages/premium/thermage.html">써마지FLX</a></li>
+            <li><a href="pages/premium/accent-prime.html">악센트프라임(튠페이스)</a></li>
+            <li><a href="pages/premium/eplus.html">이플러스</a></li>
+            <li><a href="pages/premium/vro-advance.html">브이로 어드밴스</a></li>
+            <li><a href="pages/premium/vbeam-perfecta.html">브이빔 퍼펙타</a></li>
+            <li><a href="pages/premium/picoway.html">피코웨이</a></li>
+            <li><a href="pages/premium/hollywood-spectra.html">헐리우드 스펙트라</a></li>
+            <li><a href="pages/premium/juvelook.html">쥬베룩</a></li>
+            <li><a href="pages/premium/water-glow.html">순수안 물광주사</a></li>
+            <li><a href="pages/premium/bellasonic.html">벨라소닉</a></li>
+            <li><a href="pages/premium/astrodome-facial.html">아스트로돔페이셜</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="gnb__item">
+        <a class="gnb__link" href="pages/treatment/lifting.html" id="gnb-3" aria-haspopup="true" aria-expanded="false" aria-controls="gnb-drop-3">시술 및 진료 분야</a>
+        <div class="gnb__drop gnb__drop--wide" id="gnb-drop-3" role="region" aria-labelledby="gnb-3">
+          <ul>
+            <li><a href="pages/treatment/lifting.html">탄력 / 리프팅 / 모공</a></li>
+            <li><a href="pages/treatment/wrinkle.html">주름 / 보톡스 / 필러</a></li>
+            <li><a href="pages/treatment/pigment.html">기미 / 색소질환</a></li>
+            <li><a href="pages/treatment/acne.html">여드름치료</a></li>
+            <li><a href="pages/treatment/redness.html">안면홍조 / 주사</a></li>
+            <li><a href="pages/treatment/scar.html">흉터 / 여드름흉터</a></li>
+            <li><a href="pages/treatment/hair-loss.html">탈모</a></li>
+            <li><a href="pages/treatment/skin-disease.html">드레싱 / 냉동치료 / 피부질환</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="gnb__item">
+        <a class="gnb__link" href="pages/consult/online.html" id="gnb-4" aria-haspopup="true" aria-expanded="false" aria-controls="gnb-drop-4">온라인상담</a>
+        <div class="gnb__drop" id="gnb-drop-4" role="region" aria-labelledby="gnb-4">
+          <ul>
+            <li><a href="pages/consult/online.html">온라인상담</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="gnb__item">
+        <a class="gnb__link" href="pages/news/notice.html" id="gnb-5" aria-haspopup="true" aria-expanded="false" aria-controls="gnb-drop-5">순수안 소식</a>
+        <div class="gnb__drop" id="gnb-drop-5" role="region" aria-labelledby="gnb-5">
+          <ul>
+            <li><a href="pages/news/notice.html">공지사항</a></li>
+            <li><a href="pages/news/review.html">치료후기</a></li>
+          </ul>
+        </div>
+      </li>
+      </ul>
     </nav>
-    <a class="gnb__login" href="https://soonsooan.co.kr/index.php?act=dispMemberLoginForm" target="_blank" rel="noopener">로그인 ㅣ 회원가입</a>
+    <a class="gnb__login" href="pages/etc/login.html">로그인 ㅣ 회원가입</a>
     <button class="gnb__menu" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   </div>
+  <div class="gnb__curtain" aria-hidden="true"></div>
   <div class="drawer" id="drawer" hidden>
-    <nav aria-label="모바일 메뉴">
-      <a href="#doctor">순수안 소개</a>
-      <a href="#premium">순수안 프리미엄</a>
-      <a href="#treatment">시술 및 진료 분야</a>
-      <a href="#contact">온라인상담</a>
-      <a href="#news">순수안 소식</a>
-      <a href="https://soonsooan.co.kr/index.php?act=dispMemberLoginForm" target="_blank" rel="noopener">로그인 ㅣ 회원가입</a>
+    <nav class="drawer__nav" aria-label="모바일 메뉴">
+      <ul class="drawer__list">
+      <li class="drawer__item">
+        <button type="button" class="drawer__toggle" aria-expanded="false" aria-controls="drawer-sub-1">순수안 소개<i aria-hidden="true"></i></button>
+        <ul class="drawer__sub" id="drawer-sub-1" hidden>
+          <li><a href="pages/about/greeting.html">인사말</a></li>
+          <li><a href="pages/about/doctors.html">의료진소개</a></li>
+          <li><a href="pages/about/facility.html">시설안내</a></li>
+          <li><a href="pages/about/location.html">진료시간 / 오시는길</a></li>
+          <li><a href="pages/about/equipment.html">보유장비소개</a></li>
+        </ul>
+      </li>
+      <li class="drawer__item">
+        <button type="button" class="drawer__toggle" aria-expanded="false" aria-controls="drawer-sub-2">순수안 프리미엄<i aria-hidden="true"></i></button>
+        <ul class="drawer__sub" id="drawer-sub-2" hidden>
+          <li><a href="pages/premium/thermage.html">써마지FLX</a></li>
+          <li><a href="pages/premium/accent-prime.html">악센트프라임(튠페이스)</a></li>
+          <li><a href="pages/premium/eplus.html">이플러스</a></li>
+          <li><a href="pages/premium/vro-advance.html">브이로 어드밴스</a></li>
+          <li><a href="pages/premium/vbeam-perfecta.html">브이빔 퍼펙타</a></li>
+          <li><a href="pages/premium/picoway.html">피코웨이</a></li>
+          <li><a href="pages/premium/hollywood-spectra.html">헐리우드 스펙트라</a></li>
+          <li><a href="pages/premium/juvelook.html">쥬베룩</a></li>
+          <li><a href="pages/premium/water-glow.html">순수안 물광주사</a></li>
+          <li><a href="pages/premium/bellasonic.html">벨라소닉</a></li>
+          <li><a href="pages/premium/astrodome-facial.html">아스트로돔페이셜</a></li>
+        </ul>
+      </li>
+      <li class="drawer__item">
+        <button type="button" class="drawer__toggle" aria-expanded="false" aria-controls="drawer-sub-3">시술 및 진료 분야<i aria-hidden="true"></i></button>
+        <ul class="drawer__sub" id="drawer-sub-3" hidden>
+          <li><a href="pages/treatment/lifting.html">탄력 / 리프팅 / 모공</a></li>
+          <li><a href="pages/treatment/wrinkle.html">주름 / 보톡스 / 필러</a></li>
+          <li><a href="pages/treatment/pigment.html">기미 / 색소질환</a></li>
+          <li><a href="pages/treatment/acne.html">여드름치료</a></li>
+          <li><a href="pages/treatment/redness.html">안면홍조 / 주사</a></li>
+          <li><a href="pages/treatment/scar.html">흉터 / 여드름흉터</a></li>
+          <li><a href="pages/treatment/hair-loss.html">탈모</a></li>
+          <li><a href="pages/treatment/skin-disease.html">드레싱 / 냉동치료 / 피부질환</a></li>
+        </ul>
+      </li>
+      <li class="drawer__item">
+        <button type="button" class="drawer__toggle" aria-expanded="false" aria-controls="drawer-sub-4">온라인상담<i aria-hidden="true"></i></button>
+        <ul class="drawer__sub" id="drawer-sub-4" hidden>
+          <li><a href="pages/consult/online.html">온라인상담</a></li>
+        </ul>
+      </li>
+      <li class="drawer__item">
+        <button type="button" class="drawer__toggle" aria-expanded="false" aria-controls="drawer-sub-5">순수안 소식<i aria-hidden="true"></i></button>
+        <ul class="drawer__sub" id="drawer-sub-5" hidden>
+          <li><a href="pages/news/notice.html">공지사항</a></li>
+          <li><a href="pages/news/review.html">치료후기</a></li>
+        </ul>
+      </li>
+      </ul>
+      <a class="drawer__login" href="pages/etc/login.html">로그인 ㅣ 회원가입</a>
     </nav>
   </div>
 </header>
@@ -139,7 +249,8 @@
   </section>
 
   <!-- ===================== 02. 순수안 소식 ===================== -->
-  <section class="news" id="news" aria-labelledby="news-title">
+  <div class="ss-stack" id="ss-stack">
+  <section class="news" id="news" aria-labelledby="news-title" data-under>
     <div class="inner news__head">
       <div class="sec-head" data-reveal>
         <p class="eyebrow">NOTICE</p>
@@ -152,45 +263,45 @@
         <button type="button" role="tab" id="tab-blog" aria-controls="panel-news" aria-selected="false" data-tab="blog" tabindex="-1">블로그</button>
       </div>
     </div>
-    <div class="news__body" id="panel-news" role="tabpanel" aria-labelledby="tab-notice" data-reveal>
+    <div class="inner news__body" id="panel-news" role="tabpanel" aria-labelledby="tab-notice" data-reveal>
       <div class="swiper news__swiper">
         <div class="swiper-wrapper"><!-- js/news.js 에서 채움 --></div>
       </div>
-      <div class="news__bar" aria-hidden="true"><i></i></div>
-      <div class="drag-cursor" aria-hidden="true">DRAG</div>
+      <div class="news__bar" aria-hidden="true"></div>
+      <div class="drag-cursor" aria-hidden="true">DRAG ⟷</div>
     </div>
   </section>
 
   <!-- ===================== 03·04. 치료 프로그램 + 프리미엄 라인업 ===================== -->
-  <div class="cover-under" id="treatment-wrap">
+  <div class="ss-cover" id="treatment-wrap">
     <section class="treat" id="treatment" aria-labelledby="treat-title">
       <div class="inner">
-        <div class="sec-head sec-head--center" data-reveal>
+        <div class="sec-head sec-head--center" data-cover-head>
           <p class="eyebrow">SIGNATURE SOLUTION</p>
           <h2 class="sec-title" id="treat-title">피부 고민별 치료 프로그램</h2>
         </div>
-        <ul class="treat__grid" data-reveal-group>
-          <li><a class="tcard" href="https://soonsooan.co.kr/s_2_4" target="_blank" rel="noopener" data-img="acne">
+        <ul class="treat__grid" data-cover-cards>
+          <li><a class="tcard" href="pages/treatment/acne.html" data-img="acne">
             <span class="tcard__bg" style="--img:url(../assets/img/treat/card-acne.webp)"></span>
             <span class="tcard__title">여드름 · 트러블</span><span class="tcard__line"></span>
             <span class="tcard__desc">피부의 겉과 속을 함께 고려한<br>여드름 치료 프로그램</span></a></li>
-          <li><a class="tcard" href="https://soonsooan.co.kr/s_2_3" target="_blank" rel="noopener" data-img="pigment">
+          <li><a class="tcard" href="pages/treatment/pigment.html" data-img="pigment">
             <span class="tcard__bg" style="--img:url(../assets/img/treat/card-pigment.webp)"></span>
             <span class="tcard__title">색소 · 피부톤</span><span class="tcard__line"></span>
             <span class="tcard__desc">피부 상태에 따른<br>맞춤형 색소 치료 프로그램</span></a></li>
-          <li><a class="tcard tcard--raw" href="https://soonsooan.co.kr/s_2_5" target="_blank" rel="noopener" data-img="redness">
+          <li><a class="tcard tcard--raw" href="pages/treatment/redness.html" data-img="redness">
             <span class="tcard__bg" style="--img:url(../assets/img/treat/card-redness.webp)"></span>
             <span class="tcard__title">홍조 · 혈관</span><span class="tcard__line"></span>
             <span class="tcard__desc">홍조와 혈관성 피부 변화에 따른<br>단계별 치료 프로그램</span></a></li>
-          <li><a class="tcard" href="https://soonsooan.co.kr/s_2_1" target="_blank" rel="noopener" data-img="lifting">
+          <li><a class="tcard" href="pages/treatment/lifting.html" data-img="lifting">
             <span class="tcard__bg" style="--img:url(../assets/img/treat/card-lifting.webp)"></span>
             <span class="tcard__title">탄력 · 리프팅</span><span class="tcard__line"></span>
             <span class="tcard__desc">피부층과 탄력 저하 정도를 고려한<br>맞춤형 리프팅 프로그램</span></a></li>
-          <li><a class="tcard" href="https://soonsooan.co.kr/s_2_2" target="_blank" rel="noopener" data-img="wrinkle">
+          <li><a class="tcard" href="pages/treatment/wrinkle.html" data-img="wrinkle">
             <span class="tcard__bg" style="--img:url(../assets/img/treat/card-wrinkle.webp)"></span>
             <span class="tcard__title">주름 · 볼륨</span><span class="tcard__line"></span>
             <span class="tcard__desc">주름의 원인과 얼굴 균형을 고려한<br>개인별 주름 · 볼륨 프로그램</span></a></li>
-          <li><a class="tcard" href="https://soonsooan.co.kr/s_2_6" target="_blank" rel="noopener" data-img="scar">
+          <li><a class="tcard" href="pages/treatment/scar.html" data-img="scar">
             <span class="tcard__bg" style="--img:url(../assets/img/treat/card-scar.webp)"></span>
             <span class="tcard__title">흉터 · 피부결</span><span class="tcard__line"></span>
             <span class="tcard__desc">흉터 형태와 피부결 상태를 분석한<br>복합 치료 프로그램</span></a></li>
@@ -204,14 +315,14 @@
         </div>
         <div class="premium__viewport" data-reveal>
           <ul class="premium__track">
-            <li class="pcard"><a href="https://soonsooan.co.kr/s_5_1" target="_blank" rel="noopener"><img src="assets/img/equip/equip-1.webp" alt="써마지 FLX 장비" width="834" height="704" loading="lazy"><strong>써마지 FLX</strong><span>피부 속 콜라겐을 재생시키는 섬세한 고주파</span></a></li>
-            <li class="pcard"><div class="pcard__inner"><img src="assets/img/equip/equip-2.webp" alt="울쎄라피 프라임 장비" width="834" height="704" loading="lazy"><strong>울쎄라피 프라임</strong><span>피부 탄력 · 처짐 개선을 위한 초음파 리프팅</span></div></li>
-            <li class="pcard"><a href="https://soonsooan.co.kr/s_5_2" target="_blank" rel="noopener"><img src="assets/img/equip/equip-3.webp" alt="악센트프라임(튠페이스) 장비" width="834" height="704" loading="lazy"><strong>악센트프라임(튠페이스)</strong><span>리프팅의 매직키 40.68MHz</span></a></li>
-            <li class="pcard"><a href="https://soonsooan.co.kr/s_5_4" target="_blank" rel="noopener"><img src="assets/img/equip/equip-4.webp" alt="브이로 어드밴스 장비" width="834" height="704" loading="lazy"><strong>브이로 어드밴스</strong><span>더욱 향상된 초음파 리프팅에 고주파 리프팅까지</span></a></li>
-            <li class="pcard"><a href="https://soonsooan.co.kr/s_5_5" target="_blank" rel="noopener"><img src="assets/img/equip/equip-5.webp" alt="브이빔 퍼펙타 장비" width="834" height="704" loading="lazy"><strong>브이빔 퍼펙타</strong><span>홍조, 붉은기를 넘어 진정한 화이트닝을 위한</span></a></li>
-            <li class="pcard"><a href="https://soonsooan.co.kr/s_5_6" target="_blank" rel="noopener"><img src="assets/img/equip/equip-6.webp" alt="피코웨이 장비" width="834" height="704" loading="lazy"><strong>피코웨이</strong><span>피코초 레이저를 활용한 색소 중심의 피부 케어</span></a></li>
-            <li class="pcard"><a href="https://soonsooan.co.kr/s_5_7" target="_blank" rel="noopener"><img src="assets/img/equip/equip-7.webp" alt="헐리우드 스펙트라 장비" width="834" height="704" loading="lazy"><strong>헐리우드 스펙트라</strong><span>섬세한 색소 케어를 위한 프리미엄 레이저 토닝</span></a></li>
-            <li class="pcard"><a href="https://soonsooan.co.kr/s_5_9" target="_blank" rel="noopener"><img src="assets/img/equip/equip-8.webp" alt="순수안 물광주사" width="834" height="704" loading="lazy"><strong>순수안 물광주사</strong><span>피부 보습과 탄력 개선을 위한 안티에이징 케어</span></a></li>
+            <li class="pcard"><a href="pages/premium/thermage.html"><span class="pcard__media"><img src="assets/img/equip/equip-1.webp" alt="써마지 FLX 장비" width="834" height="704" loading="lazy"></span><strong>써마지 FLX</strong><span>피부 속 콜라겐을 재생시키는 섬세한 고주파</span><em class="pcard__cta"><b>장비 자세히 알아보기</b> <i aria-hidden="true">↗</i></em></a></li>
+            <li class="pcard pcard--nolink"><div class="pcard__inner"><span class="pcard__media"><img src="assets/img/equip/equip-2.webp" alt="울쎄라피 프라임 장비" width="834" height="704" loading="lazy"></span><strong>울쎄라피 프라임</strong><span>피부 탄력 · 처짐 개선을 위한 초음파 리프팅</span></div></li>
+            <li class="pcard"><a href="pages/premium/accent-prime.html"><span class="pcard__media"><img src="assets/img/equip/equip-3.webp" alt="악센트프라임(튠페이스) 장비" width="834" height="704" loading="lazy"></span><strong>악센트프라임(튠페이스)</strong><span>리프팅의 매직키 40.68MHz</span><em class="pcard__cta"><b>장비 자세히 알아보기</b> <i aria-hidden="true">↗</i></em></a></li>
+            <li class="pcard"><a href="pages/premium/vro-advance.html"><span class="pcard__media"><img src="assets/img/equip/equip-4.webp" alt="브이로 어드밴스 장비" width="834" height="704" loading="lazy"></span><strong>브이로 어드밴스</strong><span>더욱 향상된 초음파 리프팅에 고주파 리프팅까지</span><em class="pcard__cta"><b>장비 자세히 알아보기</b> <i aria-hidden="true">↗</i></em></a></li>
+            <li class="pcard"><a href="pages/premium/vbeam-perfecta.html"><span class="pcard__media"><img src="assets/img/equip/equip-5.webp" alt="브이빔 퍼펙타 장비" width="834" height="704" loading="lazy"></span><strong>브이빔 퍼펙타</strong><span>홍조, 붉은기를 넘어 진정한 화이트닝을 위한</span><em class="pcard__cta"><b>장비 자세히 알아보기</b> <i aria-hidden="true">↗</i></em></a></li>
+            <li class="pcard"><a href="pages/premium/picoway.html"><span class="pcard__media"><img src="assets/img/equip/equip-6.webp" alt="피코웨이 장비" width="834" height="704" loading="lazy"></span><strong>피코웨이</strong><span>피코초 레이저를 활용한 색소 중심의 피부 케어</span><em class="pcard__cta"><b>장비 자세히 알아보기</b> <i aria-hidden="true">↗</i></em></a></li>
+            <li class="pcard"><a href="pages/premium/hollywood-spectra.html"><span class="pcard__media"><img src="assets/img/equip/equip-7.webp" alt="헐리우드 스펙트라 장비" width="834" height="704" loading="lazy"></span><strong>헐리우드 스펙트라</strong><span>섬세한 색소 케어를 위한 프리미엄 레이저 토닝</span><em class="pcard__cta"><b>장비 자세히 알아보기</b> <i aria-hidden="true">↗</i></em></a></li>
+            <li class="pcard"><a href="pages/premium/water-glow.html"><span class="pcard__media"><img src="assets/img/equip/equip-8.webp" alt="순수안 물광주사" width="834" height="704" loading="lazy"></span><strong>순수안 물광주사</strong><span>피부 보습과 탄력 개선을 위한 안티에이징 케어</span><em class="pcard__cta"><b>장비 자세히 알아보기</b> <i aria-hidden="true">↗</i></em></a></li>
           </ul>
           <button type="button" class="arrow arrow--prev premium__prev" aria-label="이전 장비"></button>
           <button type="button" class="arrow arrow--next premium__next" aria-label="다음 장비"></button>
@@ -222,12 +333,18 @@
       </div>
     </section>
   </div>
+  </div><!-- /ss-stack -->
 
   <!-- ===================== 05. 브랜드 인터랙션 ===================== -->
-  <section class="brand" id="brand" aria-labelledby="brand-title">
-    <div class="brand__bg" aria-hidden="true"></div>
-    <canvas class="brand__canvas" aria-hidden="true"></canvas>
-    <div class="brand__copy">
+  <section class="brand gh" id="brand" data-gh aria-labelledby="brand-title">
+    <div class="gh__bg" aria-hidden="true">
+      <span class="gh__blob" data-gh-depth="1.4" style="--c:#3a8fe0; --x:16%; --y:72%; --s:44vw"></span>
+      <span class="gh__blob" data-gh-depth="-1.2" style="--c:#77c3e6; --x:82%; --y:28%; --s:38vw"></span>
+      <span class="gh__blob" data-gh-depth="1" style="--c:#0a64b8; --x:56%; --y:88%; --s:34vw"></span>
+      <span class="gh__blob" data-gh-depth="-1.6" style="--c:#c8eafe; --x:38%; --y:18%; --s:26vw"></span>
+    </div>
+    <div class="gh__grain" aria-hidden="true"></div>
+    <div class="brand__copy gh__content">
       <p class="eyebrow eyebrow--pale brand__eyebrow">SOONSOOAN, FOR YOUR SKIN</p>
       <h2 class="brand__title" id="brand-title">본연의 아름다움이 자연스럽게 머물도록</h2>
     </div>
@@ -246,10 +363,10 @@
           <p class="doctor__name">김민호<small>대표원장</small></p>
           <p class="doctor__lead">오랜 경력과 풍부한 치료 노하우.<br><strong><b>피부과 전문의</b>가 책임지고, 진료합니다.</strong></p>
           <p class="doctor__desc">폭넓은 전문 지식과 다양한 임상경험을 바탕으로,<br>맞춤형 토탈케어를 통한 여러분의 평생 피부주치의가 되겠습니다.</p>
-          <a class="btn btn--white" href="https://soonsooan.co.kr/s_1_2" target="_blank" rel="noopener">view more ⟶</a>
+          <a class="btn btn--white" href="pages/about/doctors.html">view more ⟶</a>
         </div>
       </div>
-      <figure class="doctor__photo" data-reveal>
+      <figure class="doctor__photo" data-reveal="clip">
         <img src="assets/img/section/doctor-photo.webp" alt="김민호 대표원장" width="432" height="830" loading="lazy">
         <img class="doctor__badge" src="assets/img/section/badge-specialist.webp" alt="피부과 전문의" width="118" height="118" loading="lazy">
       </figure>
@@ -295,7 +412,7 @@
           <span class="ca__shade" aria-hidden="true"></span><span class="ca__num" aria-hidden="true">04</span><span class="ca__label" aria-hidden="true"><span class="ca__word">Treatment</span></span>
         </label>
       </div>
-      <div class="about__more" data-reveal><a class="btn btn--light" href="https://soonsooan.co.kr/s_1_1" target="_blank" rel="noopener">view more ⟶</a></div>
+      <div class="about__more" data-reveal><a class="btn btn--light" href="pages/about/greeting.html">view more ⟶</a></div>
     </div>
   </section>
 
@@ -306,7 +423,7 @@
         <p class="eyebrow eyebrow--pale">CONTACT</p>
         <h2 class="sec-title sec-title--white" id="contact-title">빠른상담신청</h2>
         <p class="sec-desc sec-desc--pale">부담없이, 무엇이든 물어보세요!</p>
-        <label class="contact__agree"><input type="checkbox" name="agree" required> <span>개인정보수집동의 <a href="https://soonsooan.co.kr/etc_1_1" target="_blank" rel="noopener">[개인정보취급방침]</a></span></label>
+        <label class="contact__agree"><input type="checkbox" name="agree" required> <span>개인정보수집동의 <a href="pages/etc/privacy.html">[개인정보취급방침]</a></span></label>
         <button class="btn btn--light btn--lg" type="submit" form="contact-form">- 상담 신청하기 -</button>
       </div>
       <form class="contact__form" id="contact-form" novalidate data-reveal-group>
@@ -326,10 +443,10 @@
         <h2 class="sec-title" id="location-title">순수안피부과의원 오시는 길</h2>
       </div>
       <div class="location__body">
-        <div class="map" data-reveal>
+        <div class="map" data-reveal="clip">
           <img class="map__img" src="assets/img/section/location-map.webp" alt="순수안피부과 약도: 강남역 신분당선 5번 출구, 서이초교사거리 방면 릿타워 4층" width="728" height="536" loading="lazy">
           <div class="map__live"><!-- 마우스를 올리면 구글 지도 로드 --></div>
-          <span class="map__hint">지도에 마우스를 올리면 실제 지도를 볼 수 있어요</span>
+          <span class="map__hint">약도를 누르면 실제 구글 지도를 불러옵니다 (외부 연결)</span>
         </div>
         <div class="location__info" data-reveal-group>
           <div class="loc-block">
@@ -364,7 +481,7 @@
   <div class="foot__inner" data-fr-content>
     <img class="foot__logo" src="assets/img/icon/logo-footer.webp" alt="순수안피부과 SOONSOOAN DERMATOLOGY" width="399" height="96" loading="lazy">
     <div class="foot__info">
-      <p class="foot__links"><a href="https://soonsooan.co.kr/etc_1_1" target="_blank" rel="noopener">개인정보처리방침</a> ㅣ <a href="https://soonsooan.co.kr/etc_1_2" target="_blank" rel="noopener">이용약관</a></p>
+      <p class="foot__links"><a href="pages/etc/privacy.html">개인정보처리방침</a> ㅣ <a href="pages/etc/terms.html">이용약관</a></p>
       <address>
         <span>순수안피부과</span><span>대표원장 김민호</span><br>
         서울 서초구 사임당로 157 릿타워 4층 407호<br>
@@ -380,17 +497,22 @@
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<!-- 라이브러리는 모두 로컬 파일 (assets/libraries) — 인터넷 없이 실행 -->
+<script src="assets/libraries/gsap/gsap.min.js"></script>
+<script src="assets/libraries/gsap/ScrollTrigger.min.js"></script>
+<script src="assets/libraries/swiper/swiper-bundle.min.js"></script>
+<script src="assets/libraries/lenis/lenis.min.js"></script>
 <script src="data/feeds.js"></script>
 <script src="js/main.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/animations.js"></script>
 <script src="js/hero.js"></script>
 <script src="js/news.js"></script>
+<script src="js/cover-reveal.js"></script>
 <script src="js/treatment.js"></script>
 <script src="js/premium.js"></script>
-<script src="js/brand-water.js"></script>
+<script src="js/gradient-hero.js"></script>
+<script src="js/brand.js"></script>
 <script src="js/about.js"></script>
 <script src="js/contact.js"></script>
 <script src="js/location.js"></script>

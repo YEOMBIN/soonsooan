@@ -33,10 +33,14 @@
     void s.offsetWidth; // 문구 애니메이션 다시 시작
     s.classList.add('is-active');
     controls.dataset.tone = s.dataset.tone || 'navy';
+    syncHeader();
     num.textContent = pad(index + 1);
     elapsed = 0;
     draw();
   }
+
+  // 헤더가 투명할 때 글자·로고 색: 어두운 배너(4번)는 흰색
+  function syncHeader() { if (window.SSNav) window.SSNav.setTone(slides[index].dataset.tone === 'white' ? 'dark' : 'light'); }
 
   function draw() { bar.style.transform = 'scaleX(' + Math.min(1, elapsed / DURATION).toFixed(4) + ')'; }
 
@@ -81,6 +85,7 @@
   // 첫 화면: 한 프레임 뒤 켜서 배경 확대→축소와 문구 상승이 처음부터 부드럽게 재생
   slides.forEach(function (s, i) { if (i) s.setAttribute('aria-hidden', 'true'); });
   controls.dataset.tone = slides[0].dataset.tone;
+  syncHeader();
   setPaused(paused);
   requestAnimationFrame(function () { requestAnimationFrame(function () { slides[0].classList.add('is-active'); }); });
   raf = requestAnimationFrame(tick);

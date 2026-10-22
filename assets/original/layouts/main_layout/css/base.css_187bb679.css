@@ -1,0 +1,36 @@
+/*
+ * Copyright inpleworks, Co.
+ * Ver 1.3.2
+ * 2016-03-05
+*/
+
+
+
+/*팝업*/
+	/*팝업1*/
+	#layG_divpop1{position:absolute; z-index:9998;}
+	#layG_divpop1 .pop_bott{background-color:#f6f6f6; height:28px;padding:0 10px;}
+	#layG_divpop1 .pop_bott .pop_bott_1day{float:left; padding:8px 0 0 0;}
+	#layG_divpop1 .pop_bott .pop_bott_1day_txt{float:left; letter-spacing:-0.08em; color:#4e4f55; margin-top:8px; margin-left:3px;}
+	#layG_divpop1 .pop_bott .pop_bott_close a{float:right; display:block; margin: 4px 5px 0 0; text-align:center;}
+	#layG_divpop1 .pop_bott .pop_bott_close a img{width:20px;vertical-align:middle;}
+	/*팝업2*/
+	#layG_divpop2{position:absolute; z-index:9998;}
+	#layG_divpop2 .pop_bott{background-color:#f6f6f6; height:28px;padding:0 10px;}
+	#layG_divpop2 .pop_bott .pop_bott_1day{float:left; padding:8px 0 0 0;}
+	#layG_divpop2 .pop_bott .pop_bott_1day_txt{float:left; letter-spacing:-0.08em; color:#4e4f55; margin-top:8px; margin-left:3px;}
+	#layG_divpop2 .pop_bott .pop_bott_close a{float:right; display:block; margin: 4px 5px 0 0;}
+	#layG_divpop2 .pop_bott .pop_bott_close a img{width:20px;vertical-align:middle;}
+
+@media all and (max-width:1200px){
+	#layG_divpop1{position:relative;left:0 !important;top:0 !important;text-align:center;}
+	#layG_divpop2{position:relative;left:0 !important;top:0 !important;text-align:center;}
+}
+
+@media all and (max-width:768px){
+	
+}
+
+@media all and (max-width:486px){
+	
+}

@@ -1,16 +1,17 @@
 /* ===== 01. MAIN VISUAL — liet.co.kr 메인 배너 모션 값 그대로 =====
    전환 1.25s 크로스페이드 · 배경 110%→100% 5.7s · 문구 48px→0 2.2s · 진행 바 7.5s
    이징: cubic-bezier(.22,1,.36,1) */
-.hero { position: relative; height: calc(850 * var(--s)); overflow: hidden; background: #e9f4fd; }
+/* 헤더가 배너 위에 투명하게 겹치므로 배너는 헤더 높이만큼 위로 늘어남 */
+.hero { position: relative; height: calc(850 * var(--s) + var(--gnb-h)); overflow: hidden; background: #e9f4fd; }
 .hero__slides { position: absolute; inset: 0; }
 .hero__slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 1.25s var(--ease-out), visibility 0s linear 1.25s; }
 .hero__slide.is-active { opacity: 1; visibility: visible; z-index: 1; transition: opacity 1.25s var(--ease-out), visibility 0s; }
 .hero__media { position: absolute; inset: 0; }
-.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: center; transform: scale(1.1); will-change: transform; transition: transform 0s linear 1.25s; }
+.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: center bottom; transform: scale(1.1); will-change: transform; transition: transform 0s linear 1.25s; }
 .hero__slide.is-active .hero__media img { transform: scale(1); transition: transform 5.7s var(--ease-out); }
 .hero__media--devices img { transform-origin: 50% 100%; }
 
-.hero__copy { position: absolute; z-index: 2; display: flex; flex-direction: column; }
+.hero__copy { position: absolute; z-index: 2; display: flex; flex-direction: column; margin-top: var(--gnb-h); }
 .hero__slide.is-active .hero__copy { animation: hero-rise 2.2s var(--ease-out) both; }
 @keyframes hero-rise { from { opacity: 0; transform: translate3d(0, calc(48 * var(--s)), 0); } to { opacity: 1; transform: none; } }
 .hero__copy--center { left: 0; right: 0; align-items: center; text-align: center; }
@@ -68,14 +69,14 @@
 
 /* 1920 초과: 배경은 화면 폭에 맞게, 문구는 1920 기준 가운데 */
 @media (min-width: 1921px) {
-  .hero { height: calc(100vw * 850 / 1920); max-height: 1100px; }
+  .hero { height: calc(100vw * 850 / 1920 + var(--gnb-h)); max-height: 1200px; }
   .hero__copy--left, .hero__copy--s4 { left: calc(50% - 960px + var(--x, 241px)); }
   .hero__copy--s4 { --x: 209px; }
 }
 
 /* ===== 태블릿 ===== */
 @media (max-width: 1024px) {
-  .hero { height: calc(100vw * 560 / 800); }
+  .hero { height: calc(100vw * 560 / 800 + var(--gnb-h)); }
   .hero__eyebrow { font-size: 16px; line-height: 1.4; }
   .hero__title { font-size: 30px; line-height: 1.3; }
   .hero__slide--1 .hero__copy { top: 6%; }
@@ -99,7 +100,7 @@
 }
 /* ===== 모바일 (피그마 375×560 배너) ===== */
 @media (max-width: 767px) {
-  .hero { height: calc(100vw * 560 / 375); max-height: 720px; }
+  .hero { height: calc(100vw * 560 / 375 + var(--gnb-h)); max-height: 784px; }
   .hero__eyebrow { font-size: 12.5px; }
   .hero__title { font-size: 23px; line-height: 1.3; }
   .hero__slide--1 .hero__copy { top: 40px; padding-inline: 20px; }

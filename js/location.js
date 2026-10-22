@@ -1,6 +1,7 @@
 /* =========================================================
    09. 오시는 길 — 약도 위에 마우스를 올리면 실제 구글 지도로 부드럽게 전환
-   - 지도는 처음 올렸을 때만 불러옴 (API 키 불필요한 embed 주소)
+   - 구글 지도는 외부 서버 요청이므로 자동으로 불러오지 않음: 처음 한 번은 약도를 눌러야 불러옴
+     (불러온 뒤에는 마우스를 올리면 약도 ↔ 지도가 부드럽게 전환)
    - 지도를 조작하는 동안(클릭·드래그)은 닫히지 않음, 바깥을 누르거나 × 로 닫음
    - 터치 기기: 탭하면 열림
    ========================================================= */
@@ -15,7 +16,8 @@
   var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   var iframe = null, openT = 0, closeT = 0, inUse = false;
 
-  if (!canHover) hint.textContent = '약도를 누르면 실제 지도를 볼 수 있어요';
+  var ASK = '약도를 누르면 실제 구글 지도를 불러옵니다 (외부 연결)';
+  hint.textContent = ASK;
   map.setAttribute('role', 'button');
   map.setAttribute('tabindex', '0');
   map.setAttribute('aria-label', '실제 구글 지도 보기');
@@ -36,6 +38,7 @@
     iframe.referrerPolicy = 'no-referrer-when-downgrade';
     iframe.allowFullscreen = true;
     live.appendChild(iframe);
+    hint.textContent = canHover ? '마우스를 올리면 실제 지도로 바뀝니다' : '약도를 누르면 실제 지도를 볼 수 있어요';
   }
   function open() {
     clearTimeout(closeT);
@@ -54,9 +57,14 @@
   }
 
   if (canHover) {
-    map.addEventListener('mouseenter', function () { clearTimeout(closeT); openT = setTimeout(open, 160); });
+    map.addEventListener('mouseenter', function () {
+      clearTimeout(closeT);
+      if (!iframe) { map.classList.add('is-ask'); return; }   // 아직 불러오지 않았으면 안내만
+      openT = setTimeout(open, 160);
+    });
     map.addEventListener('mouseleave', function () {
       clearTimeout(openT);
+      map.classList.remove('is-ask');
       if (inUse) return; // 지도를 누른 뒤에는 바깥을 클릭해야 닫힘
       closeT = setTimeout(close, 700);
     });

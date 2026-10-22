@@ -8,10 +8,9 @@
 .news__tabs button[aria-selected="true"]::after { transform: scaleX(1); }
 
 .news__body { position: relative; margin-top: calc(142 * var(--s)); }
-.news__swiper { overflow: visible; padding-left: calc((100vw - 1254 * var(--s)) / 2); }
+/* 카드 4개가 콘텐츠 폭(1254) 안에 보이고, 나머지 카드와 '더보기'는 드래그·스크롤바로 확인 */
+.news__swiper { overflow: hidden; }
 .news__swiper .swiper-wrapper { transition-timing-function: var(--ease-out); }
-.news__swiper .swiper-slide { width: calc(284 * var(--s)); }
-.news__swiper .swiper-slide.ncard-more-slide { width: calc(285 * var(--s)); }
 .news__swiper.is-switching .swiper-slide { opacity: 0; transform: translate3d(0, 24px, 0); }
 .news__swiper .swiper-slide { transition: opacity .5s var(--ease-out), transform .5s var(--ease-out); }
 
@@ -28,18 +27,23 @@
   .ncard:hover .ncard__title { color: var(--navy); }
   .ncard:hover .ncard__play { transform: scale(1.08); background: var(--navy); }
 }
-.ncard-more { display: grid; place-items: center; width: calc(285 * var(--s)); height: calc(285 * var(--s)); border-radius: 50%; border: 3px solid #fff; background: linear-gradient(180deg, #fff 0%, rgb(255 255 255 / .6) 100%); text-align: center; font-weight: 600; font-size: calc(30 * var(--s)); line-height: calc(40 * var(--s)); color: var(--navy); transition: background .45s var(--ease-out), color .45s var(--ease-out); }
+.ncard-more { display: grid; place-items: center; width: 100%; aspect-ratio: 1; border-radius: 50%; border: 3px solid #fff; background: linear-gradient(180deg, #fff 0%, rgb(255 255 255 / .6) 100%); text-align: center; font-weight: 600; font-size: calc(30 * var(--s)); line-height: calc(40 * var(--s)); color: var(--navy); transition: background .45s var(--ease-out), color .45s var(--ease-out); }
 .ncard-more b { display: block; font-weight: 400; }
 .ncard-more:hover { background: var(--navy); color: #fff; }
 
-.news__bar { position: relative; width: calc(600 * var(--s)); height: 5px; margin: calc(100 * var(--s)) auto 0; border-radius: 100px; background: #fff; }
-.news__bar i { position: absolute; left: 0; top: -1.5px; height: 8px; width: calc(200 * var(--s)); border-radius: 100px; background: var(--navy); transition: transform .5s var(--ease-out), width .5s var(--ease-out); }
+/* 스크롤바: 손잡이를 끌면 카드가 따라 움직임 (Swiper Scrollbar) */
+.news__bar { position: relative; width: calc(600 * var(--s)); height: 5px; margin: calc(100 * var(--s)) auto 0; border-radius: 100px; background: #fff; cursor: pointer; touch-action: none; }
+.news__bar::before { content: ""; position: absolute; inset: -12px 0; }
+.news__bar .swiper-scrollbar-drag { position: absolute; left: 0; top: -1.5px; height: 8px; border-radius: 100px; background: var(--navy); cursor: grab; transition: background-color .3s ease; }
+.news__bar .swiper-scrollbar-drag:hover { background: #0f3a7a; }
+.news__bar.swiper-scrollbar-lock { visibility: hidden; }
 
-/* 드래그 커서 (PC) */
-.drag-cursor { position: fixed; left: 0; top: 0; z-index: 50; width: 96px; height: 96px; margin: -48px 0 0 -48px; border-radius: 50%; background: rgb(20 72 149 / .85); color: #fff; font-family: var(--f-eng); font-size: 15px; letter-spacing: .12em; display: grid; place-items: center; pointer-events: none; opacity: 0; transform: scale(.4); transition: opacity .35s var(--ease-out), transform .35s var(--ease-out); }
+/* 드래그 안내 (PC): 마우스 커서는 그대로 보이고, 커서 오른쪽 아래에 작은 표시가 따라다님 */
+.drag-cursor { position: fixed; left: 0; top: 0; z-index: 50; height: 30px; padding: 0 13px; margin: 18px 0 0 16px; border-radius: 999px; background: rgb(20 72 149 / .88); color: #fff; font-family: var(--f-eng); font-size: 12px; line-height: 30px; letter-spacing: .1em; white-space: nowrap; pointer-events: none; opacity: 0; transform: scale(.7); transform-origin: 0 0; transition: opacity .35s var(--ease-out), transform .35s var(--ease-out); }
 .drag-cursor.is-on { opacity: 1; transform: scale(1); }
-.drag-cursor.is-down { transform: scale(.82); }
-.news__body.has-cursor, .news__body.has-cursor a { cursor: none; }
+.drag-cursor.is-down { transform: scale(.9); }
+.news__swiper.is-grab { cursor: grab; }
+.news__swiper.is-grabbing, .news__swiper.is-grabbing a { cursor: grabbing; }
 
 @media (max-width: 1024px) {
   .news { height: auto; padding: 80px 0 64px; }
@@ -47,17 +51,13 @@
   .news__tabs { transform: none; gap: 28px; }
   .news__tabs button { font-size: 20px; line-height: 1.4; }
   .news__body { margin-top: 32px; }
-  .news__swiper { padding-left: 40px; }
-  .news__swiper .swiper-slide { width: 236px; }
-  .news__swiper .swiper-slide.ncard-more-slide { width: 160px; }
   .ncard__thumb { border-radius: 16px; }
   .ncard__title { font-size: 17px; line-height: 1.45; margin-top: 14px; }
   .ncard__date { font-size: 14px; line-height: 1.6; margin-top: 6px; }
   .ncard__play { width: 52px; height: 52px; margin: -26px 0 0 -26px; }
   .ncard__play::before { border-left-width: 15px; border-top-width: 9px; border-bottom-width: 9px; margin-left: 4px; }
-  .ncard-more { width: 160px; height: 160px; font-size: 17px; line-height: 1.4; margin-top: 38px; }
+  .ncard-more { font-size: 17px; line-height: 1.4; }
   .news__bar { width: 240px; margin-top: 40px; }
-  .news__bar i { width: 80px; }
   .drag-cursor { display: none; }
 }
 @media (max-width: 767px) {
@@ -65,13 +65,9 @@
   .news__tabs { gap: 20px; }
   .news__tabs button { font-size: 15px; }
   .news__body { margin-top: 24px; }
-  .news__swiper { padding-left: 20px; }
-  .news__swiper .swiper-slide { width: 150px; }
-  .news__swiper .swiper-slide.ncard-more-slide { width: 110px; }
   .ncard__thumb { border-radius: 12px; }
   .ncard__title { font-size: 14px; margin-top: 10px; }
   .ncard__date { font-size: 12px; margin-top: 4px; }
-  .ncard-more { width: 110px; height: 110px; font-size: 13px; margin-top: 20px; }
+  .ncard-more { font-size: 14px; }
   .news__bar { width: 160px; margin-top: 28px; }
-  .news__bar i { width: 54px; }
 }

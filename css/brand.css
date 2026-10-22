@@ -1,24 +1,27 @@
-/* ===== 05. 브랜드 인터랙션 (피그마 브랜딩 문장) — 앞 섹션을 완전히 덮은 뒤 문구 등장 + 물결 윤슬 ===== */
-.brand { position: relative; z-index: 2; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; overflow: hidden; background: radial-gradient(120% 90% at 50% 45%, #007fc0 0%, #144895 100%); box-shadow: 0 -30px 60px -30px rgb(10 40 90 / .35); }
-.brand__bg { position: absolute; inset: 0; background: url('../assets/img/section/branding-bg.webp') center / cover no-repeat; }
-.brand__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
-.brand__copy { position: relative; z-index: 2; text-align: center; padding-inline: 20px; }
+/* ===== 05. 브랜드 문장 (피그마 브랜딩 문장 1919×523) — 원래 크기, 은은한 모션
+   gradient-hero 모듈(5E1sLiQ2BHDedgcMkDeiDV): 색 덩어리가 천천히 흐르고, 마우스가 지나간 자리에 옅은 물결·윤슬
+   피그마 배경(남색 원형 그라데이션 + 물결 이미지)이 주인공이 되도록 덩어리·물결은 옅게 ===== */
+.brand.gh { --gh-height: calc(523 * var(--s)); --gh-blur: 60px; --gh-grain: .08; position: relative; z-index: 2; min-height: var(--gh-height); background: #144895 url('../assets/img/section/branding-bg.webp') center / cover no-repeat; }
+.brand .gh__bg { opacity: .42; mix-blend-mode: screen; }
+.brand .gh__ripple { opacity: .7; }
+.brand__copy { text-align: center; padding-inline: 20px; }
 .brand__eyebrow { font-size: calc(30 * var(--s)); }
 .brand__title { margin-top: calc(20 * var(--s)); font-weight: 600; font-size: calc(50 * var(--s)); line-height: calc(60 * var(--s)); color: #fff; }
-.brand__title .ch { display: inline-block; white-space: pre; }
-.js-on .brand__eyebrow, .js-on .brand__title .ch { opacity: 0; transform: translate3d(0, 0.6em, 0); filter: blur(6px); }
-/* 다음 섹션(의료진)으로 색이 넘어가는 막 — 스크롤 진행에 따라 투명도만 바뀜 */
-.brand__fade { position: absolute; inset: 0; z-index: 3; background: linear-gradient(180deg, #e9f6ff 0%, #ffffff 100%); opacity: 0; pointer-events: none; }
+.js-on .brand__eyebrow, .js-on .brand__title { opacity: 0; transform: translate3d(0, 24px, 0); }
+/* 의료진 섹션으로 이어지는 밝은 막 — 스크롤에 맞춰 투명도만 천천히 */
+.brand__fade { position: absolute; inset: 0; z-index: 3; background: linear-gradient(180deg, #eaf6ff 0%, #ffffff 100%); opacity: 0; pointer-events: none; }
 
 @media (max-width: 1024px) {
+  .brand.gh { --gh-height: 300px; }
   .brand__eyebrow { font-size: 18px; }
   .brand__title { margin-top: 12px; font-size: 30px; line-height: 1.35; }
 }
+/* 모바일: 피그마 Mobile 375×201 */
 @media (max-width: 767px) {
-  .brand { min-height: 100svh; }
+  .brand.gh { --gh-height: 220px; }
   .brand__eyebrow { font-size: 14px; }
   .brand__title { margin-top: 8px; font-size: 22px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .js-on .brand__eyebrow, .js-on .brand__title .ch { opacity: 1; transform: none; filter: none; }
+  .js-on .brand__eyebrow, .js-on .brand__title { opacity: 1; transform: none; }
 }

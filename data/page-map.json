@@ -1,0 +1,430 @@
+{
+  "note": "순수안피부과 가시안 — 메뉴·카드별 연결 정보. 기존 상세페이지는 원본을 정적으로 복제했고, 운영 홈페이지로 이동·전송되지 않습니다.",
+  "clonedAt": "2026-10-22",
+  "navigation": [
+    {
+      "menu": "순수안 소개",
+      "items": [
+        {
+          "name": "인사말",
+          "original": "https://soonsooan.co.kr/s_1_1",
+          "local": "pages/about/greeting.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 7개 차단"
+        },
+        {
+          "name": "의료진소개",
+          "original": "https://soonsooan.co.kr/s_1_2",
+          "local": "pages/about/doctors.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 7개 차단"
+        },
+        {
+          "name": "시설안내",
+          "original": "https://soonsooan.co.kr/s_1_3",
+          "local": "pages/about/facility.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 7개 차단"
+        },
+        {
+          "name": "진료시간 / 오시는길",
+          "original": "https://soonsooan.co.kr/s_1_4",
+          "local": "pages/about/location.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 7개 차단"
+        },
+        {
+          "name": "보유장비소개",
+          "original": "https://soonsooan.co.kr/s_1_6",
+          "local": "pages/about/equipment.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 7개 차단"
+        }
+      ]
+    },
+    {
+      "menu": "순수안 프리미엄",
+      "items": [
+        {
+          "name": "써마지FLX",
+          "original": "https://soonsooan.co.kr/s_5_1",
+          "local": "pages/premium/thermage.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 11개 차단"
+        },
+        {
+          "name": "악센트프라임(튠페이스)",
+          "original": "https://soonsooan.co.kr/s_5_2",
+          "local": "pages/premium/accent-prime.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 11개 차단"
+        },
+        {
+          "name": "이플러스",
+          "original": "https://soonsooan.co.kr/s_5_3",
+          "local": "pages/premium/eplus.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 11개 차단"
+        },
+        {
+          "name": "브이로 어드밴스",
+          "original": "https://soonsooan.co.kr/s_5_4",
+          "local": "pages/premium/vro-advance.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 11개 차단"
+        },
+        {
+          "name": "브이빔 퍼펙타",
+          "original": "https://soonsooan.co.kr/s_5_5",
+          "local": "pages/premium/vbeam-perfecta.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 11개 차단"
+        },
+        {
+          "name": "피코웨이",
+          "original": "https://soonsooan.co.kr/s_5_6",
+          "local": "pages/premium/picoway.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 11개 차단"
+        },
+        {
+          "name": "헐리우드 스펙트라",
+          "original": "https://soonsooan.co.kr/s_5_7",
+          "local": "pages/premium/hollywood-spectra.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 11개 차단"
+        },
+        {
+          "name": "쥬베룩",
+          "original": "https://soonsooan.co.kr/s_5_8",
+          "local": "pages/premium/juvelook.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 11개 차단"
+        },
+        {
+          "name": "순수안 물광주사",
+          "original": "https://soonsooan.co.kr/s_5_9",
+          "local": "pages/premium/water-glow.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 11개 차단"
+        },
+        {
+          "name": "벨라소닉",
+          "original": "https://soonsooan.co.kr/s_5_10",
+          "local": "pages/premium/bellasonic.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "외부 임베드 정지: https://www.youtube.com/embed/cGRK0NA3K1I · 복제 범위 밖 내부 링크 11개 차단"
+        },
+        {
+          "name": "아스트로돔페이셜",
+          "original": "https://soonsooan.co.kr/s_5_11",
+          "local": "pages/premium/astrodome-facial.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 11개 차단"
+        }
+      ]
+    },
+    {
+      "menu": "시술 및 진료 분야",
+      "items": [
+        {
+          "name": "탄력 / 리프팅 / 모공",
+          "original": "https://soonsooan.co.kr/s_2_1",
+          "local": "pages/treatment/lifting.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 6개 차단"
+        },
+        {
+          "name": "주름 / 보톡스 / 필러",
+          "original": "https://soonsooan.co.kr/s_2_2",
+          "local": "pages/treatment/wrinkle.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 6개 차단"
+        },
+        {
+          "name": "기미 / 색소질환",
+          "original": "https://soonsooan.co.kr/s_2_3",
+          "local": "pages/treatment/pigment.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 6개 차단"
+        },
+        {
+          "name": "여드름치료",
+          "original": "https://soonsooan.co.kr/s_2_4",
+          "local": "pages/treatment/acne.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 6개 차단"
+        },
+        {
+          "name": "안면홍조 / 주사",
+          "original": "https://soonsooan.co.kr/s_2_5",
+          "local": "pages/treatment/redness.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 6개 차단"
+        },
+        {
+          "name": "흉터 / 여드름흉터",
+          "original": "https://soonsooan.co.kr/s_2_6",
+          "local": "pages/treatment/scar.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 6개 차단"
+        },
+        {
+          "name": "탈모",
+          "original": "https://soonsooan.co.kr/s_2_7",
+          "local": "pages/treatment/hair-loss.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 6개 차단"
+        },
+        {
+          "name": "드레싱 / 냉동치료 / 피부질환",
+          "original": "https://soonsooan.co.kr/s_2_8",
+          "local": "pages/treatment/skin-disease.html",
+          "status": "복제 완료",
+          "dynamic": null,
+          "note": "복제 범위 밖 내부 링크 6개 차단"
+        }
+      ]
+    },
+    {
+      "menu": "온라인상담",
+      "items": [
+        {
+          "name": "온라인상담",
+          "original": "https://soonsooan.co.kr/s_3_1",
+          "local": "pages/consult/online.html",
+          "status": "복제 완료",
+          "dynamic": "게시판(온라인상담) 목록 화면만 정적 복제. 글쓰기·검색·로그인 등은 동작하지 않음",
+          "note": "게시글 링크 60개는 목록 페이지로 연결 · 복제 범위 밖 내부 링크 6개 차단 · 입력 폼 포함 → 전송 차단"
+        }
+      ]
+    },
+    {
+      "menu": "순수안 소식",
+      "items": [
+        {
+          "name": "공지사항",
+          "original": "https://soonsooan.co.kr/s_4_1",
+          "local": "pages/news/notice.html",
+          "status": "복제 완료",
+          "dynamic": "게시판 목록 정적 복제. 검색·페이지 이동 불가, 최신 5개 글만 상세 복제",
+          "note": "게시글 링크 12개는 목록 페이지로 연결 · 복제 범위 밖 내부 링크 6개 차단 · 입력 폼 포함 → 전송 차단"
+        },
+        {
+          "name": "치료후기",
+          "original": "https://soonsooan.co.kr/s_4_2",
+          "local": "pages/news/review.html",
+          "status": "복제 완료",
+          "dynamic": "게시판 목록 정적 복제",
+          "note": "복제 범위 밖 내부 링크 6개 차단"
+        }
+      ]
+    }
+  ],
+  "premiumCards": [
+    {
+      "card": "써마지 FLX",
+      "local": "pages/premium/thermage.html",
+      "original": "https://soonsooan.co.kr/s_5_1",
+      "status": "연결"
+    },
+    {
+      "card": "울쎄라피 프라임",
+      "local": null,
+      "original": null,
+      "status": "확인 필요 — 기존 홈페이지에 상세페이지가 없음(메뉴에도 없음). 링크·CTA 미적용"
+    },
+    {
+      "card": "악센트프라임(튠페이스)",
+      "local": "pages/premium/accent-prime.html",
+      "original": "https://soonsooan.co.kr/s_5_2",
+      "status": "연결"
+    },
+    {
+      "card": "브이로 어드밴스",
+      "local": "pages/premium/vro-advance.html",
+      "original": "https://soonsooan.co.kr/s_5_4",
+      "status": "연결"
+    },
+    {
+      "card": "브이빔 퍼펙타",
+      "local": "pages/premium/vbeam-perfecta.html",
+      "original": "https://soonsooan.co.kr/s_5_5",
+      "status": "연결"
+    },
+    {
+      "card": "피코웨이",
+      "local": "pages/premium/picoway.html",
+      "original": "https://soonsooan.co.kr/s_5_6",
+      "status": "연결"
+    },
+    {
+      "card": "헐리우드 스펙트라",
+      "local": "pages/premium/hollywood-spectra.html",
+      "original": "https://soonsooan.co.kr/s_5_7",
+      "status": "연결"
+    },
+    {
+      "card": "순수안 물광주사",
+      "local": "pages/premium/water-glow.html",
+      "original": "https://soonsooan.co.kr/s_5_9",
+      "status": "연결"
+    }
+  ],
+  "otherPages": [
+    {
+      "name": "개인정보처리방침",
+      "original": "https://soonsooan.co.kr/etc_1_1",
+      "local": "pages/etc/privacy.html",
+      "status": "복제 완료",
+      "dynamic": null,
+      "note": "복제 범위 밖 내부 링크 6개 차단"
+    },
+    {
+      "name": "이용약관",
+      "original": "https://soonsooan.co.kr/etc_1_2",
+      "local": "pages/etc/terms.html",
+      "status": "복제 완료",
+      "dynamic": null,
+      "note": "복제 범위 밖 내부 링크 6개 차단"
+    },
+    {
+      "name": "로그인",
+      "original": "https://soonsooan.co.kr/index.php?mid=index&act=dispMemberLoginForm",
+      "local": "pages/etc/login.html",
+      "status": "복제 완료",
+      "dynamic": "로그인 화면 모양만 복제. 입력값은 전송되지 않음",
+      "note": "복제 범위 밖 내부 링크 8개 차단 · 입력 폼 포함 → 전송 차단"
+    },
+    {
+      "name": "공지 5685",
+      "original": "https://soonsooan.co.kr/s_4_1/5685",
+      "local": "pages/news/notice-5685.html",
+      "status": "복제 완료",
+      "dynamic": null,
+      "note": "게시글 링크 12개는 목록 페이지로 연결 · 복제 범위 밖 내부 링크 8개 차단 · 입력 폼 포함 → 전송 차단"
+    },
+    {
+      "name": "공지 5610",
+      "original": "https://soonsooan.co.kr/s_4_1/5610",
+      "local": "pages/news/notice-5610.html",
+      "status": "복제 완료",
+      "dynamic": null,
+      "note": "게시글 링크 12개는 목록 페이지로 연결 · 복제 범위 밖 내부 링크 10개 차단 · 입력 폼 포함 → 전송 차단"
+    },
+    {
+      "name": "공지 5624",
+      "original": "https://soonsooan.co.kr/s_4_1/5624",
+      "local": "pages/news/notice-5624.html",
+      "status": "복제 완료",
+      "dynamic": null,
+      "note": "게시글 링크 12개는 목록 페이지로 연결 · 복제 범위 밖 내부 링크 8개 차단 · 입력 폼 포함 → 전송 차단"
+    },
+    {
+      "name": "공지 5580",
+      "original": "https://soonsooan.co.kr/s_4_1/5580",
+      "local": "pages/news/notice-5580.html",
+      "status": "복제 완료",
+      "dynamic": null,
+      "note": "게시글 링크 14개는 목록 페이지로 연결 · 복제 범위 밖 내부 링크 10개 차단 · 입력 폼 포함 → 전송 차단"
+    },
+    {
+      "name": "공지 5457",
+      "original": "https://soonsooan.co.kr/s_4_1/5457",
+      "local": "pages/news/notice-5457.html",
+      "status": "복제 완료",
+      "dynamic": null,
+      "note": "게시글 링크 13개는 목록 페이지로 연결 · 복제 범위 밖 내부 링크 11개 차단 · 입력 폼 포함 → 전송 차단"
+    }
+  ],
+  "external": [
+    {
+      "name": "유튜브 쇼츠 (@purelogue)",
+      "url": "https://www.youtube.com/@purelogue",
+      "how": "클릭 시 새 창"
+    },
+    {
+      "name": "네이버 블로그",
+      "url": "https://blog.naver.com/soonsooan",
+      "how": "클릭 시 새 창"
+    },
+    {
+      "name": "네이버·카카오·구글 지도 버튼",
+      "how": "클릭 시 새 창"
+    },
+    {
+      "name": "오시는 길 구글 지도",
+      "how": "약도를 클릭해야 불러옴 (자동 로드 안 함)"
+    },
+    {
+      "name": "벨라소닉 페이지 유튜브 영상",
+      "how": "자동 재생 안 함, 클릭 시 새 창"
+    }
+  ],
+  "notIncluded": [
+    "순수안 프리미엄 숨김 메뉴(뉴테라 리프팅 s_5_21, 브이빔 s_5_23 등 5개): 현재 메뉴에 없어 복제하지 않음 — 클릭 시 안내만 표시",
+    "s_1_5: 메뉴에 없는 페이지 — 복제하지 않음",
+    "게시판 첨부파일 다운로드, 아이디/비밀번호 찾기, 회원가입: 서버 기능이라 차단",
+    "카카오톡 상담·인스타그램 주소: 기존 홈페이지에서 확인되지 않음"
+  ],
+  "missingResources": [
+    "https://soonsooan.co.kr/layouts/main_layout/css/NotoSansCJKkr-Bold.eot (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/css/NotoSansCJKkr-Bold.woff (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/css/NotoSansCJKkr-Light.eot (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/css/NotoSansCJKkr-Light.woff (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/css/NotoSansCJKkr-Regular.eot (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/css/NotoSansCJKkr-Regular.woff (404)",
+    "https://fonts.googleapis.com/earlyaccess/NanumSquare.css (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/imgs/default/default_02.png (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/css/layouts/respon_office/css/ie-css3.htc (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/feathericons/feathericons.eot?-8is7zf (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/feathericons/feathericons.eot?#iefix-8is7zf (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/feathericons/feathericons.woff?-8is7zf (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/feathericons/feathericons.ttf?-8is7zf (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/feathericons/feathericons.svg?-8is7zf#feathericons (404)",
+    "http://mediweb.dothome.co.kr/layouts/theFrame/img/main_s5_05.png (0)",
+    "http://mediweb.dothome.co.kr/layouts/theFrame/img/main_s5_a_05.png (0)",
+    "http://mediweb.dothome.co.kr/layouts/theFrame/img/main_s5_06.png (0)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Thin.woff2 (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Thin.woff (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Thin.otf (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Light.woff2 (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Light.woff (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Light.otf (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Regular.woff2 (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Regular.woff (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Regular.otf (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Medium.woff2 (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Medium.woff (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Medium.otf (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Bold.woff2 (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Bold.woff (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Bold.otf (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Black.woff2 (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Black.woff (404)",
+    "https://soonsooan.co.kr/layouts/main_layout/fonts/NotoSansKR-Black.otf (404)"
+  ]
+}

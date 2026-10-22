@@ -12,7 +12,6 @@
 
   var body = section.querySelector('.news__body');
   var el = section.querySelector('.news__swiper');
-  var thumb = section.querySelector('.news__bar i');
   var tabs = Array.from(section.querySelectorAll('[role="tab"]'));
   var MAX = 5;
 
@@ -21,38 +20,41 @@
   function slidesFor(key) {
     var cat = feeds[key];
     var html = cat.items.slice(0, MAX).map(function (it) {
-      return '<div class="swiper-slide"><a class="ncard ncard--' + key + '" href="' + esc(it.url) + '" target="_blank" rel="noopener">' +
+      return '<div class="swiper-slide"><a class="ncard ncard--' + key + '" href="' + esc(it.url) + '"' + (/^https?:/.test(it.url) ? ' target="_blank" rel="noopener"' : '') + '>' +
         '<span class="ncard__thumb"><img src="' + esc(it.thumb) + '" alt="" loading="lazy" draggable="false">' +
         (key === 'youtube' ? '<span class="ncard__play" aria-hidden="true"></span>' : '') + '</span>' +
         '<span class="ncard__title">' + esc(it.title) + '</span>' +
         (it.date ? '<span class="ncard__date">' + esc(it.date) + '</span>' : '') +
         '</a></div>';
     });
-    html.push('<div class="swiper-slide ncard-more-slide"><a class="ncard-more" href="' + esc(cat.more) + '" target="_blank" rel="noopener"><span>' +
+    html.push('<div class="swiper-slide ncard-more-slide"><a class="ncard-more" href="' + esc(cat.more) + '"' + (/^https?:/.test(cat.more) ? ' target="_blank" rel="noopener"' : '') + '><span>' +
       esc(cat.moreLabel || (cat.label + ' 더보기')).replace(' 더보기', '<b>더보기 ⟶</b>') + '</span></a></div>');
     return html;
   }
 
-  function sideGap() { return parseFloat(getComputedStyle(el).paddingLeft) || 0; }
+  var bar = section.querySelector('.news__bar');
+  function dragSize() { return window.innerWidth > 1024 ? Math.round(200 * Math.min(1, window.innerWidth / 1920)) : 'auto'; }
 
+  // PC 4개 · 태블릿 3개 · 모바일 2개가 보이고, 나머지 카드와 '더보기'는 끌어서(드래그·스크롤바·트랙패드 가로 스크롤) 확인
   var swiper = new Swiper(el, {
-    slidesPerView: 'auto',
+    slidesPerView: 2,
     spaceBetween: 12,
     speed: 700,
     grabCursor: false,
-    watchSlidesProgress: true,
-    slidesOffsetAfter: sideGap(),
-    breakpoints: { 768: { spaceBetween: 20 }, 1025: { spaceBetween: Math.round(40 * Math.min(1, window.innerWidth / 1920)) } },
+    watchOverflow: true,
+    mousewheel: { forceToAxis: true, releaseOnEdges: true },
+    scrollbar: { el: bar, draggable: true, dragSize: dragSize(), snapOnRelease: true },
+    breakpoints: {
+      768: { slidesPerView: 3, spaceBetween: 20 },
+      1025: { slidesPerView: 4, spaceBetween: Math.round(40 * Math.min(1, window.innerWidth / 1920)) }
+    },
     on: {
-      progress: function (s, p) { moveThumb(p); },
-      resize: function (s) { s.params.slidesOffsetAfter = sideGap(); s.update(); }
+      resize: function (s) { s.params.scrollbar.dragSize = dragSize(); if (s.scrollbar) s.scrollbar.updateSize(); },
+      touchStart: function () { el.classList.add('is-grabbing'); },
+      touchEnd: function () { el.classList.remove('is-grabbing'); }
     }
   });
-
-  function moveThumb(p) {
-    var track = thumb.parentNode.clientWidth, w = thumb.offsetWidth;
-    thumb.style.transform = 'translateX(' + (Math.max(0, Math.min(1, p)) * (track - w)).toFixed(1) + 'px)';
-  }
+  el.classList.add('is-grab');
 
   function fill(key, animate) {
     swiper.removeAllSlides();
@@ -60,7 +62,7 @@
     swiper.slides.forEach(function (s, i) { s.style.transitionDelay = animate ? (i * 0.08) + 's' : '0s'; });
     swiper.update();
     swiper.slideTo(0, 0);
-    moveThumb(0);
+    if (swiper.scrollbar) { swiper.scrollbar.updateSize(); swiper.scrollbar.setTranslate(); }
   }
 
   var current = 'notice', busy = false;
@@ -93,21 +95,21 @@
 
   /* ----- DRAG 커서 (마우스 기기 PC) ----- */
   var cursor = section.querySelector('.drag-cursor');
+  document.body.appendChild(cursor); // 등장 모션(transform)이 걸린 부모 안에 있으면 fixed 위치가 어긋나므로 body로 옮김
   if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 1024) {
-    body.classList.add('has-cursor');
     var cx = 0, cy = 0, tx = 0, ty = 0, on = false, raf = 0;
     function loop() {
       cx += (tx - cx) * 0.18; cy += (ty - cy) * 0.18;
       cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
       raf = on || Math.abs(tx - cx) > 0.5 ? requestAnimationFrame(loop) : 0;
     }
-    body.addEventListener('mousemove', function (e) {
+    el.addEventListener('mousemove', function (e) {
       tx = e.clientX; ty = e.clientY;
       if (!on) { on = true; cx = tx; cy = ty; cursor.classList.add('is-on'); }
       if (!raf) raf = requestAnimationFrame(loop);
     });
-    body.addEventListener('mouseleave', function () { on = false; cursor.classList.remove('is-on', 'is-down'); });
-    body.addEventListener('mousedown', function () { cursor.classList.add('is-down'); });
+    el.addEventListener('mouseleave', function () { on = false; cursor.classList.remove('is-on', 'is-down'); });
+    el.addEventListener('mousedown', function () { cursor.classList.add('is-down'); });
     window.addEventListener('mouseup', function () { cursor.classList.remove('is-down'); });
     window.addEventListener('scroll', function () { if (on) { on = false; cursor.classList.remove('is-on'); } }, { passive: true });
   }
