@@ -56,9 +56,10 @@
     /* PC: 스크롤 양에 맞춰 천천히 덮기
        ① 순수안 소식이 화면에 다 보인 채 멈춤(고정) → ② 화면 높이의 35%만큼은 그대로 머묾(소식 둘러보기)
        ③ 그다음 치료 프로그램이 아래에서 올라옴: 올라오는 거리의 1.8배를 스크롤해야 헤더 아래에 닿음 (스크롤보다 느리게)
-       ④ 위로 스크롤하면 같은 길을 되돌아 내려감. 움직임은 부드럽게 따라옴(약 0.7초) */
+       ④ 헤더 아래에 닿으면 화면 높이의 45%만큼 그 자리에 걸려 있다가, 이후 평소처럼 아래로 스크롤됨
+       ⑤ 위로 스크롤하면 같은 길을 되돌아 내려감. 움직임은 부드럽게 따라옴(약 0.7초) */
     stack.classList.add('is-immersive');
-    var geo = { P0: 0, S: 1, R: 1, y0: 0 };
+    var geo = { P0: 0, S: 1, R: 1, Hd: 0, y0: 0 };
     function measure() {
       var vh = window.innerHeight, g = gnbH(), nh = under.offsetHeight;
       var U = Math.min(g, vh - nh);                 // 소식이 멈추는 위치 (아래 끝이 화면 아래에 닿을 때)
@@ -66,23 +67,31 @@
       var N0 = nh + U;                              // 멈춘 순간, 치료 프로그램 윗변의 원래 화면 위치
       var S = Math.round(vh * 0.35);                // 머무는 구간 (화면 높이의 35%)
       var R = Math.round((vh - g) * 1.8);           // 올라오는 구간 (이동 거리 × 1.8)
-      var M = Math.max(0, S + R + g - N0);          // 그만큼 스크롤 길이를 늘림
+      var Hd = Math.round(vh * 0.45);               // 헤더 아래에 걸려 있는 구간 (화면 높이의 45%)
+      var M = Math.max(0, S + R + Hd + g - N0);     // 그만큼 스크롤 길이를 늘림
       cover.style.marginTop = M + 'px';
-      geo = { P0: stack.getBoundingClientRect().top + window.scrollY - U, S: S, R: R, y0: vh - N0 - M };
+      geo = { P0: stack.getBoundingClientRect().top + window.scrollY - U, S: S, R: R, Hd: Hd, y0: vh - N0 - M };
     }
+    // 치료 프로그램을 원래 위치에서 얼마나 옮길지 (진행 위치 t: 머묾 → 올라옴 → 걸림)
     function offset(p) {
-      var t = p * (geo.S + geo.R);
-      return t < geo.S ? geo.y0 + t : (geo.y0 + geo.S) * (1 - (t - geo.S) / geo.R);
+      var total = geo.S + geo.R + geo.Hd, t = p * total;
+      if (t < geo.S) return geo.y0 + t;                                   // 화면 아래에서 대기
+      if (t < geo.S + geo.R) {                                            // 천천히 올라옴
+        var from = geo.y0 + geo.S, to = -geo.Hd;
+        return from + (to - from) * (t - geo.S) / geo.R;
+      }
+      return t - total;                                                   // 헤더 아래에 고정 (-Hd → 0)
     }
+    function reached(p) { return p * (geo.S + geo.R + geo.Hd) >= geo.S + geo.R * 0.9; }
     var follow = gsap.quickTo(cover, 'y', { duration: 0.7, ease: 'power3.out' });
     measure();
     gsap.set(cover, { y: geo.y0 });
     ScrollTrigger.addEventListener('refreshInit', measure);
     var rise = ScrollTrigger.create({
       start: function () { return geo.P0; },
-      end: function () { return geo.P0 + geo.S + geo.R; },
+      end: function () { return geo.P0 + geo.S + geo.R + geo.Hd; },
       invalidateOnRefresh: true,
-      onUpdate: function (self) { follow(offset(self.progress)); if (self.progress > 0.9) play(); },
+      onUpdate: function (self) { follow(offset(self.progress)); if (reached(self.progress)) play(); },
       onLeave: function () { follow(0); play(); },
       onLeaveBack: function () { follow(geo.y0); },
       onRefresh: function (self) { gsap.set(cover, { y: offset(self.progress) }); }

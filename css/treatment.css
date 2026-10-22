@@ -3,6 +3,9 @@
    치료 프로그램 묶음이 위로 올라와 덮은 뒤 → 제목 → 카드 순서로 등장 (js/cover-reveal.js) */
 .ss-stack { position: relative; isolation: isolate; }
 .ss-stack.is-immersive > [data-under] { position: sticky; top: var(--under-top, 0px); z-index: 0; }
+/* 소식이 멈춰 있는 동안 아래에 흰 여백이 보이지 않도록 소식 배경을 화면 아래 끝까지 늘림 (내용 위치는 그대로) */
+.ss-stack.is-immersive > .news { min-height: calc(100vh - var(--gnb-h)); }
+@supports (height: 100svh) { .ss-stack.is-immersive > .news { min-height: calc(100svh - var(--gnb-h)); } }
 .ss-cover { position: relative; z-index: 1; }
 .ss-stack.is-immersive .treat { box-shadow: 0 -30px 60px -30px rgb(10 40 90 / .22); }
 
