@@ -1,8 +1,8 @@
 /* ===== 01. MAIN VISUAL — liet.co.kr 메인 배너 모션 값 그대로 =====
    전환 1.25s 크로스페이드 · 배경 110%→100% 5.7s · 문구 48px→0 2.2s · 진행 바 7.5s
    이징: cubic-bezier(.22,1,.36,1) */
-/* 헤더가 배너 위에 투명하게 겹치므로 배너는 헤더 높이만큼 위로 늘어남 */
-.hero { position: relative; height: calc(850 * var(--s) + var(--gnb-h)); overflow: hidden; background: #e9f4fd; }
+/* 피그마 1920×1080 배너(97:479). 헤더가 배너 위에 투명하게 겹치므로 헤더 높이만큼 위로 늘어남 (이미지도 1920×1180) */
+.hero { position: relative; height: calc(1080 * var(--s) + var(--gnb-h)); overflow: hidden; background: #e9f4fd; }
 .hero__slides { position: absolute; inset: 0; }
 .hero__slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 1.25s var(--ease-out), visibility 0s linear 1.25s; }
 .hero__slide.is-active { opacity: 1; visibility: visible; z-index: 1; transition: opacity 1.25s var(--ease-out), visibility 0s; }
@@ -27,22 +27,23 @@
 .hero__desc strong { font-weight: 600; color: var(--navy); }
 
 /* 슬라이드 1: 가운데 */
-.hero__slide--1 .hero__copy { top: calc(77 * var(--s)); }
+.hero__slide--1 .hero__copy { top: calc(169 * var(--s)); }
 .hero__slide--1 .hero__title { font-size: calc(50 * var(--s)); line-height: calc(60 * var(--s)); margin-top: calc(15 * var(--s)); }
 .hero__slide--1 .hero__btn { margin-top: calc(31 * var(--s)); }
 /* 슬라이드 2: 왼쪽 */
-.hero__slide--2 .hero__copy { top: calc(77 * var(--s)); left: calc(241 * var(--s)); width: calc(771 * var(--s)); }
+.hero__slide--2 .hero__copy { top: calc(169 * var(--s)); left: calc(241 * var(--s)); width: calc(771 * var(--s)); }
 .hero__slide--2 .hero__title { margin-top: calc(20 * var(--s)); }
 .hero__slide--2 .hero__sub { font-size: calc(35 * var(--s)); line-height: calc(50 * var(--s)); margin-top: calc(10 * var(--s)); }
 .hero__slide--2 .hero__desc { margin-top: calc(33 * var(--s)); }
 .hero__slide--2 .hero__btn { margin-top: calc(49 * var(--s)); }
 /* 슬라이드 3: 가운데 */
-.hero__copy--s3 { top: calc(134 * var(--s)); }
+.hero__copy--s3 { top: calc(226 * var(--s)); }
 .hero__copy--s3 .hero__title { margin-top: calc(33 * var(--s)); }
 .hero__copy--s3 .hero__sub { font-size: calc(30 * var(--s)); line-height: calc(50 * var(--s)); margin-top: calc(10 * var(--s)); }
 .hero__copy--s3 .hero__desc { width: calc(687 * var(--s)); margin-top: calc(33 * var(--s)); }
+.hero__badge { width: calc(170 * var(--s)); height: auto; margin-top: calc(85 * var(--s)); }
 /* 슬라이드 4: 왼쪽, 짙은 배경 */
-.hero__copy--s4 { top: calc(77 * var(--s)); left: calc(209 * var(--s)); width: calc(751 * var(--s)); }
+.hero__copy--s4 { top: calc(169 * var(--s)); left: calc(209 * var(--s)); width: calc(751 * var(--s)); }
 .hero__copy--s4 .hero__eyebrow { color: var(--pale); }
 .hero__copy--s4 .hero__title { color: #fff; line-height: calc(70 * var(--s)); margin-top: calc(20 * var(--s)); }
 .hero__copy--s4 .hero__title .pale { color: var(--pale); }
@@ -69,7 +70,7 @@
 
 /* 1920 초과: 배경은 화면 폭에 맞게, 문구는 1920 기준 가운데 */
 @media (min-width: 1921px) {
-  .hero { height: calc(100vw * 850 / 1920 + var(--gnb-h)); max-height: 1200px; }
+  .hero { height: calc(100vw * 1080 / 1920 + var(--gnb-h)); max-height: 1500px; }
   .hero__copy--left, .hero__copy--s4 { left: calc(50% - 960px + var(--x, 241px)); }
   .hero__copy--s4 { --x: 209px; }
 }
@@ -90,6 +91,7 @@
   .hero__desc { font-size: 14px; line-height: 1.55; margin-top: 14px !important; }
   .hero__slide--2 .hero__btn { margin-top: 20px; }
   .hero__line { height: 36px; margin-top: 16px; }
+  .hero__badge { width: 96px; margin-top: 22px; }
   .hero__copy--s4 .hero__title { line-height: 1.35; }
   .hero__controls { bottom: 24px; gap: 10px; padding: 4px 14px; }
   .hero__num { font-size: 14px; }
@@ -115,6 +117,7 @@
   .hero__btn { min-width: 0; height: 36px; padding-inline: 18px; font-size: 13px; }
   .hero__slide--1 .hero__btn, .hero__slide--2 .hero__btn { margin-top: 14px; }
   .hero__line { height: 26px; margin-top: 12px; }
+  .hero__badge { display: none; }
   .hero__controls { bottom: 16px; padding: 2px 12px; }
   .hero__progress { width: 64px; }
 }

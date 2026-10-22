@@ -50,7 +50,8 @@
     gsap.set(el, { opacity: 1, y: 0, clipPath: 'inset(100% 0% 0% 0%)' });
     if (img) gsap.set(img, { scale: 1.08 });
     onEnter(el, 'top 85%', function () {
-      gsap.to(el, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.3, ease: 'power3.inOut', clearProps: 'clipPath' });
+      // 끝나면 clip-path 를 없앰 (clearProps 로 지우면 CSS 의 시작 상태(가림)가 다시 적용됨)
+      gsap.to(el, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.3, ease: 'power3.inOut', onComplete: function () { el.style.clipPath = 'none'; } });
       if (img) gsap.to(img, { scale: 1, duration: 1.6, ease: EASE });
     });
   });

@@ -21,8 +21,7 @@
     var cat = feeds[key];
     var html = cat.items.slice(0, MAX).map(function (it) {
       return '<div class="swiper-slide"><a class="ncard ncard--' + key + '" href="' + esc(it.url) + '"' + (/^https?:/.test(it.url) ? ' target="_blank" rel="noopener"' : '') + '>' +
-        '<span class="ncard__thumb"><img src="' + esc(it.thumb) + '" alt="" loading="lazy" draggable="false">' +
-        (key === 'youtube' ? '<span class="ncard__play" aria-hidden="true"></span>' : '') + '</span>' +
+        '<span class="ncard__thumb"><img src="' + esc(it.thumb) + '" alt="" loading="lazy" draggable="false"></span>' +
         '<span class="ncard__title">' + esc(it.title) + '</span>' +
         (it.date ? '<span class="ncard__date">' + esc(it.date) + '</span>' : '') +
         '</a></div>';
@@ -57,6 +56,12 @@
   el.classList.add('is-grab');
 
   function fill(key, animate) {
+    // 유튜브는 세로 카드(피그마 284×411)라 섹션 높이가 1103으로 늘어남 → 고정·덮기 위치 다시 계산
+    var tall = key === 'youtube';
+    if (section.classList.contains('is-youtube') !== tall) {
+      section.classList.toggle('is-youtube', tall);
+      requestAnimationFrame(function () { window.dispatchEvent(new Event('resize')); if (window.ScrollTrigger) ScrollTrigger.refresh(); });
+    }
     swiper.removeAllSlides();
     swiper.appendSlide(slidesFor(key));
     swiper.slides.forEach(function (s, i) { s.style.transitionDelay = animate ? (i * 0.08) + 's' : '0s'; });

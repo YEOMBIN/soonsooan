@@ -9,7 +9,11 @@
 .contact__agree input:checked::after { transform: rotate(-45deg) translate(1px, -1px) scale(1); }
 .contact__agree a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .contact__agree.is-error { color: #ffd3d3; }
-.contact__side .btn--lg { margin-top: calc(21 * var(--s)); }
+.contact__side .btn--lg { margin-top: calc(21 * var(--s)); transition: background-color .35s ease, color .35s ease, box-shadow .35s ease; }
+/* 상태 구분: 호버 = 흰색, 누르는 중 = 차콜 #242424, 키보드 포커스 = 차콜 #2b2b2b + 하늘색 테두리 */
+.contact__side .btn--lg:hover { background: #fff; color: var(--navy); }
+.contact__side .btn--lg:active { background: #242424; color: #fff; }
+.contact__side .btn--lg:focus-visible { background: #2b2b2b; color: #fff; outline: 3px solid var(--pale); outline-offset: 3px; }
 
 .contact__form { position: relative; width: calc(737 * var(--s)); display: grid; gap: calc(30 * var(--s)); }
 .field { display: flex; justify-content: space-between; align-items: flex-start; }

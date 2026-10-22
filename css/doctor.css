@@ -11,7 +11,9 @@
 .doctor__desc { margin-top: calc(50 * var(--s)); font-size: calc(30 * var(--s)); line-height: calc(46 * var(--s)); color: var(--gray); }
 .doctor__text .btn { margin-top: calc(50 * var(--s)); }
 .doctor__photo { position: absolute; top: calc(-10 * var(--s)); left: calc(769 * var(--s)); width: calc(505 * var(--s)); height: calc(862 * var(--s)); }
-.doctor__photo > img:first-child { position: absolute; left: calc(37 * var(--s)); top: calc(32 * var(--s)); width: calc(432 * var(--s)); height: auto; }
+/* 피그마 마스크 505×862: 오른쪽 아래 모서리 반지름 1000 → 폭 기준 1/4 원. 사진은 마스크 안 (37, 32) 위치에 432×830 */
+.doctor__mask { position: absolute; inset: 0; overflow: hidden; border-bottom-right-radius: 9999px; }
+.doctor__mask img { position: absolute; left: 7.33%; top: 3.71%; width: 85.54%; height: auto; }
 .doctor__badge { position: absolute; left: calc(368 * var(--s)); top: calc(568 * var(--s)); width: calc(118 * var(--s)); height: auto; }
 
 @media (min-width: 1921px) { .doctor { background-size: cover; } }
@@ -25,9 +27,10 @@
   .doctor__lead { margin-top: 20px; font-size: 21px; line-height: 1.55; }
   .doctor__desc { margin-top: 18px; font-size: 16px; line-height: 1.6; }
   .doctor__text .btn { margin-top: 26px; }
-  .doctor__photo { position: relative; top: auto; left: auto; width: 100%; height: auto; }
-  .doctor__photo > img:first-child { position: static; width: 100%; }
-  .doctor__badge { left: auto; right: -6px; top: auto; bottom: 18%; width: 72px; }
+  /* 태블릿 피그마: 마스크 300×512, 배지 70 (230, 432) */
+  .doctor__top { grid-template-columns: 1fr 300px; }
+  .doctor__photo { position: relative; top: auto; left: auto; width: 300px; height: 512px; }
+  .doctor__badge { left: 76.67%; top: 84.38%; width: 70px; }
 }
 /* 모바일: 사진 가운데 220 폭 → 이름·소개 가운데 정렬 (피그마 Mobile) */
 @media (max-width: 767px) {
@@ -35,8 +38,9 @@
   .doctor__top { display: flex; flex-direction: column; gap: 0; }
   .doctor__info { display: contents; }
   .doctor__info .sec-head { order: 0; align-self: stretch; }
-  .doctor__photo { order: 1; width: 188px; margin: 24px auto 0; }
-  .doctor__badge { right: -16px; bottom: 0; width: 56px; }
+  /* 모바일 피그마: 마스크 220×376 가운데, 배지 56 (164, 310) */
+  .doctor__photo { order: 1; width: 220px; height: 376px; margin: 24px auto 0; }
+  .doctor__badge { left: 74.55%; top: 82.45%; width: 56px; }
   .doctor__text { order: 2; margin-top: 24px; text-align: center; }
   .doctor__name { font-size: 24px; }
   .doctor__name small { font-size: 15px; margin-left: 8px; }
