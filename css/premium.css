@@ -1,6 +1,6 @@
 /* ===== 04. 프리미엄 라인업 (피그마 157:1912) — 카드 90% 크기, 끊김 없는 무한 흐름 ===== */
-/* 피그마 181 → 영문 흐름이 의료진 섹션으로 옮겨가 아래가 비어 섹션을 60px 아래로 */
-.premium { margin-top: calc(241 * var(--s)); }
+/* 원장님 수정(2026-11): 프리미엄이 묶음의 맨 위(소식 바로 다음)로 올라감 → 위 여백은 .treat 의 위 여백(121)이 담당 */
+.premium { margin-top: 0; }
 /* 아래 여백 = 호버 CTA 자리 (카드 밖이라 잘리지 않게). 영문 흐름까지의 전체 간격은 피그마(설명 아래 210)와 같음 */
 .premium__viewport { position: relative; margin-top: calc(20 * var(--s)); padding-bottom: calc(56 * var(--s)); overflow: hidden; }
 .premium__track { display: flex; gap: calc(50 * var(--s)); width: max-content; will-change: transform; }
@@ -29,7 +29,7 @@
 
 
 @media (max-width: 1024px) {
-  .premium { margin-top: 72px; }
+  .premium { margin-top: 0; }
   .premium__viewport { margin-top: 32px; padding-bottom: 36px; }
   .premium__track { gap: 24px; }
   .pcard { width: 380px; }
@@ -40,7 +40,7 @@
 }
 /* 모바일: 피그마 카드 255×215, 화살표 32 */
 @media (max-width: 767px) {
-  .premium { margin-top: 64px; }
+  .premium { margin-top: 0; }
   .premium__viewport { margin-top: 24px; padding-bottom: 30px; }
   .premium__track { gap: 16px; }
   .pcard { width: 255px; }

@@ -1,8 +1,10 @@
 /* =========================================================
-   순수안 소식 → 피부 고민별 치료 프로그램: 스크롤 리빌 (와이어프레임 HfojThAnJysSSjGBbEMA4Z)
-   ① 순수안 소식은 화면에 멈춰 있고, 스크롤을 더 내리면 치료 프로그램이 천천히 올라와 덮음 (헤더 바로 아래에 멈춤)
-   ② 덮기가 끝날 즈음 제목이 한 글자씩 → 카드가 차례로 등장 (한 번만)
-   ③ 위로 스크롤하면 치료 프로그램이 다시 내려가 순수안 소식이 보임
+   순수안 소식 → 프리미엄 라인업(+ 치료 프로그램): 스크롤 리빌 (와이어프레임 HfojThAnJysSSjGBbEMA4Z)
+   원장님 수정(2026-11): 순서가 소식 → SOONSOOAN PREMIUM → SIGNATURE SOLUTION 으로 바뀜
+   ① 순수안 소식은 화면에 멈춰 있고, 스크롤을 더 내리면 프리미엄·치료 프로그램 묶음이 천천히 올라와 덮음 (헤더 바로 아래에 멈춤)
+   ② 덮기가 끝날 즈음 프리미엄 제목이 한 글자씩 → 장비 카드 띠가 등장 (한 번만)
+   ③ 이어지는 치료 프로그램은 화면에 들어오면 제목(js/animations.js) → 카드가 차례로 등장
+   ④ 위로 스크롤하면 묶음이 다시 내려가 순수안 소식이 보임
    PC(768 이상)만. 모바일·동작 줄이기는 일반 스크롤 + 등장만
    ========================================================= */
 (function () {
@@ -13,18 +15,28 @@
   var under = stack.querySelector('[data-under]');
   var cover = document.getElementById('treatment-wrap');
   var head = cover.querySelector('[data-cover-head]');
-  var cards = Array.from(cover.querySelectorAll('[data-cover-cards] > li'));
+  var cards = Array.from(cover.querySelectorAll('[data-cover-item]'));
+  var tGrid = cover.querySelector('[data-cards]');
+  var tCards = tGrid ? Array.from(tGrid.children) : [];
   var gnb = document.getElementById('gnb');
   var eyebrow = head.querySelector('.eyebrow');
   var title = head.querySelector('.sec-title');
 
   // 제목 글자 나누기 (단어 단위로 감싸 줄바꿈 유지, 글자는 아래에서 올라옴)
-  var label = title.textContent.trim();
-  title.setAttribute('aria-label', label);
-  title.innerHTML = label.split(' ').map(function (w) {
-    return '<span class="mk" aria-hidden="true">' + Array.from(w).map(function (c) { return '<span class="mk__c">' + c + '</span>'; }).join('') + '</span>';
-  }).join(' ');
-  var chars = title.querySelectorAll('.mk__c');
+  function split(el) {
+    var label = el.textContent.trim();
+    el.setAttribute('aria-label', label);
+    el.innerHTML = label.split(' ').map(function (w) {
+      return '<span class="mk" aria-hidden="true">' + Array.from(w).map(function (c) { return '<span class="mk__c">' + c + '</span>'; }).join('') + '</span>';
+    }).join(' ');
+    return el.querySelectorAll('.mk__c');
+  }
+  var chars = split(title);
+  // 치료 프로그램 제목: 묶음이 아래로 밀려 있는 동안 미리 재생되지 않도록 '실제 화면 위치'로 판단
+  var tHead = cover.querySelector('[data-late-head]');
+  var tEyebrow = tHead && tHead.querySelector('.eyebrow');
+  var tTitle = tHead && tHead.querySelector('.sec-title');
+  var tChars = tTitle ? split(tTitle) : [];
 
   function gnbH() { return gnb ? gnb.offsetHeight : 0; }
 
@@ -38,19 +50,45 @@
     gsap.set(title, { opacity: 1 });
     gsap.set(eyebrow, { y: 24, opacity: 0 });
     gsap.set(chars, { yPercent: 110, opacity: 0 });
-    gsap.set(cards, { y: desktop ? 60 : 36, opacity: 0, clipPath: 'inset(0% 0% 100% 0% round 30px)' });
+    gsap.set(cards, { y: desktop ? 60 : 36, opacity: 0 });
 
     var tl = gsap.timeline({ paused: true })
       .to(eyebrow, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' })
       .to(chars, { yPercent: 0, opacity: 1, duration: 1.0, stagger: 0.035, ease: 'power3.out' }, 0.1)
-      .to(cards, { y: 0, opacity: 1, clipPath: 'inset(0% 0% 0% 0% round 30px)', duration: 1.1, stagger: 0.09, ease: 'power3.out', clearProps: 'clipPath' }, 0.45);
+      .to(cards, { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }, 0.45);
     var played = false;
     function play() { if (!played) { played = true; tl.play(); } }
+
+    // 치료 프로그램: 제목(영문 → 한글 글자) → 카드가 차례로 열리며 등장 (PC·모바일 공통, 한 번만)
+    // 묶음이 transform 으로 움직이므로 스크롤 위치 대신 실제 화면 위치(getBoundingClientRect)로 판단
+    if (tHead) {
+      gsap.set(tTitle, { opacity: 1 });
+      gsap.set(tEyebrow, { y: 20, opacity: 0 });
+      gsap.set(tChars, { yPercent: 110, opacity: 0 });
+    }
+    gsap.set(tCards, { y: desktop ? 60 : 36, opacity: 0, clipPath: 'inset(0% 0% 100% 0% round 30px)' });
+    var headDone = !tHead, cardsDone = !tGrid;
+    function checkT() {
+      var vh = window.innerHeight;
+      if (!headDone && tHead.getBoundingClientRect().top < vh * 0.85) {
+        headDone = true;
+        gsap.timeline()
+          .to(tEyebrow, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' })
+          .to(tChars, { yPercent: 0, opacity: 1, duration: 1.0, stagger: 0.03, ease: 'power3.out' }, 0.1);
+      }
+      if (!cardsDone && tGrid.getBoundingClientRect().top < vh * 0.85) {
+        cardsDone = true;
+        gsap.to(tCards, { y: 0, opacity: 1, clipPath: 'inset(0% 0% 0% 0% round 30px)', duration: 1.1, stagger: 0.09, ease: 'power3.out', delay: 0.3, onComplete: function () { tCards.forEach(function (c) { c.style.clipPath = 'none'; }); } });
+      }
+      if (headDone && cardsDone) gsap.ticker.remove(checkT);
+    }
+    gsap.ticker.add(checkT);
+    function killT() { gsap.ticker.remove(checkT); }
 
     if (!desktop) {
       // 모바일: 일반 스크롤, 화면에 들어오면 등장만
       var mob = ScrollTrigger.create({ trigger: cover, start: 'top 80%', onEnter: play });
-      return function () { mob.kill(); };
+      return function () { mob.kill(); killT(); };
     }
 
     /* PC: 스크롤 양에 맞춰 천천히 덮기
@@ -101,6 +139,7 @@
       stack.classList.remove('is-immersive');
       ScrollTrigger.removeEventListener('refreshInit', measure);
       rise.kill();
+      killT();
       gsap.set(cover, { clearProps: 'transform' });
       cover.style.marginTop = '';
     };

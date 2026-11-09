@@ -11,7 +11,9 @@
 
 .treat { position: relative; padding: calc(121 * var(--s)) 0 calc(180 * var(--s)); background: linear-gradient(180deg, #fff 0%, #eef9ff 100%); overflow: hidden; }
 .treat::before { content: ""; position: absolute; inset: 0 0 auto; height: calc(1628 * var(--s)); background: url('../assets/img/section/treat-texture.webp') center top / 100% auto no-repeat; opacity: .3; pointer-events: none; }
-.treat > .inner, .premium { position: relative; }
+.treat__sec, .premium { position: relative; }
+/* 프리미엄 띠(아래 CTA 여백 56 포함) → 치료 프로그램 제목: 이전 '카드 → 프리미엄 제목' 간격(241)과 같은 리듬 */
+.treat__sec { margin-top: calc(185 * var(--s)); }
 
 .treat__grid { display: grid; grid-template-columns: repeat(3, calc(403 * var(--s))); gap: calc(23 * var(--s)) calc(22 * var(--s)); justify-content: center; margin-top: calc(90 * var(--s)); }
 .tcard { position: relative; display: block; height: calc(289 * var(--s)); border-radius: calc(30 * var(--s)); text-align: center; isolation: isolate; }
@@ -43,6 +45,7 @@
 /* ===== 태블릿 ===== */
 @media (max-width: 1024px) {
   .treat { padding: 80px 0 56px; }
+  .treat__sec { margin-top: 48px; }
   .treat::before { height: 60vw; }
   .treat__grid { grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
   .tcard { height: auto; aspect-ratio: 403 / 289; border-radius: 20px; }
@@ -58,6 +61,7 @@
 /* ===== 모바일 (피그마 카드 161×115, 2열, 간격 12) ===== */
 @media (max-width: 767px) {
   .treat { padding: 56px 0 40px; }
+  .treat__sec { margin-top: 40px; }
   .treat__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 28px; }
   .tcard { border-radius: 16px; aspect-ratio: 161 / 115; }
   .tcard__title { font-size: 16px; }

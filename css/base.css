@@ -52,6 +52,8 @@ section[id], #premium { scroll-margin-top: var(--gnb-h); }
 .eyebrow--pale { color: var(--pale); }
 .sec-title { font-weight: 600; font-size: calc(50 * var(--s)); line-height: calc(40 * var(--s)); margin-top: calc(20 * var(--s)); }
 .sec-title--white { color: #fff; }
+/* 긴 제목이 좁은 화면에서 두 줄이 될 때 마지막 줄에 한 단어만 남지 않게 (예: 피부과전문의가 엄선한 / 프리미엄 라인업) */
+.sec-title { text-wrap: balance; }
 .sec-desc { font-size: calc(30 * var(--s)); line-height: calc(40 * var(--s)); color: var(--gray); margin-top: calc(20 * var(--s)); }
 .sec-desc--pale { color: var(--pale); }
 .sec-head--center { text-align: center; }

@@ -1,15 +1,16 @@
 /* ===== 공통 등장 모션 보조 (js/animations.js, js/cover-reveal.js) ===== */
 /* 글자 마스크: 단어 상자 밖으로 나간 글자는 가려지고, 아래에서 올라오며 보임 */
-.mk { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .14em; margin-bottom: -.14em; }
+/* 위·아래 여유: 제목 line-height 가 글자 크기보다 작아(예: 50px 글자 / 40px 줄) 획 윗부분이 잘리던 문제 → 위로 .22em 여유 (원장님 수정사항 P.06·09) */
+.mk { display: inline-block; overflow: hidden; vertical-align: top; padding: .22em 0 .14em; margin: -.22em 0 -.14em; }
 .mk__c { display: inline-block; will-change: transform; }
 
 /* 스크립트가 켜지기 전 깜빡임 방지: 제목 묶음은 자식만 숨김 */
 .js-on .sec-head[data-reveal] { opacity: 1; transform: none; }
-.js-on .sec-head[data-reveal] > *, .js-on [data-cover-head] > * { opacity: 0; }
+.js-on .sec-head[data-reveal] > *, .js-on [data-cover-head] > *, .js-on [data-late-head] > * { opacity: 0; }
 .js-on [data-reveal="clip"] { opacity: 1; transform: none; clip-path: inset(100% 0 0 0); }
-.js-on [data-cover-cards] > li { opacity: 0; }
+.js-on [data-cover-item], .js-on [data-cards] > li { opacity: 0; }
 
 @media (prefers-reduced-motion: reduce) {
-  .js-on .sec-head[data-reveal] > *, .js-on [data-cover-head] > *, .js-on [data-cover-cards] > li { opacity: 1; }
+  .js-on .sec-head[data-reveal] > *, .js-on [data-cover-head] > *, .js-on [data-late-head] > *, .js-on [data-cover-item], .js-on [data-cards] > li { opacity: 1; }
   .js-on [data-reveal="clip"] { clip-path: none; }
 }
