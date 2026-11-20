@@ -514,7 +514,7 @@
 /* ===================== 2026-11-21 오시는 길 · 헤더 · 퀵메뉴 ===================== */
 /* ① Location (Figma 287:2980): 흰 바탕 위 실크 곡선 배경(원본 비율 cover)을 시안 농도로, 카드는 블루그레이 그림자로 띄움 */
 .location { background: #fff; }
-.location::before { opacity: 1; background: url('../assets/img/section/location-curves.svg?v=20261121k') center / cover no-repeat; }
+.location::before { opacity: 1; background: url('../assets/img/section/location-curves.svg?v=20261121l') center / cover no-repeat; }
 .location__body { position: relative; z-index: 1; }
 .map, .location__info { border-radius: 30px; box-shadow: 0 12px 36px rgb(30 75 115 / .08), 0 3px 12px rgb(30 75 115 / .04); }
 .location__info { border: 1px solid rgb(255 255 255 / .9); }
@@ -527,3 +527,58 @@
 .gnb__icon svg { width: 21px; height: 21px; }
 .gnb__icon:hover, .gnb__icon:focus-visible { background: #e5f3ff; border-color: #e5f3ff; color: var(--v2-sky); }
 .gnb__icon:focus-visible { outline: 2px solid var(--v2-sky); outline-offset: 2px; }
+
+/* ===================== 2026-11-21 디테일 수정 ===================== */
+/* 헤더 로그인: 흰 원 + 하늘색 테두리·아이콘 */
+.gnb__icon { border: 1.5px solid #a9d3f2; background: #fff; color: var(--v2-sky); }
+.gnb__icon:hover, .gnb__icon:focus-visible { background: #e5f3ff; border-color: #a9d3f2; color: var(--v2-blue); }
+
+/* 순수안 소식 '자세히 보기': 큰 흰 원 + 네이비 화살표(안쪽 작은 원 없음) + 텍스트 */
+.ncard-more__arrow, .ncard-more:hover .ncard-more__arrow { width: auto; height: auto; border-radius: 0; background: none !important; }
+.ncard-more__arrow svg { width: 40px; height: 40px; stroke: var(--v2-navy); stroke-width: 1.6; transition: transform 280ms ease-out; }
+.ncard-more:hover { background: linear-gradient(180deg, #fff 0%, #eaf5fd 100%); border-color: #fff; box-shadow: 0 22px 46px rgb(20 72 149 / .16); }
+.ncard-more:hover .ncard-more__label { color: var(--v2-navy); }
+.ncard-more:hover .ncard-more__note { color: inherit; }
+.ncard-more:hover .ncard-more__arrow { transform: none; }
+.ncard-more:hover .ncard-more__arrow svg { stroke: var(--v2-navy); transform: translateX(5px); }
+.ncard-more { transition: background 280ms ease-out, box-shadow 280ms ease-out; }
+@media (max-width: 1024px) { .ncard-more__arrow svg { width: 34px; height: 34px; } }
+
+/* 상담(Consultation): 모든 화면에서 PC와 같은 진한 블루 곡선 배경 */
+@media (max-width: 1440px) {
+  .contact { background: url('../assets/img/section/contact-bg.webp') center / cover no-repeat, linear-gradient(180deg, #144895, #002151); }
+}
+@media (max-width: 767px) {
+  .contact { background-position: 62% center, 0 0; }
+}
+
+@media (max-width: 767px) {
+  /* About 모바일: 펼친 카드 = 위 영문 타이틀 + 아래 국문 타이틀 / 닫힌 카드 = Pill / 약한 그림자 / 모서리 깨짐 방지 */
+  .about-ca .ca__card { border-radius: 27px; overflow: hidden; isolation: isolate; transform: translateZ(0); -webkit-mask-image: -webkit-radial-gradient(white, black); box-shadow: 0 8px 20px rgb(24 62 108 / .08), 0 2px 6px rgb(24 62 108 / .04); transition: flex-basis .6s var(--ease-inout), border-radius .45s var(--ease-inout); }
+  .about-ca input:checked + .ca__card { border-radius: 20px; }
+  .about-ca .ca__card > * { border-radius: inherit; }
+  .about-ca .ca__card > :is(.acard__list, .acard__title, .ca__num, .ca__label) { border-radius: 0; }
+  .ca.about-ca { padding-bottom: 6px; }
+  .about-ca .acard__list { display: flex !important; left: 24px; right: 24px; top: 22px; z-index: 2; }
+  .about-ca .acard__list span { display: none !important; }
+  .about-ca .acard__list b { font-size: 18px; letter-spacing: .02em; }
+  .about-ca .acard__title, .about-ca .acard--2 .acard__title, .about-ca .acard--3 .acard__title, .about-ca .acard--4 .acard__title { left: 24px; right: 24px; bottom: 28px; white-space: normal; word-break: keep-all; overflow-wrap: break-word; }
+
+  /* 모바일 플로팅 퀵메뉴: 메뉴 4개 같은 너비·우측 정렬 / + × 와 TOP 같은 56px 원, 같은 세로축, TOP은 항상 맨 아래 */
+  .quick { --qbtn: 56px; --qgap: 12px; --qw: 156px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); gap: var(--qgap); align-items: center; }
+  .quick__fab { order: 1; width: var(--qbtn); height: var(--qbtn); }
+  .quick__top { order: 2; width: var(--qbtn); height: var(--qbtn); margin: 0; padding: 0; border-radius: 50%; background: var(--v2-sky); box-shadow: 0 8px 22px rgb(20 72 149 / .28); display: flex; align-items: center; justify-content: center; }
+  .quick__top-arrow { width: 18px; margin: 0; }
+  .quick.is-open .quick__top { opacity: 1; visibility: visible; }
+  .quick:not(.is-scrolled) .quick__top { opacity: 0; visibility: hidden; }
+  .quick__menu { right: 0; bottom: calc(var(--qbtn) * 2 + var(--qgap) * 2); gap: 8px; align-items: flex-end; }
+  .quick__item { width: var(--qw); justify-content: flex-start; padding: 0 16px 0 12px; gap: 10px; white-space: nowrap; }
+  .quick__ico { flex: none; width: 30px; height: 30px; }
+}
+
+/* 모바일 소식 자세히 보기: 안쪽 네이비 원 제거 → 네이비 화살표만 */
+@media (max-width: 767px) {
+  .news__more.btn-v2 i { width: auto; height: auto; border-radius: 0; background: none; color: var(--v2-navy); font-size: 24px; line-height: 1; transition: transform 280ms ease-out; }
+  .news__more.btn-v2:hover, .news__more.btn-v2:active { background: linear-gradient(180deg, #fff 0%, #eaf5fd 100%); color: var(--v2-navy); }
+  .news__more.btn-v2:hover i, .news__more.btn-v2:active i { transform: translateX(5px); }
+}

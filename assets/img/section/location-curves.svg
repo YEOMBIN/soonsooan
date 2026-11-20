@@ -6,7 +6,7 @@
       <stop offset=".55" stop-color="#f7fafc"/>
       <stop offset="1" stop-color="#eef4f8"/>
     </linearGradient>
-    <radialGradient id="lb" cx=".08" cy="1.02" r=".55">
+    <radialGradient id="lb" cx=".1" cy=".88" r=".6">
       <stop offset="0" stop-color="#d4e9f6" stop-opacity=".85"/>
       <stop offset=".6" stop-color="#e3f1fa" stop-opacity=".35"/>
       <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
@@ -14,10 +14,19 @@
     <filter id="soft" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="22"/></filter>
     <filter id="mid" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="7"/></filter>
     <filter id="fine" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="2.2"/></filter>
+    <linearGradient id="fadeY" x1="0" y1="0" x2="0" y2="930" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".2" stop-color="#fff" stop-opacity="1"/>
+      <stop offset=".8" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="edge" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="930"><rect width="1920" height="930" fill="url(#fadeY)"/></mask>
   </defs>
   <rect width="1920" height="930" fill="url(#bg)"/>
   <rect width="1920" height="930" fill="url(#lb)"/>
 
+  <g mask="url(#edge)">
+  <g transform="translate(0 70)">
   <!-- 우측 상단 실크 띠: 넓고 흐린 스카이블루 그림자 -->
   <g fill="none" stroke-linecap="round" filter="url(#soft)">
     <path d="M980 70 C 1300 -40, 1680 60, 2010 330" stroke="#cfe3f1" stroke-width="120" stroke-opacity=".55"/>
@@ -38,7 +47,9 @@
     <path d="M1300 640 C 1540 570, 1800 690, 1990 930" stroke="#cfe3f2" stroke-width="2" stroke-opacity=".55"/>
   </g>
 
+  </g>
   <!-- 좌측 하단으로 퍼지는 곡선 -->
+  <g transform="translate(0 -90)">
   <g fill="none" stroke-linecap="round" filter="url(#soft)">
     <path d="M-80 620 C 160 700, 360 820, 520 990" stroke="#d3e7f5" stroke-width="140" stroke-opacity=".5"/>
   </g>
@@ -48,5 +59,7 @@
   <g fill="none" stroke-linecap="round" filter="url(#fine)">
     <path d="M-60 690 C 170 760, 340 860, 470 990" stroke="#c6def0" stroke-width="2.4" stroke-opacity=".6"/>
     <path d="M-60 520 C 220 600, 460 760, 660 980" stroke="#cfe4f3" stroke-width="2" stroke-opacity=".5"/>
+  </g>
+  </g>
   </g>
 </svg>
