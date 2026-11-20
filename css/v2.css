@@ -350,4 +350,4 @@ a.sns:hover { background: #dff3ff; }
 }
 
 /* 히어로 상단 영문 (Figma: PURE FLOW · HEALTHY SKIN & NATURAL BEAUTY) */
-.hero__eyebrow { font-family: var(--f-en); }
+.hero__eyebrow { font-family: var(--f-en); } /* 최신 영문 문구(PURE FLOW ·) 글리프용 전체 글꼴 — 크기·배치는 이전 디자인(hero.css) */

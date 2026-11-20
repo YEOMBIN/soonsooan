@@ -18,77 +18,6 @@
 .gnb__drop ul { padding: 14px 12px; border-radius: 16px; border-color: var(--v2-line); }
 .gnb__drop a { font-size: 16px; font-weight: 400; color: #4b5866; }
 
-/* ----- HERO (V2 / Hero): 문구 Bookk 명조 · 버튼 하늘색 · 하단 흰 캡슐 컨트롤 ----- */
-.hero__eyebrow { font-family: var(--f-en); font-size: 20px; line-height: 24px; letter-spacing: .08em; color: var(--v2-sky); }
-.hero__title { font-family: 'Bookk Hero', var(--f-serif); letter-spacing: -0.03em; }
-.hero__slide--1 .hero__title { font-weight: 300; font-size: min(44px, 3.06vw); line-height: 1.4545; color: var(--v2-navy); margin-top: 18px; }
-.hero__slide--1 .hero__title em { font-weight: 700; color: var(--v2-sky); }
-.hero__slide--2 .hero__title { font-weight: 700; font-size: min(56px, 3.89vw); line-height: 1.2857; margin-top: 18px; }
-.hero__title--grad { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: var(--v2-sky); padding: 0; }
-.hero__copy--s3 .hero__title, .hero__copy--s4 .hero__title { font-weight: 700; font-size: min(52px, 3.61vw); line-height: 1.3077; margin-top: 18px; }
-.hero__copy--s3 .hero__title { color: var(--v2-navy); }
-.hero__copy--s4 .hero__title { color: #fff; }
-.hero__copy--s4 .hero__title .pale, .hero__copy--s4 .hero__eyebrow { color: #a8d8f5; }
-.hero__sub { font-family: var(--f-sans); font-weight: 500; font-size: min(22px, 1.53vw) !important; line-height: 1.59 !important; letter-spacing: -0.02em; color: var(--v2-navy); margin-top: 18px !important; }
-.hero__desc { width: auto !important; font-weight: 400; font-size: min(18px, 1.25vw); line-height: 1.72; letter-spacing: -0.02em; color: #1d3e6b; margin-top: 18px !important; }
-.hero__desc strong { font-weight: 600; color: var(--v2-sky); }
-.hero__copy--s4 .hero__desc, .hero__copy--s4 .hero__desc strong { color: #fff; }
-.hero__line { width: 1px; height: 48px; margin-top: 18px; background: rgb(255 255 255 / .8); }
-.hero__badge { width: 120px; margin-top: 18px; }
-.hero__btn { display: inline-flex; gap: .5em; width: auto; min-width: 0; height: 55px; margin-top: 18px !important; padding: 0 30px; border-radius: 999px; background: var(--v2-sky); color: #fff; font-weight: 600; font-size: 16px; letter-spacing: -0.01em; }
-.hero__btn i { font-style: normal; transition: transform .45s var(--ease-inout); }
-.hero__btn:hover { background: var(--v2-sky-d); }
-.hero__btn:hover i { transform: translateX(4px); }
-@media (min-width: 1025px) {
-  .hero__slide--1 .hero__copy { top: clamp(150px, calc(150px + 54 * (100vw - 1440px) / 480), 204px); left: 0; right: 0; }
-  .hero__copy--s3 { top: clamp(190px, calc(190px + 38 * (100vw - 1440px) / 480), 228px); }
-  .hero__slide--2 .hero__copy, .hero__copy--s4 { top: clamp(210px, calc(210px + 42 * (100vw - 1440px) / 480), 252px); left: calc((100% - var(--cw)) / 2); width: min(760px, 52vw); }
-  /* 하단 컨트롤: 흰 캡슐 390×64, 아래 56 */
-  .hero__controls { bottom: 56px; transform: translateX(-50%); width: 390px; height: 64px; padding: 0 28px; gap: 18px; justify-content: center; border-radius: 999px; box-shadow: 0 12px 32px rgb(11 37 71 / .12), 0 2px 6px rgb(11 37 71 / .06); }
-}
-.hero__controls[data-tone] { --c: var(--v2-navy); --track: #d7e6f2; background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none; }
-.hero__num { font-family: var(--f-en); font-weight: 400; font-size: 18px; letter-spacing: .08em; }
-.hero__num--total { opacity: 1; }
-.hero__progress { width: 140px; }
-.hero__actions { gap: 6px; padding-left: 18px; border-left: 1px solid rgb(11 37 71 / .25); }
-.hero__btn-ctrl { width: 30px; height: 30px; }
-.hero__btn-ctrl svg { width: 8px; }
-.hero__btn-ctrl[data-hero="toggle"] svg { width: 16px; }
-@media (max-width: 1024px) {
-  .hero__eyebrow { font-size: 16px; line-height: 1.3; }
-  .hero__slide--1 .hero__title { font-size: 30px; }
-  .hero__slide--2 .hero__title { font-size: 36px; }
-  .hero__copy--s3 .hero__title, .hero__copy--s4 .hero__title { font-size: 34px; }
-  .hero__sub { font-size: 18px !important; }
-  .hero__desc { font-size: 16px; }
-  .hero__slide--2 .hero__copy, .hero__copy--s4 { left: 40px; }
-  .hero__controls { bottom: 32px; transform: translateX(-50%); height: 56px; padding: 0 22px; gap: 14px; border-radius: 999px; box-shadow: 0 10px 28px rgb(11 37 71 / .12); }
-  .hero__progress { width: 110px; }
-}
-/* 모바일 (V2 / Hero Mobile 390×740): 'PURE FLOW'만, 제목 Bookk 22~28, 문구 가운데 */
-@media (max-width: 767px) {
-  .hero { height: min(calc(100vw * 740 / 390), 900px); max-height: none; }
-  .hero__eyebrow { font-size: 14px; line-height: 17px; }
-  .hero__eyebrow-more { display: none; }
-  .hero__slide--1 .hero__copy { top: calc(100vw * 92 / 390); padding-inline: 20px; }
-  .hero__slide--1 .hero__title { font-size: 22px; line-height: 1.5; margin-top: 12px; }
-  .hero__slide--2 .hero__copy { top: auto; bottom: calc(100vw * 104 / 390); left: 20px; width: calc(100% - 40px); }
-  .hero__slide--2 .hero__title { font-size: 28px; margin-top: 12px; }
-  .hero__copy--s3 { top: calc(100vw * 96 / 390); padding-inline: 20px; }
-  .hero__copy--s3 .hero__title, .hero__copy--s4 .hero__title { font-size: 28px; line-height: 1.36; margin-top: 12px; }
-  .hero__copy--s4 { top: calc(100vw * 117 / 390); left: 20px; width: calc(100% - 40px); }
-  .hero__sub { font-size: 16px !important; line-height: 1.625 !important; margin-top: 12px !important; }
-  .hero__desc { font-size: 15px; line-height: 1.73; margin-top: 12px !important; }
-  .hero__desc br { display: none; }
-  .hero__badge { display: block; width: 84px; margin-top: 12px; }
-  .hero__line { height: 32px; margin-top: 12px; }
-  .hero__btn { height: 41px; padding: 0 20px; font-size: 14px; margin-top: 12px !important; }
-  .hero__controls { bottom: 28px; height: 53px; width: calc(100% - 68px); max-width: 324px; padding: 0 18px; gap: 12px; justify-content: center; }
-  .hero__num { font-size: 15px; }
-  .hero__progress { width: 84px; }
-  .hero__actions { padding-left: 12px; }
-}
-
 /* ----- 순수안 소식: 탭 20 · 설명 18/31 #6c7888 · 제목→카드 56 ----- */
 .news__body { margin-top: clamp(48px, calc(48px + 8 * (100vw - 1440px) / 480), 56px); }
 .news__tabs { gap: 40px; }
@@ -249,19 +178,6 @@
 }
 
 /* ===== QA 3차: Figma 768 / 390 프레임 대조 보정 ===== */
-/* 히어로: 모바일은 문구 위치를 화면 맨 위 기준으로 (헤더가 배너 위에 겹침) */
-@media (max-width: 1024px) {
-  .hero__copy { margin-top: 0; }
-  .hero__eyebrow-more { display: none; }
-}
-/* 태블릿 히어로 (Figma 768×960): 세로형 무대, 문구 위쪽 가운데 */
-@media (max-width: 1024px) and (min-width: 768px) {
-  .hero { height: min(calc(100vw * 960 / 768), 100svh); }
-  .hero__slide--1 .hero__copy { top: calc(100vw * 170 / 768); }
-  .hero__slide--1 .hero__title { font-size: 26px; }
-  .hero__copy--s3 { top: calc(100vw * 200 / 768); }
-  .hero__slide--2 .hero__copy, .hero__copy--s4 { top: auto; bottom: calc(100vw * 150 / 768); }
-}
 /* 프리미엄: 태블릿·모바일은 장비 번호(01) 표시, 진행 바는 무대 폭 */
 @media (max-width: 1024px) {
   .pslide__no { display: block; font-family: var(--f-en); font-size: 17px; letter-spacing: .08em; color: var(--v2-sky); margin-bottom: 8px; }
@@ -303,7 +219,6 @@
 
 /* 태블릿 히어로: 세로형 배너 이미지를 위쪽 기준으로 (Figma 768: 장비가 문구 아래에서 시작) */
 @media (max-width: 1024px) and (min-width: 768px) {
-  .hero__media img { object-position: center 32%; }
   .doctor__desc { font-size: 14.5px; }
   .doctor__desc br { display: inline; }
 }
@@ -344,5 +259,32 @@
   .tgcard:hover .tgcard__body::before, .tgcard:hover .tgcard__desc, .tgcard:hover .tgcard__more { margin-top: 10px; }
 }
 
-/* 히어로 컨트롤: 오른쪽 화살표 버튼 안쪽 여백만큼 왼쪽이 좁아 보이던 것 보정 (좌우 시각 여백 동일) */
-.hero__pages { margin-left: 11px; }
+
+/* ===== 2026-11-20 최종 요청 반영 ===== */
+/* 장비 라인업: 등장 모션 제거(Cover Transition 으로 대체) — 제목·장비 무대는 처음부터 Figma 그대로 표시 */
+.js-on [data-cover-head] > *, .js-on [data-cover-item] { opacity: 1 !important; transform: none !important; }
+.ss-stack.is-immersive .treat { box-shadow: 0 -24px 48px -28px rgb(11 37 71 / .22); }
+
+/* 순수안 소식 카드: 이미지 모서리 라운드 확대 (원본 비율·크롭 없음 유지) */
+.ncard__thumb img { border-radius: 20px; }
+@media (max-width: 1024px) { .ncard__thumb img { border-radius: 18px; } }
+@media (max-width: 767px) { .ncard__thumb img { border-radius: 14px; } }
+
+/* 스크롤 마지막 '자세히 보기' — 큰 원형 CTA (카드 이미지 칸과 같은 지름) */
+.ncard-more { border-radius: 50%; border: 2px solid #fff; background: linear-gradient(180deg, #fff 0%, rgb(255 255 255 / .55) 100%); box-shadow: 0 18px 40px rgb(20 72 149 / .12); padding: 0; gap: 16px; transition: background-color .5s var(--ease-inout), box-shadow .5s var(--ease-inout), transform .5s var(--ease-inout), color .5s var(--ease-inout); }
+.ncard-more__arrow { width: 64px; height: 64px; background: var(--v2-blue); }
+.ncard-more__label { color: var(--v2-navy); transition: color .5s var(--ease-inout); }
+.ncard-more__note { max-width: 72%; }
+.ncard-more:hover { background: var(--v2-blue); border-color: var(--v2-blue); box-shadow: 0 22px 48px rgb(20 72 149 / .28); }
+.ncard-more:hover .ncard-more__label, .ncard-more:hover .ncard-more__note { color: #fff; }
+.ncard-more:hover .ncard-more__arrow { background: #fff; transform: translateX(4px); }
+.ncard-more:hover .ncard-more__arrow svg { stroke: var(--v2-blue); }
+.ncard-more__arrow svg { transition: stroke .5s var(--ease-inout); }
+@media (max-width: 1024px) { .ncard-more__arrow { width: 54px; height: 54px; } .ncard-more { gap: 12px; } }
+
+/* 모바일: 하단 '자세히 보기'도 원형 CTA를 비율에 맞춰 축소 */
+@media (max-width: 767px) {
+  .news__more.btn-v2 { flex-direction: column; justify-content: center; gap: 6px; width: 132px; height: 132px; padding: 0; margin-top: 32px; border: 2px solid #fff; border-radius: 50%; background: linear-gradient(180deg, #fff 0%, rgb(255 255 255 / .55) 100%); box-shadow: 0 14px 32px rgb(20 72 149 / .14); color: var(--v2-navy); font-size: 15px; }
+  .news__more.btn-v2 i { order: -1; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--v2-blue); color: #fff; font-size: 16px; }
+  .news__more.btn-v2:hover { background: var(--v2-blue); color: #fff; }
+}
