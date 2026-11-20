@@ -2,7 +2,7 @@
    02. 순수안 소식 (Figma V2 · 2026-11-20 최종)
    탭: 공지사항 / 치료후기 / 칼럼
    PC·태블릿: 가로 스크롤(드래그·휠·스크롤바) + 맨 끝 '자세히 보기' 카드
-   모바일(≤767): 2열 카드 4개 + 하단 '자세히 보기' 버튼만
+   모바일(≤767): 1행 가로 캐러셀(scroll-snap, 다음 카드 살짝 보임) + 하단 [이전 | 진행선 | 다음] + '자세히 보기' 버튼 (2026-11-21)
    썸네일: 정사각형 칸 안에 원본 비율 그대로(높이 기준, 크롭·변형 없음)
    데이터: data/feeds.js (window.SS_FEEDS, 수동 갱신)
    ========================================================= */
@@ -20,7 +20,7 @@
   var moreBtn = section.querySelector('.news__more');
   var tabs = Array.from(section.querySelectorAll('[role="tab"]'));
   var mq = window.matchMedia('(max-width: 767px)');
-  var MAX = 6, MAX_M = 4;
+  var MAX = 6;
   var swiper = null, current = 'notice', busy = false;
 
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -45,7 +45,7 @@
   function render(key) {
     var cat = feeds[key];
     var mobile = mq.matches;
-    var items = cat.items.slice(0, mobile ? MAX_M : MAX);
+    var items = cat.items.slice(0, MAX);
     var html = items.map(function (it) { return '<div class="swiper-slide">' + card(key, it) + '</div>'; });
     if (!mobile || !items.length) html.push('<div class="swiper-slide ncard-more-slide">' + moreTile(cat) + '</div>');
     wrap.innerHTML = html.join('');
@@ -57,9 +57,10 @@
   function setup() {
     var mobile = mq.matches;
     if (swiper) { swiper.destroy(true, true); swiper = null; }
-    section.classList.toggle('is-grid', mobile);
+    section.classList.toggle('is-snap', mobile);
     render(current);
-    if (mobile || !window.Swiper) return;
+    if (mobile) { snapReset(); return; }
+    if (!window.Swiper) return;
     swiper = new Swiper(el, {
       slidesPerView: 2.2,
       spaceBetween: 20,
@@ -87,7 +88,7 @@
     el.classList.add('is-switching');
     setTimeout(function () {
       if (swiper) { render(key); swiper.update(); swiper.slideTo(0, 0); if (swiper.scrollbar) { swiper.scrollbar.updateSize(); swiper.scrollbar.setTranslate(); } }
-      else render(key);
+      else { render(key); snapReset(); }
       requestAnimationFrame(function () { el.classList.remove('is-switching'); busy = false; if (window.ScrollTrigger) ScrollTrigger.refresh(); });
     }, 380);
   }
@@ -98,6 +99,49 @@
       if (d) { e.preventDefault(); select(tabs[(i + d + tabs.length) % tabs.length], true); }
     });
   });
+
+  /* ----- 모바일 캐러셀: 네이티브 가로 스크롤 + scroll-snap, 이전·다음 버튼(1장씩), 진행선 ----- */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var nav = document.createElement('div');
+  nav.className = 'news__nav';
+  nav.innerHTML = '<button type="button" class="news__arrow news__arrow--prev" aria-label="이전 게시물"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>' +
+    '<span class="news__progress" aria-hidden="true"><i></i></span>' +
+    '<button type="button" class="news__arrow news__arrow--next" aria-label="다음 게시물"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>';
+  bar.parentNode.insertBefore(nav, bar.nextSibling);
+  var prevB = nav.querySelector('.news__arrow--prev'), nextB = nav.querySelector('.news__arrow--next'), fill = nav.querySelector('.news__progress i');
+  function slides() { return Array.from(wrap.children); }
+  function pad() { return parseFloat(getComputedStyle(el).scrollPaddingLeft) || 0; }
+  function posOf(s) { return el.scrollLeft + s.getBoundingClientRect().left - el.getBoundingClientRect().left - pad(); } // 그 카드가 맨 앞에 올 때의 scrollLeft
+  function idx() {
+    var l = el.scrollLeft, best = 0, d = Infinity;
+    slides().forEach(function (s, i) { var x = Math.abs(posOf(s) - l); if (x < d) { d = x; best = i; } });
+    if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 2) best = slides().length - 1;
+    return best;
+  }
+  function snapUpdate() {
+    if (!mq.matches) return;
+    var n = slides().length, i = idx(), max = el.scrollWidth - el.clientWidth;
+    prevB.disabled = el.scrollLeft <= 2;
+    nextB.disabled = max <= 2 || el.scrollLeft >= max - 2;
+    nav.hidden = n < 2;
+    fill.style.width = (n ? ((i + 1) / n) * 100 : 0) + '%';
+  }
+  var target = null;
+  function go(d) {
+    var s = slides(); if (!s.length) return;
+    var base = target == null ? idx() : target;
+    target = Math.max(0, Math.min(s.length - 1, base + d));
+    el.scrollTo({ left: Math.min(posOf(s[target]), el.scrollWidth - el.clientWidth), behavior: reduce.matches ? 'auto' : 'smooth' });
+  }
+  function snapReset() { el.scrollLeft = 0; target = null; requestAnimationFrame(snapUpdate); }
+  prevB.addEventListener('click', function () { go(-1); });
+  nextB.addEventListener('click', function () { go(1); });
+  var sraf = 0, stimer = 0;
+  el.addEventListener('scroll', function () {
+    cancelAnimationFrame(sraf); sraf = requestAnimationFrame(snapUpdate);
+    clearTimeout(stimer); stimer = setTimeout(function () { target = null; snapUpdate(); }, 160); // 연속 클릭 후 실제 위치 기준으로 재정렬
+  }, { passive: true });
+  window.addEventListener('resize', snapUpdate);
 
   setup();
   (mq.addEventListener ? mq.addEventListener.bind(mq, 'change') : mq.addListener.bind(mq))(function () { setup(); if (window.ScrollTrigger) ScrollTrigger.refresh(); });

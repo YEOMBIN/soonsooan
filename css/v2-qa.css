@@ -597,3 +597,42 @@
   .about-ca .acard--4 .acard__bg::after { background: linear-gradient(180deg, rgb(255 255 255 / 0) 25%, rgb(255 255 255 / .6) 62%, rgb(255 255 255 / .85) 100%); }
 }
 @media (max-width: 767px) { .about-ca :is(.acard--2, .acard--3) .acard__bg::after { background: linear-gradient(180deg, rgb(255 255 255 / 0) 35%, rgb(255 255 255 / .55) 70%, rgb(255 255 255 / .8) 100%); } }
+
+/* ===== 모바일 순수안 소식: 1행 가로 캐러셀 (scroll-snap + 이전/다음 + 진행선) — PC·태블릿은 기존 Swiper 그대로 ===== */
+.news__nav { display: none; }
+@media (max-width: 767px) {
+  .news.is-snap .news__swiper { overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth; overscroll-behavior-x: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; margin-inline: -20px; padding-inline: 20px; scroll-padding-inline: 20px; }
+  .news.is-snap .news__swiper::-webkit-scrollbar { display: none; }
+  .news.is-snap .swiper-wrapper { display: flex; gap: 14px; transform: none !important; width: max-content; }
+  .news.is-snap .swiper-slide { flex: none; width: calc((100vw - 40px) * .86) !important; margin: 0 !important; scroll-snap-align: start; scroll-snap-stop: always; }
+  .news.is-snap .swiper-slide:last-child { margin-right: 20px !important; }
+  .news.is-snap .ncard__title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; min-height: calc(1.55em * 2); }
+  .news.is-snap .news__bar { display: none; }
+  .news.is-snap .news__nav { display: flex; align-items: center; gap: 16px; margin-top: 22px; }
+  .news.is-snap .news__nav[hidden] { display: none; }
+  .news__arrow { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #b9dbf3; background: #fff; color: var(--v2-blue); transition: background-color 250ms ease, color 250ms ease, opacity 250ms ease; -webkit-tap-highlight-color: transparent; }
+  .news__arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .news__arrow:active:not([disabled]) { background: var(--v2-blue); color: #fff; }
+  .news__arrow:focus-visible { outline: 2px solid var(--v2-sky); outline-offset: 2px; }
+  .news__arrow[disabled] { opacity: .35; cursor: default; }
+  .news__progress { position: relative; flex: 1; height: 3px; border-radius: 2px; background: var(--v2-line, #e2ecf4); overflow: hidden; }
+  .news__progress i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 2px; background: var(--v2-blue); transition: width 300ms ease-out; }
+  .news.is-snap .news__more.btn-v2 { margin-top: 24px; }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  .news.is-snap .news__swiper { scroll-behavior: auto; }
+  .news__progress i, .news__arrow { transition: none; }
+}
+@media (max-width: 767px) {
+  /* 유튜브(세로 9:16) 카드: 원본 비율 유지하면서 다른 카테고리와 같은 높이 → 폭을 좁혀 2장씩 보이게 */
+  .news.is-snap .swiper-slide:has(.ncard--youtube) { width: calc((100vw - 40px) * .86 * 800 / 1422) !important; }
+}
+/* 순수안 소식 '자세히 보기' 원형 카드: 그림자가 잘리지 않도록 슬라이드 안 여유 + 아래쪽 여백 확보 (PC·태블릿) */
+@media (min-width: 768px) {
+  .news__swiper { padding-bottom: 64px; margin-bottom: -64px; }
+  .ncard-more-slide { display: flex; justify-content: center; }
+  .ncard-more { width: calc(100% - 48px); margin-top: 24px; }
+}
+/* 로그인 아이콘: 스크롤로 헤더에 흰 배경이 생기면 색 반전 (하늘색 원 + 흰 아이콘) */
+.gnb.is-solid .gnb__icon { background: var(--v2-sky); border-color: var(--v2-sky); color: #fff; }
+.gnb.is-solid .gnb__icon:hover, .gnb.is-solid .gnb__icon:focus-visible { background: var(--v2-blue); border-color: var(--v2-blue); color: #fff; }
