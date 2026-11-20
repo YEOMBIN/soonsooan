@@ -2,7 +2,6 @@
    메인 팝업 — 설정은 data/popups.js (켜기/끄기, 이미지·링크 추가·삭제)
    - 한 화면에 PC 최대 3개 · 태블릿 2개 · 모바일 1개(+다음 팝업 살짝 보임). 그보다 많으면 가로 캐러셀
      (scroll-snap · 마우스 드래그 · 트랙패드/휠 · 터치 스와이프 · 좌우 버튼 · 인디케이터)
-   - 팝업마다 개별 닫기(×) → 목록에서 바로 빠지고 남은 팝업이 다시 정렬, 모두 닫으면 팝업 레이어 닫힘
    - 전체 닫기(X)·바깥 어두운 영역·Esc: 닫기 (다음 방문 때 다시 표시)
    - '오늘 열지 않기' 체크: 이 브라우저에서 오늘(현지 날짜) 하루 동안 표시 안 함 → 바로 닫힘
    - 열려 있는 동안 뒤 페이지 스크롤 멈춤, 키보드 포커스는 팝업 안에서만 이동
@@ -31,8 +30,7 @@
     var media = it.link
       ? '<a class="pop__link" href="' + esc(it.link) + '"' + (it.newTab ? ' target="_blank" rel="noopener"' : '') + ' draggable="false">' + img + '</a>'
       : '<div class="pop__link">' + img + '</div>';
-    return '<div class="pop__item" role="group" aria-roledescription="팝업" aria-label="' + (i + 1) + ' / ' + cfg.items.length + '" data-w="' + w + '" data-h="' + h + '">' + media +
-      '<button type="button" class="pop__x" aria-label="이 팝업 닫기"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5 5 15"/></svg></button></div>';
+    return '<div class="pop__item" role="group" aria-roledescription="팝업" aria-label="' + (i + 1) + ' / ' + cfg.items.length + '" data-w="' + w + '" data-h="' + h + '">' + media + '</div>';
   }).join('');
 
   var pop = document.createElement('div');

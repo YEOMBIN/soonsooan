@@ -510,3 +510,20 @@
   .tgrid.is-acc .tgcard__img, .tgrid.is-acc :is(.tgcard__desc, .tgcard__more, .tgcard__title, .tgcard__no), .tgrid.is-acc .tgcard::after,
   .quick__item, .quick__fab-icon, .quick__fab { transition: none !important; }
 }
+
+/* ===================== 2026-11-21 오시는 길 · 헤더 · 퀵메뉴 ===================== */
+/* ① Location (Figma 287:2980): 흰 바탕 위 실크 곡선 배경(원본 비율 cover)을 시안 농도로, 카드는 블루그레이 그림자로 띄움 */
+.location { background: #fff; }
+.location::before { opacity: 1; background: url('../assets/img/section/location-curves.svg?v=20261121k') center / cover no-repeat; }
+.location__body { position: relative; z-index: 1; }
+.map, .location__info { border-radius: 30px; box-shadow: 0 12px 36px rgb(30 75 115 / .08), 0 3px 12px rgb(30 75 115 / .04); }
+.location__info { border: 1px solid rgb(255 255 255 / .9); }
+@media (max-width: 1024px) { .map, .location__info { border-radius: 24px; } }
+@media (max-width: 767px) { .map, .location__info { border-radius: 20px; } .location::before { background-position: 56% center; } }
+
+/* ② 헤더: 상담예약 버튼 삭제 → 로그인 원형 아이콘 버튼 하나만 우측 끝 */
+.gnb__util { gap: 0; }
+.gnb__icon { width: 42px; height: 42px; border: 1px solid #d7e8f6; background: #fff; color: var(--v2-blue); transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease; }
+.gnb__icon svg { width: 21px; height: 21px; }
+.gnb__icon:hover, .gnb__icon:focus-visible { background: #e5f3ff; border-color: #e5f3ff; color: var(--v2-sky); }
+.gnb__icon:focus-visible { outline: 2px solid var(--v2-sky); outline-offset: 2px; }
