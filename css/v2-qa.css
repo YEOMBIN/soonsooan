@@ -439,3 +439,74 @@
 /* 모바일 배너 3: 피부과 전문의 배지 표시 (PC와 같은 이미지, 설명 아래 가운데) */
 @media (max-width: 767px) { .hero__copy--s3 .hero__badge { display: block; width: 76px; height: auto; margin: 20px auto 0; } }
 .tgcard__more { gap: .3em; }
+
+/* ===================== 2026-11-21 모바일 UI/UX (≤767px 전용 — PC·태블릿 변경 없음) ===================== */
+.quick__fab { display: none; }
+
+@media (max-width: 767px) {
+  /* ① Signature Solution: 1열 세로 아코디언 */
+  .tgrid.is-acc { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .tgrid.is-acc .tgcard { border-radius: 16px; -webkit-tap-highlight-color: transparent; }
+  .tgrid.is-acc .tgcard__img { aspect-ratio: auto; height: 72px; transition: height 380ms cubic-bezier(.65, 0, .35, 1); }
+  .tgrid.is-acc .tgcard.is-open .tgcard__img { height: 232px; }
+  .tgrid.is-acc .tgcard__img img { transform: none !important; }
+  .tgrid.is-acc .tgcard__img::after { background: rgb(20 72 149 / .8); transition: opacity 380ms cubic-bezier(.65, 0, .35, 1); }
+  .tgrid.is-acc .tgcard.is-open .tgcard__img::after { opacity: 1; }
+  .tgrid.is-acc .tgcard__body { display: block; inset: 0; padding: 0 60px 0 20px; text-align: left; }
+  .tgrid.is-acc .tgcard__body::before { display: none; }
+  .tgrid.is-acc .tgcard__no { position: absolute; left: 20px; top: 0; height: 72px; display: flex; align-items: center; font-size: 13px; letter-spacing: .06em; transition: color 380ms ease-in-out; }
+  .tgrid.is-acc .tgcard__title { display: block; height: 72px; padding-left: 30px; font-size: 17px; font-weight: 600; line-height: 72px; letter-spacing: -0.02em; transform: none; transition: color 380ms ease-in-out; }
+  .tgrid.is-acc :is(.tgcard__desc, .tgcard__more) { display: block; max-height: 0; opacity: 0; margin-top: 0; padding: 0; overflow: hidden; transition: max-height 380ms cubic-bezier(.65, 0, .35, 1), opacity 300ms ease-in-out; }
+  .tgrid.is-acc .tgcard__desc { padding-left: 30px; font-size: 14px; line-height: 1.6; letter-spacing: -0.02em; color: rgb(255 255 255 / .92); }
+  .tgrid.is-acc .tgcard__desc br { display: inline; }
+  .tgrid.is-acc .tgcard__more { display: inline-flex; align-items: center; margin: 14px 0 0 30px; padding: 0; font-size: 15px; color: #fff; border-bottom: 1px solid rgb(255 255 255 / .6); line-height: 1.6; }
+  .tgrid.is-acc .tgcard.is-open :is(.tgcard__desc, .tgcard__more) { max-height: 6em; opacity: 1; transition-delay: 0s, 120ms; }
+  .tgrid.is-acc .tgcard.is-open :is(.tgcard__title) { color: #fff; }
+  .tgrid.is-acc .tgcard.is-open .tgcard__no { color: rgb(255 255 255 / .8); }
+  /* + / − 아이콘 (오른쪽) */
+  .tgrid.is-acc .tgcard::after { content: ""; display: block; position: absolute; z-index: 3; right: 20px; top: 22px; width: 28px; height: 28px; margin: 0; border-radius: 50%; transform: none; background:
+      linear-gradient(currentColor, currentColor) center / 12px 1.6px no-repeat,
+      linear-gradient(currentColor, currentColor) center / 1.6px 12px no-repeat,
+      rgb(255 255 255 / .85);
+    color: var(--v2-blue); transition: background-size 300ms ease-in-out, color 300ms ease-in-out, background-color 300ms ease-in-out; }
+  .tgrid.is-acc .tgcard.is-open::after { background-size: 12px 1.6px, 1.6px 0, auto; background-color: transparent; background-image: linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor), linear-gradient(rgb(255 255 255 / .18), rgb(255 255 255 / .18)); color: #fff; }
+  .tgrid.is-acc .tgcard:focus-visible { outline: 2px solid var(--v2-sky); outline-offset: 3px; }
+
+  /* ② 퀵메뉴: 하단 바 제거 → 우측 하단 + 버튼, 메뉴는 위로 펼침 */
+  body { padding-bottom: 0; }
+  .quick { left: auto; right: 16px; top: auto; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); width: auto; display: flex; flex-direction: column; align-items: center; gap: 12px; transform: none; background: none; box-shadow: none; padding: 0; }
+  .quick__fab { order: 2; position: relative; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: var(--v2-sky); color: #fff; box-shadow: 0 8px 22px rgb(20 72 149 / .28); -webkit-tap-highlight-color: transparent; transition: background-color 300ms ease-in-out; }
+  .quick__fab:active, .quick.is-open .quick__fab { background: var(--v2-blue); }
+  .quick__fab:focus-visible { outline: 2px solid var(--v2-blue); outline-offset: 3px; }
+  .quick__fab-icon { position: relative; width: 20px; height: 20px; transition: transform 300ms cubic-bezier(.65, 0, .35, 1); }
+  .quick__fab-icon::before, .quick__fab-icon::after { content: ""; position: absolute; left: 50%; top: 50%; width: 20px; height: 2px; margin: -1px 0 0 -10px; border-radius: 2px; background: #fff; }
+  .quick__fab-icon::after { transform: rotate(90deg); }
+  .quick.is-open .quick__fab-icon { transform: rotate(45deg); }
+  .quick__top { order: 1; margin: 0; }
+  .quick.is-open .quick__top { opacity: 0; visibility: hidden; }
+  .quick__menu { position: absolute; right: 0; bottom: calc(56px + 12px); display: flex; flex-direction: column; align-items: flex-end; gap: 8px; width: max-content; padding: 0; overflow: visible; border-radius: 0; background: none; box-shadow: none; pointer-events: none; }
+  .quick__menu li { flex: none; min-width: 0; }
+  .quick__item { flex-direction: row; justify-content: flex-start; height: 46px; min-width: 44px; padding: 0 18px 0 10px; gap: 8px; border: 0; border-radius: 23px; background: #fff; box-shadow: 0 6px 18px rgb(11 37 71 / .16); font-weight: 600; font-size: 13.5px; line-height: 1; color: var(--v2-navy); opacity: 0; visibility: hidden; transform: translate3d(0, 12px, 0) scale(.96); transform-origin: right center;
+    transition: opacity 300ms cubic-bezier(.22, 1, .36, 1), transform 300ms cubic-bezier(.22, 1, .36, 1), visibility 0s linear 300ms, color 250ms; }
+  .quick__menu li:last-child .quick__item { border-right: 0; }
+  .quick__ico { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; }
+  .quick__item img { height: 22px; }
+  .quick.is-open .quick__menu { pointer-events: auto; }
+  .quick.is-open .quick__item { opacity: 1; visibility: visible; transform: none; transition: opacity 300ms cubic-bezier(.22, 1, .36, 1), transform 300ms cubic-bezier(.22, 1, .36, 1), visibility 0s, color 250ms; }
+  .quick.is-open .quick__menu li:nth-last-child(1) .quick__item { transition-delay: 0ms; }
+  .quick.is-open .quick__menu li:nth-last-child(2) .quick__item { transition-delay: 40ms; }
+  .quick.is-open .quick__menu li:nth-last-child(3) .quick__item { transition-delay: 80ms; }
+  .quick.is-open .quick__menu li:nth-last-child(4) .quick__item { transition-delay: 120ms; }
+  .quick.is-open .quick__menu li:nth-last-child(5) .quick__item { transition-delay: 160ms; }
+
+  /* ③ About: 펼친 카드에는 국문 메인 타이틀만, 카드 하단 좌측 정렬 + 아래쪽 은은한 밝은 그라데이션 */
+  .about-ca :is(.acard__list, .acard__desc, .acard__tag, .acard__badge) { display: none !important; }
+  .about-ca .acard__title, .about-ca .acard--2 .acard__title, .about-ca .acard--3 .acard__title, .about-ca .acard--4 .acard__title { top: auto; bottom: 28px; left: 24px; right: 24px; transform: none; text-align: left; font-size: 25px; font-weight: 600; line-height: 1.4; letter-spacing: -0.03em; color: var(--v2-navy); z-index: 2; }
+  .about-ca .acard__title strong { font-weight: 700; color: var(--v2-blue); }
+  .about-ca .acard__title br { display: inline; }
+  .about-ca .acard__bg::after, .about-ca .acard--4 .acard__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(255 255 255 / 0) 30%, rgb(255 255 255 / .55) 62%, rgb(255 255 255 / .85) 100%); }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  .tgrid.is-acc .tgcard__img, .tgrid.is-acc :is(.tgcard__desc, .tgcard__more, .tgcard__title, .tgcard__no), .tgrid.is-acc .tgcard::after,
+  .quick__item, .quick__fab-icon, .quick__fab { transition: none !important; }
+}

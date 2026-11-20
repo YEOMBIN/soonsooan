@@ -1,13 +1,20 @@
 /* 순수안 소식 데이터 — node tools/update-feeds.js 로 갱신 (README 6장) */
 window.SS_FEEDS = {
   "updatedAt": "2026-11-20",
-  "note": "공식 채널(공지사항 게시판·네이버 블로그 RSS·유튜브 RSS)에서 tools/update-feeds.js 로 수집한 실제 게시물. 탭 순서: 공지사항/유튜브/블로그/칼럼.",
+  "note": "공식 채널(공지사항 게시판·네이버 블로그 RSS·유튜브 RSS)에서 tools/update-feeds.js 로 수집한 실제 게시물. 게시판 글은 모두 공지사항(2026-11-21~). 칼럼은 직접 작성해 data/feeds.js column.items 에 추가. 탭 순서: 공지사항/유튜브/블로그/칼럼.",
   "categories": {
     "notice": {
       "label": "공지사항",
       "more": "pages/news/notice.html",
       "moreLabel": "공지사항 더보기",
       "items": [
+        {
+          "title": "[순수안 보톡스 가이드 ④] 미간 보톡스 : 내천(川)자 주름 개선, 사나운 인상을 부드럽게, 부작용 방지까지 총정리",
+          "date": "2026.10.31",
+          "url": "https://soonsooan.co.kr/s_4_1/5687",
+          "source": "https://soonsooan.co.kr/s_4_1/5687",
+          "thumb": "assets/img/data/notice-5687.webp"
+        },
         {
           "title": "[휴진 안내] 2026년 10월 3일(토) - 11일(일) 휴진",
           "date": "2026.09.16",
@@ -16,11 +23,46 @@ window.SS_FEEDS = {
           "thumb": "assets/img/news/notice-5685.webp"
         },
         {
+          "title": "[순수안 보톡스 가이드 ③] 이마 보톡스: 효과, 부작용(눈 무거움/사무라이 눈썹), 표정 습관 교정까지 총정리",
+          "date": "2026.09.08",
+          "url": "pages/news/notice-5610.html",
+          "source": "https://soonsooan.co.kr/s_4_1/5610",
+          "thumb": "assets/img/news/notice-5610.webp"
+        },
+        {
           "title": "강남역 순수안피부과의원 2026 가을 이벤트 프로그램",
           "date": "2026.08.31",
           "url": "pages/news/notice-5624.html",
           "source": "https://soonsooan.co.kr/s_4_1/5624",
           "thumb": "assets/img/news/notice-5624.webp"
+        },
+        {
+          "title": "[순수안 보톡스 가이드 ②] 보톡스 효과는 언제 나타날까요? 효과 유지 기간과 200% 오래 유지하는 방법",
+          "date": "2026.08.12",
+          "url": "pages/news/notice-5580.html",
+          "source": "https://soonsooan.co.kr/s_4_1/5580",
+          "thumb": "assets/img/news/notice-5580.webp"
+        },
+        {
+          "title": "[순수안 보톡스 가이드 ①] \"보톡스 계속 맞으면 효과 없나요?\" 피부과전문의가 답하는 보톡스 내성의 모든 것",
+          "date": "2026.07.23",
+          "url": "pages/news/notice-5457.html",
+          "source": "https://soonsooan.co.kr/s_4_1/5457",
+          "thumb": "assets/img/news/notice-5457.webp"
+        },
+        {
+          "title": "[울쎄라피 프라임] 울쎄라 몇 샷 맞아야 효과 있을까? 피부과전문의의 300샷부터 600샷까지 샷수별 가이드",
+          "date": "2026.06.19",
+          "url": "https://soonsooan.co.kr/s_4_1/5292",
+          "source": "https://soonsooan.co.kr/s_4_1/5292",
+          "thumb": "assets/img/news/notice-5292.webp"
+        },
+        {
+          "title": "울쎄라 vs 써마지 차이점 완벽 비교: 내 피부엔 어떤 리프팅이 맞을까?",
+          "date": "2026.06.04",
+          "url": "https://soonsooan.co.kr/s_4_1/5252",
+          "source": "https://soonsooan.co.kr/s_4_1/5252",
+          "thumb": "assets/img/news/notice-5252.webp"
         },
         {
           "title": "울쎄라피 프라임 (울쎄라2, 신형 울쎄라) 도입",
@@ -142,50 +184,8 @@ window.SS_FEEDS = {
       "label": "칼럼",
       "more": "pages/news/column.html",
       "moreLabel": "칼럼 더보기",
-      "items": [
-        {
-          "title": "[순수안 보톡스 가이드 ④] 미간 보톡스 : 내천(川)자 주름 개선, 사나운 인상을 부드럽게, 부작용 방지까지 총정리",
-          "date": "2026.10.31",
-          "url": "https://soonsooan.co.kr/s_4_1/5687",
-          "source": "https://soonsooan.co.kr/s_4_1/5687",
-          "thumb": "assets/img/data/notice-5687.webp"
-        },
-        {
-          "title": "[순수안 보톡스 가이드 ③] 이마 보톡스: 효과, 부작용(눈 무거움/사무라이 눈썹), 표정 습관 교정까지 총정리",
-          "date": "2026.09.08",
-          "url": "pages/news/notice-5610.html",
-          "source": "https://soonsooan.co.kr/s_4_1/5610",
-          "thumb": "assets/img/news/notice-5610.webp"
-        },
-        {
-          "title": "[순수안 보톡스 가이드 ②] 보톡스 효과는 언제 나타날까요? 효과 유지 기간과 200% 오래 유지하는 방법",
-          "date": "2026.08.12",
-          "url": "pages/news/notice-5580.html",
-          "source": "https://soonsooan.co.kr/s_4_1/5580",
-          "thumb": "assets/img/news/notice-5580.webp"
-        },
-        {
-          "title": "[순수안 보톡스 가이드 ①] \"보톡스 계속 맞으면 효과 없나요?\" 피부과전문의가 답하는 보톡스 내성의 모든 것",
-          "date": "2026.07.23",
-          "url": "pages/news/notice-5457.html",
-          "source": "https://soonsooan.co.kr/s_4_1/5457",
-          "thumb": "assets/img/news/notice-5457.webp"
-        },
-        {
-          "title": "[울쎄라피 프라임] 울쎄라 몇 샷 맞아야 효과 있을까? 피부과전문의의 300샷부터 600샷까지 샷수별 가이드",
-          "date": "2026.06.19",
-          "url": "https://soonsooan.co.kr/s_4_1/5292",
-          "source": "https://soonsooan.co.kr/s_4_1/5292",
-          "thumb": "assets/img/news/notice-5292.webp"
-        },
-        {
-          "title": "울쎄라 vs 써마지 차이점 완벽 비교: 내 피부엔 어떤 리프팅이 맞을까?",
-          "date": "2026.06.04",
-          "url": "https://soonsooan.co.kr/s_4_1/5252",
-          "source": "https://soonsooan.co.kr/s_4_1/5252",
-          "thumb": "assets/img/news/notice-5252.webp"
-        }
-      ]
+      "items": [],
+      "empty": "새 칼럼을 준비하고 있습니다."
     },
     "review": {
       "label": "치료후기",
