@@ -30,6 +30,8 @@
 <link rel="stylesheet" href="css/animations.css">
 <link rel="stylesheet" href="css/quick.css">
 <link rel="stylesheet" href="css/popup.css">
+<!-- Ver.2 최종 시안(Figma V2 · 02 MAIN PAGE, 1920 마스터) — 반드시 마지막 -->
+<link rel="stylesheet" href="css/v2.css">
 </head>
 <body>
 <a class="skip-link" href="#main">본문 바로가기</a>
@@ -102,12 +104,17 @@
           <ul>
             <li><a href="pages/news/notice.html">공지사항</a></li>
             <li><a href="pages/news/review.html">치료후기</a></li>
+<li><a href="pages/news/column.html">칼럼</a></li>
           </ul>
         </div>
       </li>
       </ul>
     </nav>
-    <a class="gnb__login" href="pages/etc/login.html">로그인 ㅣ 회원가입</a>
+    <div class="gnb__util">
+      <a class="gnb__icon" href="pages/etc/login.html" aria-label="로그인" title="로그인"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c.9-3.6 3.9-6 7.5-6s6.6 2.4 7.5 6"/></svg></a>
+      <a class="gnb__icon" href="pages/etc/login.html" aria-label="회원가입" title="회원가입"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M3 20.5c.9-3.6 3.6-6 7-6 1.6 0 3 .5 4.2 1.4"/><path d="M18.5 14v6M15.5 17h6"/></svg></a>
+      <a class="gnb__cta" href="pages/consult/online.html">상담 예약 <i aria-hidden="true">→</i></a>
+    </div>
     <button class="gnb__menu" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   </div>
   <div class="gnb__curtain" aria-hidden="true"></div>
@@ -164,6 +171,7 @@
         <ul class="drawer__sub" id="drawer-sub-5" hidden>
           <li><a href="pages/news/notice.html">공지사항</a></li>
           <li><a href="pages/news/review.html">치료후기</a></li>
+<li><a href="pages/news/column.html">칼럼</a></li>
         </ul>
       </li>
       </ul>
@@ -187,7 +195,7 @@
           <img src="assets/img/banner/banner1-devices.webp" alt="써마지 FLX, 울쎄라피 프라임, 악센트 프라임, 브이로 어드밴스, 헐리우드 스펙트라 장비" width="1920" height="1180">
         </picture>
         <div class="hero__copy hero__copy--center">
-          <p class="hero__eyebrow">HEALTHY SKIN &amp; NATURAL BEAUTY</p>
+          <p class="hero__eyebrow">PURE FLOW &nbsp;·&nbsp; HEALTHY SKIN &amp; NATURAL BEAUTY</p>
           <h2 class="hero__title">오랜 세월이 흘러도 가치가 변하지 않을<br><em>고품격 장비를 엄선</em>하여 시술합니다.</h2>
           <a class="btn btn--primary hero__btn" href="#premium">장비소개 바로가기</a>
         </div>
@@ -199,7 +207,7 @@
           <img src="assets/img/banner/banner2-bg.webp" alt="" width="1920" height="1180" loading="lazy">
         </picture>
         <div class="hero__copy hero__copy--left">
-          <p class="hero__eyebrow">HEALTHY SKIN &amp; NATURAL BEAUTY</p>
+          <p class="hero__eyebrow">PURE FLOW &nbsp;·&nbsp; HEALTHY SKIN &amp; NATURAL BEAUTY</p>
           <h2 class="hero__title hero__title--grad">건강하고, 맑은 피부.</h2>
           <p class="hero__sub">건강하고 맑은 피부는 피부의 속부터 시작됩니다.</p>
           <p class="hero__desc">피부 깊은 곳부터 채워지는 변화,<br>순수안이 <strong>1:1 맞춤 케어</strong>로 당신만의 맑고 건강한 빛을 되찾아 드립니다.</p>
@@ -213,7 +221,7 @@
           <img src="assets/img/banner/banner3-bg.webp" alt="" width="1920" height="1180" loading="lazy">
         </picture>
         <div class="hero__copy hero__copy--center hero__copy--s3">
-          <p class="hero__eyebrow">HEALTHY SKIN &amp; NATURAL BEAUTY</p>
+          <p class="hero__eyebrow">PURE FLOW &nbsp;·&nbsp; HEALTHY SKIN &amp; NATURAL BEAUTY</p>
           <h2 class="hero__title hero__title--navy">피부과 전문의 상담과 시술</h2>
           <p class="hero__sub">피부 고민을 공감할 수 있는 피부과 전문의가 진료합니다.</p>
           <p class="hero__desc">유행 타는 시술 여러가지 받아봐도 해결되지 않는 피부 고민,<br>정확한 진단에 따른 숙련된 시술로 답답한 마음까지 풀어드릴게요.</p>
@@ -227,7 +235,7 @@
           <img src="assets/img/banner/banner4-bg.webp" alt="" width="1920" height="1180" loading="lazy">
         </picture>
         <div class="hero__copy hero__copy--left hero__copy--s4">
-          <p class="hero__eyebrow">HEALTHY SKIN &amp; NATURAL BEAUTY</p>
+          <p class="hero__eyebrow">PURE FLOW &nbsp;·&nbsp; HEALTHY SKIN &amp; NATURAL BEAUTY</p>
           <h2 class="hero__title"><span class="pale">순수안은</span> 자연스러운,<br>아름다움을 추구합니다.</h2>
           <span class="hero__line" aria-hidden="true"></span>
           <p class="hero__desc">어려 보이긴 하지만 어색한 얼굴, 화장과 조명으로 가려야 하는 피부보다는<br>자신있게 드러낼 수 있는 <strong>맨 얼굴</strong>이 순수안이 추구하는 가치입니다.</p>
@@ -257,14 +265,14 @@
   <section class="news" id="news" aria-labelledby="news-title" data-under>
     <div class="inner news__head">
       <div class="sec-head" data-reveal>
-        <p class="eyebrow">NOTICE</p>
+        <p class="sec-en" aria-hidden="true">News &amp; Notice</p>
         <h2 class="sec-title" id="news-title">순수안 소식</h2>
         <p class="sec-desc">순수안피부과의 다양한 소식을 확인해보세요.</p>
       </div>
       <div class="news__tabs" role="tablist" aria-label="소식 분류" data-reveal>
         <button type="button" role="tab" id="tab-notice" aria-controls="panel-news" aria-selected="true" data-tab="notice">공지사항</button>
-        <button type="button" role="tab" id="tab-youtube" aria-controls="panel-news" aria-selected="false" data-tab="youtube" tabindex="-1">유튜브</button>
-        <button type="button" role="tab" id="tab-blog" aria-controls="panel-news" aria-selected="false" data-tab="blog" tabindex="-1">블로그</button>
+        <button type="button" role="tab" id="tab-review" aria-controls="panel-news" aria-selected="false" data-tab="review" tabindex="-1">치료후기</button>
+        <button type="button" role="tab" id="tab-column" aria-controls="panel-news" aria-selected="false" data-tab="column" tabindex="-1">칼럼</button>
       </div>
     </div>
     <div class="inner news__body" id="panel-news" role="tabpanel" aria-labelledby="tab-notice" data-reveal>
@@ -272,6 +280,7 @@
         <div class="swiper-wrapper"><!-- js/news.js 에서 채움 --></div>
       </div>
       <div class="news__bar" aria-hidden="true"></div>
+      <a class="news__more btn-v2 btn-v2--ghost" href="pages/news/notice.html" hidden>자세히 보기 <i aria-hidden="true">→</i></a>
       <div class="drag-cursor" aria-hidden="true">DRAG ⟷</div>
     </div>
   </section>
@@ -282,9 +291,15 @@
   <div class="ss-cover" id="treatment-wrap">
     <div class="treat">
       <section class="premium" id="premium" aria-labelledby="premium-title">
+        <span class="v2-glow v2-glow--l" aria-hidden="true"></span>
         <div class="inner sec-head sec-head--center" data-cover-head>
-          <p class="eyebrow">SOONSOOAN PREMIUM</p>
+          <p class="sec-en" aria-hidden="true">Premium Line-up</p>
           <h2 class="sec-title" id="premium-title">피부과전문의가 엄선한 프리미엄 라인업</h2>
+          <div class="premium__intro">
+            <p class="premium__kicker">깊이 있는 진단, 숙련된 시술, 차별화된 결과</p>
+            <p class="premium__lead">같은 장비, 다른 결과. <br class="m-br">차이는 전문성에 있습니다</p>
+            <p class="premium__desc">좋은 장비를 선택하는 안목, 당신의 피부를 정확히 이해하는 지식,<br class="pc-br">장비의 성능을 충분히 구현하는 숙련된 시술 능력.<br class="pc-br">순수안피부과는 그 모든 것을 중요하게 생각합니다.</p>
+          </div>
         </div>
         <div class="premium__stage" data-cover-item>
           <div class="swiper pslider" aria-roledescription="carousel" aria-label="프리미엄 장비">
@@ -294,7 +309,7 @@
               <div class="pslide__cap">
                 <p class="pslide__no">01</p>
                 <h3 class="pslide__name">써마지 FLX</h3>
-                <p class="pslide__desc">피부 나이를 되돌리는 가장 품격있는 선택</p>
+                <p class="pslide__desc">피부 나이를 되돌리는 가장 품격 있는 선택</p>
                 <a class="pslide__cta" href="pages/premium/thermage.html">장비 자세히 알아보기 <i aria-hidden="true">→</i></a>
               </div>
             </div>
@@ -373,9 +388,10 @@
       </section>
 
       <section class="treat__sec" id="treatment" aria-labelledby="treat-title">
+        <span class="v2-glow v2-glow--r" aria-hidden="true"></span>
         <div class="inner">
           <div class="sec-head sec-head--center" data-late-head>
-            <p class="eyebrow">SIGNATURE SOLUTION</p>
+            <p class="sec-en" aria-hidden="true">Signature Solution</p>
             <h2 class="sec-title" id="treat-title">피부 고민별 치료 프로그램</h2>
           </div>
           <ul class="tgrid" data-cards>
@@ -461,7 +477,7 @@
     <div class="inner doctor__top">
       <div class="doctor__info">
         <div class="sec-head" data-reveal>
-          <p class="eyebrow eyebrow--sm">SOONSOOAN DOCTOR</p>
+          <p class="sec-en" aria-hidden="true">Doctor</p>
           <h2 class="sec-title" id="doctor-title">의료진 소개</h2>
         </div>
         <div class="doctor__text" data-reveal-group>
@@ -483,7 +499,10 @@
     </div>
 
     <div class="about" id="about" aria-labelledby="about-title">
-      <p class="eyebrow about__eyebrow" id="about-title" data-reveal>ABOUT SOONSOOAN</p>
+      <div class="sec-head about__head" data-reveal>
+        <p class="sec-en" aria-hidden="true">About Soonsooan</p>
+        <h2 class="sec-title" id="about-title">순수안 진료 특징</h2>
+      </div>
       <div class="ca about-ca" role="radiogroup" aria-label="순수안 진료 특징" data-reveal>
         <input type="radio" name="about" id="about-1" checked>
         <label for="about-1" class="ca__card acard acard--1">
@@ -530,16 +549,21 @@
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="inner contact__inner">
       <div class="contact__side" data-reveal-group>
-        <p class="eyebrow eyebrow--pale">CONTACT</p>
+        <p class="sec-en sec-en--white" aria-hidden="true">Consultation</p>
         <h2 class="sec-title sec-title--white" id="contact-title">빠른상담신청</h2>
         <p class="sec-desc sec-desc--pale">부담없이, 무엇이든 물어보세요!</p>
-        <label class="contact__agree"><input type="checkbox" name="agree" required> <span>개인정보수집동의 <a href="pages/etc/privacy.html">[개인정보취급방침]</a></span></label>
-        <button class="btn btn--light btn--lg" type="submit" form="contact-form">- 상담 신청하기 -</button>
+        <a class="contact__tel" href="tel:025228975"><span aria-hidden="true">✆</span> 02-522-8975</a>
       </div>
-      <form class="contact__form" id="contact-form" novalidate data-reveal-group>
-        <div class="field"><label for="f-name">이&nbsp;&nbsp;&nbsp;&nbsp;름</label><input id="f-name" name="name" type="text" placeholder="홍길동" autocomplete="name" required></div>
-        <div class="field"><label for="f-tel">연락처</label><input id="f-tel" name="tel" type="tel" placeholder="010-0000-0000" autocomplete="tel" inputmode="tel" required></div>
-        <div class="field field--area"><label for="f-msg">내&nbsp;&nbsp;&nbsp;&nbsp;용</label><textarea id="f-msg" name="message" placeholder="문의 내용을 입력해주세요." required></textarea></div>
+      <form class="contact__form" id="contact-form" novalidate data-reveal>
+        <div class="contact__row">
+          <div class="field"><label for="f-name">이름</label><input id="f-name" name="name" type="text" placeholder="홍길동" autocomplete="name" required></div>
+          <div class="field"><label for="f-tel">연락처</label><input id="f-tel" name="tel" type="tel" placeholder="010-0000-0000" autocomplete="tel" inputmode="tel" required></div>
+        </div>
+        <div class="field field--area"><label for="f-msg">내용</label><textarea id="f-msg" name="message" placeholder="문의 내용을 입력해주세요." required></textarea></div>
+        <div class="contact__submit">
+          <label class="contact__agree"><input type="checkbox" name="agree" required> <span>개인정보수집동의 <a href="pages/etc/privacy.html">[개인정보취급방침]</a></span></label>
+          <button class="btn-v2 btn-v2--primary" type="submit">상담 신청하기 <i aria-hidden="true">→</i></button>
+        </div>
         <p class="contact__notice" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -548,8 +572,8 @@
   <!-- ===================== 09. 오시는 길 ===================== -->
   <section class="location" id="location" aria-labelledby="location-title">
     <div class="inner">
-      <div class="sec-head sec-head--center" data-reveal>
-        <p class="eyebrow">LOCATION</p>
+      <div class="sec-head" data-reveal>
+        <p class="sec-en" aria-hidden="true">Location</p>
         <h2 class="sec-title" id="location-title">순수안피부과의원 오시는 길</h2>
       </div>
       <div class="location__body">
@@ -560,7 +584,7 @@
         </div>
         <div class="location__info" data-reveal-group>
           <div class="loc-block">
-            <h3 class="loc-title"><img src="assets/img/icon/icon-clock.svg" alt="" width="37" height="37">진료시간</h3>
+            <h3 class="loc-title">진료시간</h3>
             <dl class="hours">
               <div><dt class="t-mon">월 · 수</dt><dd>AM 10:00 - PM 07:30</dd></div>
               <div><dt>화 · 목 · 금</dt><dd>AM 10:00 - PM 08:00</dd></div>
@@ -570,13 +594,13 @@
             </dl>
           </div>
           <div class="loc-block loc-block--addr">
-            <h3 class="loc-title"><img src="assets/img/icon/icon-pin.svg" alt="" width="23" height="32">오시는 길</h3>
+            <h3 class="sr-only">오시는 길</h3>
             <p class="addr">서울 서초구 사임당로 157 릿타워 4층 407호</p>
-            <p class="subway"><span class="badge badge--line2">2</span><span class="badge badge--sbd">신분당</span>강남역 신분당선 5번 출구에서 도보 8분</p>
+            <p class="subway">강남역 신분당선 5번 출구에서 도보 8분</p>
             <div class="mapbtns">
-              <a class="mapbtn" href="https://naver.me/GDaHCwRC" target="_blank" rel="noopener"><img src="assets/img/icon/map-naver.webp" alt="" width="27" height="27">네이버 지도</a>
-              <a class="mapbtn" href="https://place.map.kakao.com/1842239601" target="_blank" rel="noopener"><img src="assets/img/icon/map-kakao.webp" alt="" width="29" height="29">카카오 지도</a>
-              <a class="mapbtn" href="https://maps.app.goo.gl/qM3FNgvy7oUXJjyr5" target="_blank" rel="noopener"><img src="assets/img/icon/map-google.webp" alt="" width="22" height="22">구글 지도</a>
+              <a class="mapbtn" href="https://naver.me/GDaHCwRC" target="_blank" rel="noopener">네이버 지도 <i aria-hidden="true">→</i></a>
+              <a class="mapbtn" href="https://place.map.kakao.com/1842239601" target="_blank" rel="noopener">카카오 지도 <i aria-hidden="true">→</i></a>
+              <a class="mapbtn" href="https://maps.app.goo.gl/qM3FNgvy7oUXJjyr5" target="_blank" rel="noopener">구글 지도 <i aria-hidden="true">→</i></a>
             </div>
           </div>
         </div>
@@ -589,14 +613,15 @@
 <!-- ===================== 10. FOOTER ===================== -->
 <footer class="fr-footer foot">
   <div class="foot__inner" data-fr-content>
-    <img class="foot__logo" src="assets/img/icon/logo-footer.webp" alt="순수안피부과 SOONSOOAN DERMATOLOGY" width="399" height="96" loading="lazy">
+    <div class="foot__brand">
+      <p class="foot__word">Soonsooan</p>
+      <p class="foot__sub">순수안피부과 · SOONSOOAN DERMATOLOGY</p>
+    </div>
     <div class="foot__info">
-      <p class="foot__links"><a href="pages/etc/privacy.html">개인정보처리방침</a> ㅣ <a href="pages/etc/terms.html">이용약관</a></p>
       <address>
-        <span>순수안피부과</span><span>대표원장 김민호</span><br>
         서울 서초구 사임당로 157 릿타워 4층 407호<br>
-        <span>전화 : 02-522-8975</span><span>팩스 : 02-522-8976</span><span>대표자 : 김민호</span><span>사업자등록번호 : 407-08-65554</span><br>
-        COPYRIGHTⓒ2018 SOONSOOAN DERMATOLOGY. ALL RIGHTS RESERVED
+        <span>대표원장 김민호</span><span>대표자 : 김민호</span><span>사업자등록번호 : 407-08-65554</span><br>
+        <span>전화 : 02-522-8975</span><span>팩스 : 02-522-8976</span>
       </address>
     </div>
     <ul class="foot__sns">
@@ -604,6 +629,10 @@
       <li><a class="sns" href="https://www.instagram.com/soonsooan8975/" target="_blank" rel="noopener" aria-label="인스타그램 (새 창)"><img src="assets/img/icon/sns-instagram.svg" alt="" width="28" height="28"></a></li>
       <li><a class="sns" href="https://blog.naver.com/soonsooan" target="_blank" rel="noopener" aria-label="네이버 블로그 (새 창)"><img src="assets/img/icon/sns-blog.svg" alt="" width="31" height="28"></a></li>
     </ul>
+    <div class="foot__bottom">
+      <p class="foot__links"><a href="pages/etc/privacy.html">개인정보처리방침</a> &nbsp;|&nbsp; <a href="pages/etc/terms.html">이용약관</a></p>
+      <p class="foot__copy">COPYRIGHTⓒ2018 SOONSOOAN DERMATOLOGY. ALL RIGHTS RESERVED</p>
+    </div>
   </div>
 </footer>
 

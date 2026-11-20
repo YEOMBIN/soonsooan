@@ -1,7 +1,7 @@
 /* 순수안 소식 데이터 — 수동 갱신 (README 참고) */
 window.SS_FEEDS = {
-  "updatedAt": "2026-10-22",
-  "note": "실제 게시물을 2026-10-22에 수집해 저장한 정적 데이터입니다(자동 갱신 아님). 갱신 방법은 README 참고.",
+  "updatedAt": "2026-11-20",
+  "note": "정적 데이터(자동 갱신 아님). 2026-11-20: 메인 탭을 공지사항/치료후기/칼럼으로 변경 — 칼럼 = 보톡스 가이드 시리즈, 치료후기는 게시판 연결만. 유튜브·블로그 데이터는 보관(메인 미노출). 갱신 방법은 README 참고.",
   "categories": {
     "notice": {
       "label": "공지사항",
@@ -106,6 +106,38 @@ window.SS_FEEDS = {
           "date": "2026.10.08",
           "url": "https://blog.naver.com/soonsooan/224416277740",
           "thumb": "assets/img/data/blog-224416277740.webp"
+        }
+      ]
+    },
+    "review": {
+      "label": "치료후기",
+      "more": "pages/news/review.html",
+      "moreLabel": "치료후기 더보기",
+      "items": [],
+      "empty": "치료후기는 게시판에서 확인하실 수 있습니다."
+    },
+    "column": {
+      "label": "칼럼",
+      "more": "pages/news/column.html",
+      "moreLabel": "칼럼 더보기",
+      "items": [
+        {
+          "title": "[순수안 보톡스 가이드 ③] 이마 보톡스: 효과, 부작용(눈 무거움/사무라이 눈썹), 표정 습관 교정까지 총정리",
+          "date": "2026.09.08",
+          "url": "pages/news/notice-5610.html",
+          "thumb": "assets/img/news/news-5610.webp"
+        },
+        {
+          "title": "[순수안 보톡스 가이드 ②] 보톡스 효과는 언제 나타날까요? 효과 유지 기간과 200% 오래 유지하는 방법",
+          "date": "2026.08.12",
+          "url": "pages/news/notice-5580.html",
+          "thumb": "assets/img/news/news-5580.webp"
+        },
+        {
+          "title": "[순수안 보톡스 가이드 ①] \"보톡스 계속 맞으면 효과 없나요?\" 피부과전문의가 답하는 보톡스 내성의 모든 것",
+          "date": "2026.07.23",
+          "url": "pages/news/notice-5457.html",
+          "thumb": "assets/img/news/news-5457.webp"
         }
       ]
     }
