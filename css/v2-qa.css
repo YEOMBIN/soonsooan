@@ -331,3 +331,15 @@
 @media (max-width: 1024px) {
   .about-ca .acard--4 .acard__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(255 255 255 / 0) 12%, rgb(255 255 255 / .86) 48%, rgb(255 255 255 / .92) 100%); }
 }
+
+/* 치료 프로그램 카드: 숨겨진 hover 요소(구분선·설명·버튼)가 간격을 차지해 제목이 위로 뜨던 문제 → 간격은 hover 때만 */
+.tgcard__body { gap: 0; }
+.tgcard__body::before, .tgcard__desc, .tgcard__more { margin-top: 0; transition: opacity .45s var(--ease-inout), max-height .45s var(--ease-inout), margin-top .45s var(--ease-inout); }
+@media (hover: hover) and (pointer: fine) {
+  .tgcard:hover .tgcard__body::before, .tgcard:focus-visible .tgcard__body::before,
+  .tgcard:hover .tgcard__desc, .tgcard:focus-visible .tgcard__desc,
+  .tgcard:hover .tgcard__more, .tgcard:focus-visible .tgcard__more { margin-top: 12px; }
+}
+@media (max-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .tgcard:hover .tgcard__body::before, .tgcard:hover .tgcard__desc, .tgcard:hover .tgcard__more { margin-top: 10px; }
+}
