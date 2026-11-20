@@ -303,7 +303,7 @@
 
 /* 태블릿 히어로: 세로형 배너 이미지를 위쪽 기준으로 (Figma 768: 장비가 문구 아래에서 시작) */
 @media (max-width: 1024px) and (min-width: 768px) {
-  .hero__media img { object-position: center top; }
+  .hero__media img { object-position: center 32%; }
   .doctor__desc { font-size: 14.5px; }
   .doctor__desc br { display: inline; }
 }
