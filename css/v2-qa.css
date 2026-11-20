@@ -343,3 +343,6 @@
 @media (max-width: 1024px) and (hover: hover) and (pointer: fine) {
   .tgcard:hover .tgcard__body::before, .tgcard:hover .tgcard__desc, .tgcard:hover .tgcard__more { margin-top: 10px; }
 }
+
+/* 히어로 컨트롤: 오른쪽 화살표 버튼 안쪽 여백만큼 왼쪽이 좁아 보이던 것 보정 (좌우 시각 여백 동일) */
+.hero__pages { margin-left: 11px; }
