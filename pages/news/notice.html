@@ -74,6 +74,7 @@ xe.msg_no_shortcut = "바로가기는 선택 할 수 없습니다.";
 xe.msg_select_menu = "대상 메뉴 선택";
 //]]>
 </script>
+<link rel="stylesheet" href="../../css/news-board.css">
 </head>
 <body>
 <!--
@@ -364,279 +365,139 @@ Copyright inpleworks, Co.
 </header>
 	<script type="text/javascript" src="../../assets/original/layouts/main_layout/js/sub.js"></script>
 	
-					<div class="s_caption_wrap s_tit_wrap">
-	<p class="tit txt40">공지사항</p>
-	<p class="en_tit txt10">SOONSOOAN</p>
-</div>
-<div id="sv">
-	<nav class="s_nav s_nav2">
-		<div class="w1200">
-			<ul class="dep1_wrap">
-				<li class="dep1_con"><a href="notice.html" class="dep1 txt15">공지사항</a></li>
-				<li class="dep1_con"><a href="review.html" class="dep1 txt15">치료후기</a></li>
-			</ul>
-		</div>
-	</nav>	<div class="wrap">
-		<div class="bg" style="background-image:url('../../assets/original/layouts/main_layout/img/sv41.jpg');">백그라운드 이미지</div>
-		<div class="tly-50">
-			<div class="w970">
-				<div class="txt_wrap white">
-					<p class="en_tit white txt10 rad">HEALTHY SKIN & NATURAL BEAUTY</p>
-					<p class="tit txt44"><strong>순수안의</strong><br />새로운 소식</p>
-					<p class="txt txt15">순수안의 새로운 소식과 이벤트 등을 확인하실 수 있습니다.</p>
-				</div>
+					<!-- ===== 순수안 소식 · 공지사항 (2026-11 리디자인: 이미지 카드 그리드) =====
+     게시물 데이터·링크·페이지 번호는 기존 목록 그대로. 썸네일은 원본 첫 이미지(비율 유지, 잘림 없음) -->
+<main class="snews" id="snews">
+	<div class="snews__inner">
+		<div class="snews__head">
+			<div class="snews__titles">
+				<p class="snews__en">News</p>
+				<h1 class="snews__title">순수안 소식</h1>
+				<p class="snews__desc">순수안의 새로운 소식과 이벤트 등을 확인하실 수 있습니다.</p>
 			</div>
+			<nav class="snews__tabs" aria-label="순수안 소식 분류">
+				<a class="snews__tab is-active" href="notice.html" aria-current="page">공지사항</a>
+				<a class="snews__tab" href="review.html">치료후기</a>
+			</nav>
 		</div>
+		<ul class="snews__grid">
+			<li class="snews__item is-pinned">
+				<a class="snews__card" href="notice-5685.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-5685.webp" alt="" width="450" height="450" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><em class="snews__badge">공지</em><strong class="snews__name">[휴진 안내] 2026년 10월 3일(토) - 11일(일) 휴진</strong><span class="snews__date">2026.09.16</span></span>
+				</a>
+			</li>
+			<li class="snews__item is-pinned">
+				<a class="snews__card" href="notice-5624.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-5624.webp" alt="" width="563" height="800" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><em class="snews__badge">공지</em><strong class="snews__name">강남역 순수안피부과의원 2026 가을 이벤트 프로그램</strong><span class="snews__date">2026.08.31</span></span>
+				</a>
+			</li>
+			<li class="snews__item is-pinned">
+				<a class="snews__card" href="notice.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-4898.webp" alt="" width="800" height="548" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><em class="snews__badge">공지</em><strong class="snews__name">울쎄라피 프라임 (울쎄라2, 신형 울쎄라) 도입</strong><span class="snews__date">2026.01.14</span></span>
+				</a>
+			</li>
+			<li class="snews__item is-pinned">
+				<a class="snews__card" href="notice.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-4266.webp" alt="" width="564" height="800" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><em class="snews__badge">공지</em><strong class="snews__name">Approved as a Healthcare Provider for international patients in Republic of Korea</strong><span class="snews__date">2025.06.24</span></span>
+				</a>
+			</li>
+			<li class="snews__item is-pinned">
+				<a class="snews__card" href="notice.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-4127.webp" alt="" width="800" height="800" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><em class="snews__badge">공지</em><strong class="snews__name">PHA 물톡스필 신규 도입</strong><span class="snews__date">2025.05.30</span></span>
+				</a>
+			</li>
+			<li class="snews__item is-pinned">
+				<a class="snews__card" href="notice.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-2651.webp" alt="" width="600" height="408" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><em class="snews__badge">공지</em><strong class="snews__name">높은 예방 효능의 대상포진 백신, 싱그릭스 도입</strong><span class="snews__date">2022.12.21</span></span>
+				</a>
+			</li>
+			<li class="snews__item">
+				<a class="snews__card" href="notice-5610.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-5610.webp" alt="" width="400" height="400" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><strong class="snews__name">[순수안 보톡스 가이드 ③] 이마 보톡스: 효과, 부작용(눈 무거움/사무라이 눈썹), 표정 습관 교정까지 총정리</strong><span class="snews__date">2026.09.08</span></span>
+				</a>
+			</li>
+			<li class="snews__item">
+				<a class="snews__card" href="notice-5580.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-5580.webp" alt="" width="400" height="400" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><strong class="snews__name">[순수안 보톡스 가이드 ②] 보톡스 효과는 언제 나타날까요? 효과 유지 기간과 200% 오래 유지하는 방법</strong><span class="snews__date">2026.08.12</span></span>
+				</a>
+			</li>
+			<li class="snews__item">
+				<a class="snews__card" href="notice-5457.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-5457.webp" alt="" width="400" height="400" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><strong class="snews__name">[순수안 보톡스 가이드 ①] &quot;보톡스 계속 맞으면 효과 없나요?&quot; 피부과전문의가 답하는 보톡스 내성의 모든 것</strong><span class="snews__date">2026.07.23</span></span>
+				</a>
+			</li>
+			<li class="snews__item">
+				<a class="snews__card" href="notice.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-5292.webp" alt="" width="800" height="800" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><strong class="snews__name">[울쎄라피 프라임] 울쎄라 몇 샷 맞아야 효과 있을까? 피부과전문의의 300샷부터 600샷까지 샷수별 가이드</strong><span class="snews__date">2026.06.19</span></span>
+				</a>
+			</li>
+			<li class="snews__item">
+				<a class="snews__card" href="notice.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-5252.webp" alt="" width="800" height="800" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><strong class="snews__name">울쎄라 vs 써마지 차이점 완벽 비교: 내 피부엔 어떤 리프팅이 맞을까?</strong><span class="snews__date">2026.06.04</span></span>
+				</a>
+			</li>
+			<li class="snews__item">
+				<a class="snews__card" href="notice.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-5168.webp" alt="" width="800" height="800" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><strong class="snews__name">[울쎄라피 프라임] 울쎄라 후 볼꺼짐과 볼패임, 원인과 예방법과 해결책까지 총정리</strong><span class="snews__date">2026.05.11</span></span>
+				</a>
+			</li>
+			<li class="snews__item">
+				<a class="snews__card" href="notice.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-4973.webp" alt="" width="800" height="800" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><strong class="snews__name">[울쎄라피 프라임] 왜 사람마다 효과가 다를까? 만족도를 결정 짓는 4가지 핵심 요인</strong><span class="snews__date">2026.04.03</span></span>
+				</a>
+			</li>
+			<li class="snews__item">
+				<a class="snews__card" href="notice.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-4971.webp" alt="" width="800" height="800" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><strong class="snews__name">[울쎄라피 프라임] 울쎄라 효과 얼마나 지속되나요? 울쎄라 효과 오래 유지하는 꿀팁</strong><span class="snews__date">2026.03.18</span></span>
+				</a>
+			</li>
+			<li class="snews__item">
+				<a class="snews__card" href="notice.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-4934.webp" alt="" width="800" height="800" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><strong class="snews__name">[울쎄라피 프라임] 울쎄라 효과 언제 나타나요? 원리를 알면 바로 이해되는 울쎄라 시술 직후 효과 보는 법</strong><span class="snews__date">2026.02.23</span></span>
+				</a>
+			</li>
+			<li class="snews__item">
+				<a class="snews__card" href="notice.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-4920.webp" alt="" width="800" height="503" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><strong class="snews__name">[울쎄라피 프라임] 울쎄라에 비해서 어떤 점이 업그레이드 되었나요?</strong><span class="snews__date">2026.01.26</span></span>
+				</a>
+			</li>
+			<li class="snews__item">
+				<a class="snews__card" href="notice.html">
+					<span class="snews__thumb"><img src="../../assets/img/news/notice-4903.webp" alt="" width="800" height="800" loading="lazy" decoding="async"></span>
+					<span class="snews__body"><strong class="snews__name">[울쎄라피 프라임] 울쎄라 리프팅, 초음파 리프팅이란? 어떤 효과가 있나요?</strong><span class="snews__date">2026.01.19</span></span>
+				</a>
+			</li>
+		</ul>
+		<nav class="snews__pager" aria-label="페이지">
+			<span class="snews__dir is-disabled" aria-hidden="true">‹</span>
+			<a class="is-current" href="notice.html" aria-current="page">1</a>
+			<a href="notice.html">2</a>
+			<a href="notice.html">3</a>
+			<a href="notice.html">4</a>
+			<a href="notice.html">5</a>
+			<a href="notice.html">6</a>
+			<a href="notice.html">7</a>
+			<a href="notice.html">8</a>
+			<a class="snews__dir" href="notice.html" aria-label="다음 페이지">›</a>
+		</nav>
 	</div>
-</div>		        
-	<section class="xet-section">
-	<div class="xet-container"><!--#JSPLUGIN:ui--><script>//<![CDATA[
-var lang_type = "ko";
-var bdLogin = "로그인 하시겠습니까?@/index.php?mid=s_4_1&act=dispMemberLoginForm";
-jQuery(function($){
-	board('#bd_163_0');
-	$.cookie('bd_viewer_font',$('body').css('font-family'));
-});
-//]]></script>
-<div></div><div id="bd_163_0" class="bd   hover_effect small_lst_btn" data-default_style="list" data-bdFilesType="">
-<div class="bd_hd clear">
-	<div class="bd_bc fl">
-	<a href="../../index.html"><strong>Home</strong></a>
-		<i class="fa fa-angle-right"></i><a href="notice.html">순수안 소식</a>
-		<i class="fa fa-angle-right"></i><a href="notice.html"><em>공지사항</em></a>
-			</div>	
-	<div class="bd_font m_no fr">
-		<a class="select tg_btn2" href="#" data-href=".bd_font_select"><b>T</b><strong>기본글꼴</strong><span class="arrow down"></span></a>
-		<div class="bd_font_select tg_cnt2"><button type="button" class="tg_blur2"></button>
-			<ul>
-				<li class="ui_font on"><a href="#" title="사이트 기본 글꼴을 유지합니다">기본글꼴</a><em>✔</em></li>
-				<li class="ng"><a href="#">나눔고딕</a><em>✔</em></li>
-				<li class="window_font"><a href="#">맑은고딕</a><em>✔</em></li>
-				<li class="tahoma"><a href="#">돋움</a><em>✔</em></li>
-			</ul><button type="button" class="tg_blur2"></button>
-		</div>
-	</div>	
-	<div class="bd_set fr m_btn_wrp m_no">
-								<a class="viewer_with rd_viewer bubble" href="#" title="이 버튼을 활성화시키면, 목록에서 게시물 링크를 클릭 시 '뷰어로 보기'로 보게 됩니다."><em>✔</em> <strong>게시물을 뷰어로 보기</strong></a>								<a class="show_srch bubble" href="#" title="검색창을 열고 닫습니다"><b class="ico_16px search"></b>검색</a>		<a href="notice.html"><b class="ico_16px write"></b>쓰기</a>							</div>
-	
-	</div>
-<div class="bd_lst_wrp">
-<div class="tl_srch clear">
-	
-			
-	<div class="bd_faq_srch">
-		<form action="#" method="get" onsubmit="return procFilter(this, search)" ><input type="hidden" name="act" value="" />
-	<input type="hidden" name="vid" value="" />
-	<input type="hidden" name="mid" value="s_4_1" />
-	<input type="hidden" name="category" value="" />
-	<table class="bd_tb">
-		<tr>
-			<td>
-				<span class="select itx">
-					<select name="search_target">
-						<option value="title_content">제목+내용</option><option value="title">제목</option><option value="content">내용</option><option value="comment">댓글</option><option value="user_name">이름</option><option value="nick_name">닉네임</option><option value="user_id">아이디</option><option value="tag">태그</option>					</select>
-				</span>
-			</td>
-			<td class="itx_wrp">
-				<input type="text" name="search_keyword" value="" class="itx srch_itx" />
-			</td>
-			<td>
-				<button type="submit" onclick="jQuery(this).parents('form').submit();return false" class="bd_btn">검색</button>
-							</td>
-		</tr>
-	</table>
-</form>	</div></div>
-<div class="cnb_n_list">
-<div class="lst_btn fr">
-	<ul>
-		<li class="classic on"><a class="bubble" href="notice.html" title="Text Style"><b>List</b></a></li>
-		<li class="zine"><a class="bubble" href="notice.html" title="Text + Image Style"><b>Zine</b></a></li>
-		<li class="gall"><a class="bubble" href="notice.html" title="Gallery Style"><b>Gallery</b></a></li>
-			</ul>
-</div></div>
-		<table class="bd_lst bd_tb_lst bd_tb">
-	<caption class="blind">List of Articles</caption>
-	<thead class="bg_f_f9">
-		
-		<tr>
-						<th scope="col" class="no"><span><a href="notice.html" title="내림차순">번호</a></span></th>																																													<th scope="col" class="title"><span><a href="notice.html">제목</a></span></th>
-																																										<th scope="col"><span>글쓴이</span></th>																																													<th scope="col"><span><a href="notice.html">날짜</a></span></th>																																													<th scope="col" class="m_no"><span><a href="notice.html">조회 수</a></span></th>														</tr>
-	</thead>
-	<tbody>
-		
-		<tr class="notice">
-						<td class="no">
-				<strong>공지</strong>			</td>																																													<td class="title">
-				<a href="notice-5685.html"><strong><span style="font-weight:bold;;color:#ff0000">[휴진 안내] 2026년 10월 3일(토) - 11일(일) 휴진</span></strong></a>
-																				<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /></span>
-			</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time">2026.09.16</td>																																													<td class="m_no">47</td>														</tr><tr class="notice">
-						<td class="no">
-				<strong>공지</strong>			</td>																																													<td class="title">
-				<a href="notice-5624.html"><strong><span style="font-weight:bold;;color:#7f3f00">강남역 순수안피부과의원 2026 가을 이벤트 프로그램</span></strong></a>
-																				<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /></span>
-			</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time">2026.08.31</td>																																													<td class="m_no">639</td>														</tr><tr class="notice">
-						<td class="no">
-				<strong>공지</strong>			</td>																																													<td class="title">
-				<a href="notice.html"><strong><span style="font-weight:bold;;color:#bf5f00">울쎄라피 프라임 (울쎄라2, 신형 울쎄라) 도입</span></strong></a>
-																				<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /></span>
-			</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time">2026.01.14</td>																																													<td class="m_no">296</td>														</tr><tr class="notice">
-						<td class="no">
-				<strong>공지</strong>			</td>																																													<td class="title">
-				<a href="notice.html"><strong><span style="font-weight:bold;">Approved as a Healthcare Provider for international patients in Republic of Korea</span></strong></a>
-																				<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /></span>
-			</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time">2025.06.24</td>																																													<td class="m_no">647</td>														</tr><tr class="notice">
-						<td class="no">
-				<strong>공지</strong>			</td>																																													<td class="title">
-				<a href="notice.html"><strong><span style="font-weight:bold;;color:#0000ff">PHA 물톡스필 신규 도입</span></strong></a>
-																				<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /></span>
-			</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time">2025.05.30</td>																																													<td class="m_no">664</td>														</tr><tr class="notice">
-						<td class="no">
-				<strong>공지</strong>			</td>																																													<td class="title">
-				<a href="notice.html"><strong><span style="font-weight:bold;;color:#ff7f00">높은 예방 효능의 대상포진 백신, 싱그릭스 도입</span></strong></a>
-																				<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /></span>
-			</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time">2022.12.21</td>																																													<td class="m_no">858</td>														</tr>		
-		<tr>
-						<td class="no">
-								146			</td>																																													<td class="title">
-				
-								<a href="notice-5610.html" class="hx" data-viewer="https://soonsooan.co.kr/index.php?mid=s_4_1&amp;document_srl=5610&amp;listStyle=viewer">
-					[순수안 보톡스 가이드 ③] 이마 보톡스: 효과, 부작용(눈 무거움/사무라이 눈썹), 표정 습관 교정까지 총정리				</a>
-																								<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /><i class="attached_image" title="Image"></i></span>
-							</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time" title="13:05">2026.09.08</td>																																													<td class="m_no">437</td>														</tr><tr>
-						<td class="no">
-								145			</td>																																													<td class="title">
-				
-								<a href="notice-5580.html" class="hx" data-viewer="https://soonsooan.co.kr/index.php?mid=s_4_1&amp;document_srl=5580&amp;listStyle=viewer">
-					[순수안 보톡스 가이드 ②] 보톡스 효과는 언제 나타날까요? 효과 유지 기간과 200% 오래 유지하는 방법				</a>
-																								<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /><i class="attached_image" title="Image"></i></span>
-							</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time" title="18:29">2026.08.12</td>																																													<td class="m_no">1160</td>														</tr><tr>
-						<td class="no">
-								144			</td>																																													<td class="title">
-				
-								<a href="notice-5457.html" class="hx" data-viewer="https://soonsooan.co.kr/index.php?mid=s_4_1&amp;document_srl=5457&amp;listStyle=viewer">
-					[순수안 보톡스 가이드 ①] &quot;보톡스 계속 맞으면 효과 없나요?&quot; 피부과전문의가 답하는 보톡스 내성의 모든 것				</a>
-																								<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /><i class="attached_image" title="Image"></i></span>
-							</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time" title="13:11">2026.07.23</td>																																													<td class="m_no">550</td>														</tr><tr>
-						<td class="no">
-								143			</td>																																													<td class="title">
-				
-								<a href="notice.html" class="hx" data-viewer="https://soonsooan.co.kr/index.php?mid=s_4_1&amp;document_srl=5292&amp;listStyle=viewer">
-					<span style="color:#bf5f00">[울쎄라피 프라임] 울쎄라 몇 샷 맞아야 효과 있을까? 피부과전문의의 300샷부터 600샷까지 샷수별 가이드</span>				</a>
-																								<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /><i class="attached_image" title="Image"></i></span>
-							</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time" title="13:38">2026.06.19</td>																																													<td class="m_no">2410</td>														</tr><tr>
-						<td class="no">
-								142			</td>																																													<td class="title">
-				
-								<a href="notice.html" class="hx" data-viewer="https://soonsooan.co.kr/index.php?mid=s_4_1&amp;document_srl=5252&amp;listStyle=viewer">
-					<span style="color:#7f7f00">울쎄라 vs 써마지 차이점 완벽 비교: 내 피부엔 어떤 리프팅이 맞을까?</span>				</a>
-																								<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /><i class="attached_image" title="Image"></i></span>
-							</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time" title="16:11">2026.06.04</td>																																													<td class="m_no">1974</td>														</tr><tr>
-						<td class="no">
-								140			</td>																																													<td class="title">
-				
-								<a href="notice.html" class="hx" data-viewer="https://soonsooan.co.kr/index.php?mid=s_4_1&amp;document_srl=5168&amp;listStyle=viewer">
-					<span style="color:#bf5f00">[울쎄라피 프라임] 울쎄라 후 볼꺼짐과 볼패임, 원인과 예방법과 해결책까지 총정리</span>				</a>
-																								<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /><i class="attached_image" title="Image"></i></span>
-							</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time" title="16:37">2026.05.11</td>																																													<td class="m_no">2913</td>														</tr><tr>
-						<td class="no">
-								139			</td>																																													<td class="title">
-				
-								<a href="notice.html" class="hx" data-viewer="https://soonsooan.co.kr/index.php?mid=s_4_1&amp;document_srl=4973&amp;listStyle=viewer">
-					<span style="color:#bf5f00">[울쎄라피 프라임] 왜 사람마다 효과가 다를까? 만족도를 결정 짓는 4가지 핵심 요인</span>				</a>
-																								<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /><i class="attached_image" title="Image"></i></span>
-							</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time" title="12:31">2026.04.03</td>																																													<td class="m_no">965</td>														</tr><tr>
-						<td class="no">
-								137			</td>																																													<td class="title">
-				
-								<a href="notice.html" class="hx" data-viewer="https://soonsooan.co.kr/index.php?mid=s_4_1&amp;document_srl=4971&amp;listStyle=viewer">
-					<span style="color:#bf5f00">[울쎄라피 프라임] 울쎄라 효과 얼마나 지속되나요? 울쎄라 효과 오래 유지하는 꿀팁</span>				</a>
-																								<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /><i class="attached_image" title="Image"></i></span>
-							</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time" title="15:59">2026.03.18</td>																																													<td class="m_no">540</td>														</tr><tr>
-						<td class="no">
-								135			</td>																																													<td class="title">
-				
-								<a href="notice.html" class="hx" data-viewer="https://soonsooan.co.kr/index.php?mid=s_4_1&amp;document_srl=4934&amp;listStyle=viewer">
-					<span style="color:#bf5f00">[울쎄라피 프라임] 울쎄라 효과 언제 나타나요? 원리를 알면 바로 이해되는 울쎄라 시술 직후 효과 보는 법</span>				</a>
-																								<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /><i class="attached_image" title="Image"></i></span>
-							</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time" title="10:37">2026.02.23</td>																																													<td class="m_no">1638</td>														</tr><tr>
-						<td class="no">
-								133			</td>																																													<td class="title">
-				
-								<a href="notice.html" class="hx" data-viewer="https://soonsooan.co.kr/index.php?mid=s_4_1&amp;document_srl=4920&amp;listStyle=viewer">
-					<span style="color:#bf5f00">[울쎄라피 프라임] 울쎄라에 비해서 어떤 점이 업그레이드 되었나요?</span>				</a>
-																								<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /><i class="attached_image" title="Image"></i></span>
-							</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time" title="13:20">2026.01.26</td>																																													<td class="m_no">136</td>														</tr><tr>
-						<td class="no">
-								132			</td>																																													<td class="title">
-				
-								<a href="notice.html" class="hx" data-viewer="https://soonsooan.co.kr/index.php?mid=s_4_1&amp;document_srl=4903&amp;listStyle=viewer">
-					<span style="color:#bf5f00">[울쎄라피 프라임] 울쎄라 리프팅, 초음파 리프팅이란? 어떤 효과가 있나요?</span>				</a>
-																								<span class="extraimages"><img src="../../assets/original/modules/document/tpl/icons/file.gif" alt="file" title="file" style="margin-right:2px;" /><i class="attached_image" title="Image"></i></span>
-							</td>
-																																										<td class="author"><span><a href="#popup_menu_area" class="member_4" onclick="return false">soonsooan</a></span></td>																																													<td class="time" title="09:59">2026.01.19</td>																																													<td class="m_no">123</td>														</tr>	</tbody>
-</table>	<div class="btm_mn clear">
-	
-		<div class="fl">
-				
-		<form action="#" method="get" onsubmit="return procFilter(this, search)" class="bd_srch_btm" ><input type="hidden" name="act" value="" />
-			<input type="hidden" name="vid" value="" />
-			<input type="hidden" name="mid" value="s_4_1" />
-			<input type="hidden" name="category" value="" />
-			<span class="btn_img itx_wrp">
-				<button type="submit" onclick="jQuery(this).parents('form.bd_srch_btm').submit();return false;" class="ico_16px search">Search</button>
-				<label for="bd_srch_btm_itx_163">검색</label>
-				<input type="text" name="search_keyword" id="bd_srch_btm_itx_163" class="bd_srch_btm_itx srch_itx" value="" />
-			</span>
-			<span class="btn_img select">
-				<select name="search_target">
-					<option value="title_content">제목+내용</option><option value="title">제목</option><option value="content">내용</option><option value="comment">댓글</option><option value="user_name">이름</option><option value="nick_name">닉네임</option><option value="user_id">아이디</option><option value="tag">태그</option>				</select>
-			</span>
-					</form>	</div>
-	<div class="fr">
-				<a class="btn_img" href="notice.html"><i class="ico_16px write"></i> 쓰기</a>			</div>
-</div><form action="#" method="get" class="bd_pg clear"><input type="hidden" name="error_return_url" value="/s_4_1" /><input type="hidden" name="act" value="" />
-	<fieldset>
-	<legend class="blind">Board Pagination</legend>
-	<input type="hidden" name="vid" value="" />
-	<input type="hidden" name="mid" value="s_4_1" />
-	<input type="hidden" name="category" value="" />
-	<input type="hidden" name="search_keyword" value="" />
-	<input type="hidden" name="search_target" value="" />
-	<input type="hidden" name="listStyle" value="list" />
-				<strong class="direction"><i class="fa fa-angle-left"></i> Prev</strong>	<a class="frst_last bubble this" href="notice.html" title="첫 페이지">1</a>
-				 
-		<a href="notice.html">2</a>			 
-		<a href="notice.html">3</a>			 
-		<a href="notice.html">4</a>			 
-		<a href="notice.html">5</a>			 
-		<a href="notice.html">6</a>			 
-		<a href="notice.html">7</a>			<a class="frst_last bubble" href="notice.html" title="끝 페이지">8</a>	<a href="notice.html" class="direction">Next <i class="fa fa-angle-right"></i></a>		<div class="bd_go_page tg_cnt2 wrp">
-		<button type="button" class="tg_blur2"></button>
-		<input type="text" name="page" class="itx" />/ 8 <button type="submit" class="bd_btn">GO</button>
-		<span class="edge"></span>
-		<i class="ie8_only bl"></i><i class="ie8_only br"></i>
-		<button type="button" class="tg_blur2"></button>
-	</div>
-	</fieldset>
-</form>
-</div>	</div></div>
-</section>
+</main>
 <footer id="footer">
 	<div class="foot">
 		<div class="w1234">
