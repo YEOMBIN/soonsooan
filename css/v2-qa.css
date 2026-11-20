@@ -636,3 +636,14 @@
 /* 로그인 아이콘: 스크롤로 헤더에 흰 배경이 생기면 색 반전 (하늘색 원 + 흰 아이콘) */
 .gnb.is-solid .gnb__icon { background: var(--v2-sky); border-color: var(--v2-sky); color: #fff; }
 .gnb.is-solid .gnb__icon:hover, .gnb.is-solid .gnb__icon:focus-visible { background: var(--v2-blue); border-color: var(--v2-blue); color: #fff; }
+
+/* 모바일 순수안 소식 '자세히 보기': 원형 → 배너 버튼과 같은 블루 라운드 사각(알약) 버튼 */
+@media (max-width: 767px) {
+  .news__more.btn-v2 { flex-direction: row; justify-content: center; gap: 8px; width: max-content; height: 48px; margin: 24px auto 0; padding: 0 24px; border: 0; border-radius: 999px; background: var(--v2-sky); box-shadow: none; color: #fff; font-weight: 600; font-size: 15px; }
+  .news__more.btn-v2 i { display: none; }
+  .news__more-arrow { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform 280ms ease-out; }
+  .news__more.btn-v2:hover, .news__more.btn-v2:active { background: var(--v2-blue); color: #fff; }
+  .news__more.btn-v2:hover .news__more-arrow, .news__more.btn-v2:active .news__more-arrow { transform: translateX(4px); }
+  .news.is-snap .news__more.btn-v2 { margin-top: 24px; }
+}
+@media (min-width: 768px) { .news__more-arrow { display: none; } }
