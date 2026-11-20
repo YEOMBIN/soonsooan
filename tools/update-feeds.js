@@ -88,6 +88,9 @@ async function blog() {
 
 async function youtube() {
   const xml = await get('https://www.youtube.com/feeds/videos.xml?channel_id=UCJyz6ST2HHb90yAJZ_Rt7SQ');
+  // 썸네일: 채널 Shorts 탭에 보이는 '재생 전 커버'(sardefault) 우선, 없으면 oar2(영상 프레임)
+  let shorts = ''; try { shorts = await get('https://www.youtube.com/@purelogue/shorts'); } catch (e) { /* 커버를 못 받으면 oar2 사용 */ }
+  const cover = id => { const m = shorts.match(new RegExp('https://i\\.ytimg\\.com/vi/' + id + '/sardefault\\.jpg\\?sqp=[^"\\\\]*')); return m ? m[0] : 'https://i.ytimg.com/vi/' + id + '/oar2.jpg'; };
   const out = [];
   for (const e of xml.split('<entry>').slice(1, MAX + 1)) {
     const id = (e.match(/<yt:videoId>([^<]+)/) || [])[1];
@@ -95,7 +98,7 @@ async function youtube() {
     const url = (e.match(/<link rel="alternate" href="([^"]+)"/) || [])[1];
     const date = ymd((e.match(/<published>([^<]+)/) || [])[1]);
     if (!id || !title || !url) continue;
-    const thumb = fs.existsSync(path.join(IMG, 'yt-' + id + '.webp')) ? 'assets/img/data/yt-' + id + '.webp' : await saveImg('https://i.ytimg.com/vi/' + id + '/oar2.jpg', 'yt-' + id + '.jpg');
+    const thumb = fs.existsSync(path.join(IMG, 'yt-' + id + '.webp')) ? 'assets/img/data/yt-' + id + '.webp' : await saveImg(cover(id), 'yt-' + id + '.jpg');
     out.push({ title, date, url, thumb });
   }
   return out;
@@ -112,6 +115,7 @@ async function youtube() {
   try { apply('youtube', await youtube(), '유튜브'); } catch (e) { report.push('유튜브 실패(기존 유지): ' + e.message); }
   try { apply('blog', await blog(), '블로그'); } catch (e) { report.push('블로그 실패(기존 유지): ' + e.message); }
   F.updatedAt = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
+  F.version = Date.now().toString(36); // 썸네일 캐시 무효화용
   F.note = '공식 채널(공지사항 게시판·네이버 블로그 RSS·유튜브 RSS)에서 tools/update-feeds.js 로 수집한 실제 게시물. 탭 순서: 공지사항/유튜브/블로그/칼럼.';
   const order = ['notice', 'youtube', 'blog', 'column', 'review'];
   const sorted = {}; order.forEach(k => { if (cats[k]) sorted[k] = cats[k]; }); Object.keys(cats).forEach(k => { if (!sorted[k]) sorted[k] = cats[k]; });

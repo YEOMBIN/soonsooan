@@ -10,27 +10,34 @@
    - '오늘 열지 않기'를 누르면 이 브라우저에서 오늘(현지 날짜) 하루 동안 다시 나타나지 않음
      팝업 내용을 바꿨다면 version 을 바꾸면 이전 '오늘 열지 않기' 기록과 상관없이 다시 표시됨
    ========================================================= */
+/* 2026-11-21: 공식 채널 최신 게시물(블로그·유튜브·칼럼 각 최신 1건, data/feeds.js 기준)으로 교체 */
 window.SS_POPUPS = {
   enabled: true,
-  version: '2026-10',
+  version: '2026-11-21',
   items: [
     {
-      image: 'assets/img/popup/popup-202610-schedule.webp',
-      width: 405, height: 572,
-      alt: '순수안피부과 10월 진료일정 — 정기휴진 매주 일요일, 10월 3일(토) 개천절 휴진, 10월 5일(월)~10월 10일(토) 휴진',
-      link: 'pages/news/notice-5685.html', newTab: false
+      "image": "assets/img/data/blog-224482311122.webp?v=20261121c",
+      "width": 572,
+      "height": 572,
+      "alt": "리프팅은 아플수록 효과가 좋다? 울쎄라·써마지 통증에 대한 오해 | 강남 순수안피부과",
+      "link": "https://blog.naver.com/soonsooan/224482311122",
+      "newTab": true
     },
     {
-      image: 'assets/img/popup/popup-2026-autumn-event.webp',
-      width: 403, height: 572,
-      alt: '2026 가을 순수안피부과 이벤트 프로그램',
-      link: 'pages/news/notice-5624.html', newTab: false
+      "image": "assets/img/data/yt-DwuYW4KlzII.webp?v=20261121c",
+      "width": 322,
+      "height": 572,
+      "alt": "피부과 상담 전 꼭 물어볼 질문 TOP3",
+      "link": "https://www.youtube.com/shorts/DwuYW4KlzII",
+      "newTab": true
     },
     {
-      image: 'assets/img/popup/popup-juvelook.webp',
-      width: 572, height: 572,
-      alt: '쥬베룩 붓기·뻣뻣함은 언제까지 갈까요? 시술 당일부터 한 달 뒤까지의 변화',
-      link: null, newTab: false
+      "image": "assets/img/data/notice-5687.webp?v=20261121c",
+      "width": 572,
+      "height": 572,
+      "alt": "[순수안 보톡스 가이드 ④] 미간 보톡스 : 내천(川)자 주름 개선, 사나운 인상을 부드럽게, 부작용 방지까지 총정리",
+      "link": "https://soonsooan.co.kr/s_4_1/5687",
+      "newTab": true
     }
   ]
 };

@@ -194,5 +194,6 @@ window.SS_FEEDS = {
       "items": [],
       "empty": "치료후기는 게시판에서 확인하실 수 있습니다."
     }
-  }
+  },
+  "version": "mwolu4oo"
 };

@@ -28,7 +28,7 @@
 
   function card(key, it) {
     return '<a class="ncard ncard--' + key + '" href="' + esc(it.url) + '"' + ext(it.url) + '>' +
-      '<span class="ncard__thumb"><img src="' + esc(it.thumb) + '" alt="" loading="lazy" draggable="false"></span>' +
+      '<span class="ncard__thumb"><img src="' + esc(it.thumb + (window.SS_FEEDS.version ? '?v=' + window.SS_FEEDS.version : '')) + '" alt="" loading="lazy" draggable="false"></span>' +
       '<span class="ncard__title">' + esc(it.title) + '</span>' +
       (it.date ? '<span class="ncard__date">' + esc(it.date) + '</span>' : '') + '</a>';
   }
