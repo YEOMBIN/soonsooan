@@ -582,3 +582,9 @@
   .news__more.btn-v2:hover, .news__more.btn-v2:active { background: linear-gradient(180deg, #fff 0%, #eaf5fd 100%); color: var(--v2-navy); }
   .news__more.btn-v2:hover i, .news__more.btn-v2:active i { transform: translateX(5px); }
 }
+
+/* 모바일 의료진 소개 문구: 2줄 고정 (오랜 경력과 풍부한 치료 노하우. / 피부과 전문의가 책임지고, 진료합니다.) */
+@media (max-width: 767px) {
+  .doctor__lead br { display: inline; }
+  .doctor__lead { white-space: nowrap; font-size: clamp(15px, 4.6vw, 18px); }
+}
