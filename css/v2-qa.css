@@ -356,3 +356,8 @@
 .hero__btn, .btn--primary.hero__btn { background: var(--v2-sky); color: #fff; }
 @media (hover: hover) and (pointer: fine) { .hero__btn:hover, .btn--primary.hero__btn:hover { background: var(--v2-blue); box-shadow: 0 10px 24px rgb(20 72 149 / .22); } }
 .hero__btn:active, .btn--primary.hero__btn:active { background: #0f3a7a; }
+
+/* 유튜브 썸네일: Shorts 커버 원본 비율(800×1422, 9:16) 그대로 — 잘림·여백 없음 */
+.ncard--youtube .ncard__thumb { aspect-ratio: 800 / 1422; }
+.ncard--youtube .ncard__thumb img { object-fit: cover; }
+.ncard--youtube .ncard__thumb::before { display: none; }
