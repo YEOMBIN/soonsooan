@@ -361,3 +361,81 @@
 .ncard--youtube .ncard__thumb { aspect-ratio: 800 / 1422; }
 .ncard--youtube .ncard__thumb img { object-fit: cover; }
 .ncard--youtube .ncard__thumb::before { display: none; }
+
+/* 프로그램 카드 hover 오버레이: 네이비 더 진하게 (기존 #144895 70% → 진한 네이비 88%) */
+.tgcard__img::after { background: rgb(14 52 112 / .88); }
+
+/* ===================== 2026-11-21 통합 수정 ===================== */
+:root { --ease-soft: cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* ① 프로그램 카드: 영문 'view more >' (KMU80) */
+.tgcard__more { font-family: var(--f-en); font-weight: 400; letter-spacing: .04em; text-transform: lowercase; }
+.tgcard__more i { display: inline-flex; width: .9em; height: .9em; }
+.tgcard__more i svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+@media (min-width: 1025px) { .tgcard__more { font-size: 16px; } }
+
+/* ② 우측 퀵메뉴: Icon Circle Expansion — Soft Blue Ripple (크기·위치·간격 그대로, 원은 아이콘 뒤 절대 배치) */
+.quick__ico { position: relative; display: block; line-height: 0; isolation: isolate; }
+.quick__ico::before { content: ""; position: absolute; left: 50%; top: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; background: #e5f3ff; z-index: -1; opacity: 0; transform: scale(.3); transition: transform 300ms var(--ease-soft), opacity 300ms var(--ease-soft); pointer-events: none; }
+.quick__item img, .quick__item:hover img, .quick__item:focus-visible img { transform: none; transition: transform 250ms var(--ease-soft), filter 250ms var(--ease-soft); }
+.quick__item { transition: color 250ms var(--ease-soft); }
+.quick__item.is-active .quick__ico::before { opacity: 1; transform: scale(1); }
+@media (hover: hover) and (pointer: fine) {
+  .quick__item:hover .quick__ico::before { opacity: 1; transform: scale(1); }
+  .quick__item:hover img { transform: scale(1.08); filter: brightness(1.45) saturate(1.1); }
+  .quick__item:hover { color: #2a72bd; }
+}
+.quick__item:focus-visible .quick__ico::before { opacity: 1; transform: scale(1); }
+.quick__item:focus-visible img { transform: scale(1.08); filter: brightness(1.45) saturate(1.1); }
+.quick__item:focus-visible { color: #2a72bd; box-shadow: none; outline: 2px solid var(--v2-sky); outline-offset: -4px; border-radius: 14px; }
+/* 터치: 누르는 동안 원이 퍼지는 피드백 */
+.quick__item:active .quick__ico::before { opacity: 1; transform: scale(1); }
+.quick__item:active img { transform: scale(1.08); filter: brightness(1.45) saturate(1.1); }
+@media (max-width: 1024px) and (min-width: 768px) { .quick__ico::before { width: 36px; height: 36px; margin: -18px 0 0 -18px; } }
+@media (max-width: 767px) { .quick__ico::before { width: 36px; height: 36px; margin: -18px 0 0 -18px; } .quick__item:hover, .quick__item:focus-visible { background: none; } }
+
+/* TOP 버튼: 크기·위치 그대로, hover 시 블루 살짝 진하게 + 화살표 3px 위로 */
+.quick__top-label i { display: inline-block; font-style: normal; transition: transform 250ms var(--ease-soft); }
+.quick__top-arrow { transition: transform 250ms var(--ease-soft); }
+.quick__top { transition: background-color 250ms var(--ease-soft), opacity .35s var(--ease-out), visibility 0s; }
+@media (min-width: 768px) { .quick__top:hover, .quick__top:focus-visible { background: #2479bd; transform: none; } }
+@media (hover: hover) and (pointer: fine) { .quick__top:hover .quick__top-label i, .quick__top:hover .quick__top-arrow { transform: translateY(-3px); } }
+.quick__top:focus-visible .quick__top-label i, .quick__top:focus-visible .quick__top-arrow, .quick__top:active .quick__top-label i, .quick__top:active .quick__top-arrow { transform: translateY(-3px); }
+@media (max-width: 767px) { .quick__top:hover, .quick__top:active { background: #2479bd; } .quick.is-scrolled .quick__top:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .quick__ico::before, .quick__item img, .quick__top-label i, .quick__top-arrow { transition: none; }
+  .quick__item:hover img, .quick__item:focus-visible img, .quick__item:active img { transform: none; }
+}
+
+/* ③ Premium Line-up / Signature Solution: 상하 여백 확대 (PC 160~176 / 태블릿 104 / 모바일 80) */
+.treat { --pad-lux: clamp(128px, calc(160px + 16 * (100vw - 1440px) / 480), 176px); --gap-lux: clamp(48px, calc(56px + 8 * (100vw - 1440px) / 480), 64px); padding-top: var(--pad-lux); padding-bottom: var(--pad-lux); }
+.treat__sec { margin-top: var(--pad-lux); }
+.premium .sec-head { margin-bottom: var(--gap-lux); }
+.treat__sec .tgrid { margin-top: var(--gap-lux) !important; }
+.pslider__bar { margin-top: clamp(44px, calc(48px + 8 * (100vw - 1440px) / 480), 56px); }
+@media (max-width: 1024px) { .treat { --pad-lux: 104px; --gap-lux: 40px; } .pslider__bar { margin-top: 36px; } }
+@media (max-width: 767px) { .treat { --pad-lux: 80px; --gap-lux: 32px; } .pslider__bar { margin-top: 28px; } }
+
+/* ④ Doctor 배경: Figma 327:2748 — 흰 배경 + 좌우 블루 곡선 + 하단 스카이블루 확산 (배경 원본의 아래쪽을 의료진 영역 하단에 맞춤)
+   배경은 의료진+흐르는 영문 영역(.doctor__stage)에만, ABOUT은 흰 배경 */
+.doctor { background: #fff; padding-top: 0; }
+.doctor__stage { position: relative; z-index: 0; padding-top: var(--pad-sec); padding-bottom: clamp(96px, calc(96px + 34 * (100vw - 1440px) / 480), 130px); background: #fff url('../assets/img/section/doctor-bg.webp') center bottom / cover no-repeat; }
+.doctor__stage > * { position: relative; z-index: 1; }
+.doc-marquee__track span { padding-right: 0; }
+.doc-marquee__track span::after { content: "\00B7"; display: inline-block; padding: 0 .72em; }
+@media (max-width: 1024px) { .doctor__stage { padding-bottom: 72px; } }
+@media (max-width: 767px) { .doctor__stage { padding-bottom: 56px; background-position: 30% bottom; } }
+
+/* ⑤ 푸터: 순수안피부과 로고 화이트 (원본 로고 형태 그대로, 순백 단색) + 보조 텍스트 화이트 75% */
+.foot__word { line-height: 0; font-size: 0; }
+.foot__logo { display: block; width: auto; height: clamp(44px, calc(44px + 6 * (100vw - 1440px) / 480), 50px); filter: brightness(0) invert(1); }
+.foot__sub { margin-top: 14px; color: rgb(255 255 255 / .75); letter-spacing: .01em; }
+@media (max-width: 1024px) { .foot__logo { height: 42px; } .foot__sub { margin-top: 12px; } }
+@media (max-width: 767px) { .foot__logo { height: 36px; } .foot__sub { margin-top: 10px; } }
+
+/* 프로그램 카드 hover 오버레이: 네이비 더 진하게 */
+.tgcard__img::after { background: rgb(14 52 112 / .88); }
+
+/* 모바일 배너 3: 피부과 전문의 배지 표시 (PC와 같은 이미지, 설명 아래 가운데) */
+@media (max-width: 767px) { .hero__copy--s3 .hero__badge { display: block; width: 76px; height: auto; margin: 20px auto 0; } }
+.tgcard__more { gap: .3em; }

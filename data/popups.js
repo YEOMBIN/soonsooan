@@ -10,7 +10,8 @@
    - '오늘 열지 않기'를 누르면 이 브라우저에서 오늘(현지 날짜) 하루 동안 다시 나타나지 않음
      팝업 내용을 바꿨다면 version 을 바꾸면 이전 '오늘 열지 않기' 기록과 상관없이 다시 표시됨
    ========================================================= */
-/* 2026-11-21: 공식 채널 최신 게시물(블로그·유튜브·칼럼 각 최신 1건, data/feeds.js 기준)으로 교체 */
+/* 2026-11-21: 공식 채널 최신 게시물(블로그·칼럼 각 최신 1건, data/feeds.js 기준)
+   유튜브 영상은 메인 팝업에서 제외(순수안 소식 유튜브 탭에는 그대로 노출). 일반 팝업만 여기에 넣기 */
 window.SS_POPUPS = {
   enabled: true,
   version: '2026-11-21',
@@ -21,14 +22,6 @@ window.SS_POPUPS = {
       "height": 572,
       "alt": "리프팅은 아플수록 효과가 좋다? 울쎄라·써마지 통증에 대한 오해 | 강남 순수안피부과",
       "link": "https://blog.naver.com/soonsooan/224482311122",
-      "newTab": true
-    },
-    {
-      "image": "assets/img/data/yt-DwuYW4KlzII.webp?v=20261121c",
-      "width": 322,
-      "height": 572,
-      "alt": "피부과 상담 전 꼭 물어볼 질문 TOP3",
-      "link": "https://www.youtube.com/shorts/DwuYW4KlzII",
       "newTab": true
     },
     {

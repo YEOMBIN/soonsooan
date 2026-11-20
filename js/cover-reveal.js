@@ -6,7 +6,7 @@
    ③ 위로 스크롤하면 같은 길로 내려가 소식이 다시 보임
    - 장비 라인업 내용(제목·장비 무대)은 별도 등장 모션 없이 Figma 그대로 표시
    - 이어지는 치료 프로그램은 화면에 들어오면 제목 → 카드 등장(기존 유지)
-   - prefers-reduced-motion: 고정 없이 일반 스크롤
+   - prefers-reduced-motion · 모바일(≤767px): 고정 없이 일반 스크롤
    ========================================================= */
 (function () {
   'use strict';
@@ -17,10 +17,11 @@
   var cover = document.getElementById('treatment-wrap');
   var gnb = document.getElementById('gnb');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var mobile = window.matchMedia('(max-width: 767px)'); // 모바일: 커버 전환 없이 일반 스크롤 (2026-11-21)
 
   /* ----- ① ② Cover: 순수안 소식 고정 위치 계산 (CSS sticky — 스크롤과 1:1, 역방향 자연 복귀) ----- */
   function measure() {
-    if (reduce.matches) { stack.classList.remove('is-immersive'); return; }
+    if (reduce.matches || mobile.matches) { stack.classList.remove('is-immersive'); return; }
     var vh = window.innerHeight, g = gnb ? gnb.offsetHeight : 0, nh = under.offsetHeight;
     // 소식이 화면보다 짧으면 헤더 바로 아래에, 길면 아래 끝이 화면 아래에 닿는 순간 고정
     under.style.setProperty('--under-top', Math.min(g, vh - nh) + 'px');
@@ -29,7 +30,7 @@
   measure();
   window.addEventListener('resize', measure, { passive: true });
   window.addEventListener('load', measure);
-  if (reduce.addEventListener) reduce.addEventListener('change', measure);
+  if (reduce.addEventListener) { reduce.addEventListener('change', measure); mobile.addEventListener('change', measure); }
   // 소식 탭 전환 등으로 높이가 바뀌면 다시 계산
   if (window.ResizeObserver) new ResizeObserver(measure).observe(under);
 
