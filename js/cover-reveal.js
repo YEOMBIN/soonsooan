@@ -19,8 +19,9 @@
   var tGrid = cover.querySelector('[data-cards]');
   var tCards = tGrid ? Array.from(tGrid.children) : [];
   var gnb = document.getElementById('gnb');
-  var eyebrow = head.querySelector('.eyebrow');
+  var eyebrow = head.querySelector('.eyebrow, .sec-en');
   var title = head.querySelector('.sec-title');
+  var intro = head.querySelector('.premium__intro') || [];
 
   // 제목 글자 나누기 (단어 단위로 감싸 줄바꿈 유지, 글자는 아래에서 올라옴)
   function split(el) {
@@ -34,7 +35,7 @@
   var chars = split(title);
   // 치료 프로그램 제목: 묶음이 아래로 밀려 있는 동안 미리 재생되지 않도록 '실제 화면 위치'로 판단
   var tHead = cover.querySelector('[data-late-head]');
-  var tEyebrow = tHead && tHead.querySelector('.eyebrow');
+  var tEyebrow = tHead && tHead.querySelector('.eyebrow, .sec-en');
   var tTitle = tHead && tHead.querySelector('.sec-title');
   var tChars = tTitle ? split(tTitle) : [];
 
@@ -49,12 +50,14 @@
 
     gsap.set(title, { opacity: 1 });
     gsap.set(eyebrow, { y: 24, opacity: 0 });
+    gsap.set(intro, { y: 24, opacity: 0 });
     gsap.set(chars, { yPercent: 110, opacity: 0 });
     gsap.set(cards, { y: desktop ? 60 : 36, opacity: 0 });
 
     var tl = gsap.timeline({ paused: true })
       .to(eyebrow, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' })
       .to(chars, { yPercent: 0, opacity: 1, duration: 1.0, stagger: 0.035, ease: 'power3.out' }, 0.1)
+      .to(intro, { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }, 0.35)
       .to(cards, { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }, 0.45);
     var played = false;
     function play() { if (!played) { played = true; tl.play(); } }

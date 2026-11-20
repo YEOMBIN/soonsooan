@@ -319,3 +319,6 @@
   .pslide__no { display: block; font-family: var(--f-en); font-size: 17px; letter-spacing: .08em; color: var(--v2-sky); margin-bottom: 8px; }
   .pslider__bar { width: var(--sw); }
 }
+
+/* 프리미엄 소개 문구: 움직임 줄이기 설정 시 바로 표시 */
+@media (prefers-reduced-motion: reduce) { .js-on [data-cover-head] > .premium__intro { opacity: 1 !important; transform: none !important; } }

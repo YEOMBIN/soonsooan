@@ -28,7 +28,7 @@
 
   // 섹션 제목
   document.querySelectorAll('.sec-head[data-reveal]').forEach(function (head) {
-    var eyebrow = head.querySelector('.eyebrow');
+    var eyebrow = head.querySelector('.eyebrow, .sec-en');
     var title = head.querySelector('.sec-title');
     var desc = head.querySelector('.sec-desc');
     var chars = title ? split(title) : [];
