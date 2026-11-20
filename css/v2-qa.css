@@ -326,3 +326,8 @@
 /* 치료 프로그램 hover: [프로그램 보기 →] 화살표가 이동할 때 오른쪽이 잘리지 않도록 좌우 여유 */
 .tgcard__more { padding-inline: 12px; }
 .tgcard__more i { display: inline-block; }
+
+/* ABOUT 카드 04(TREATMENT): 모바일·태블릿에서 사진 위 문구 가독성 — 아래쪽 밝은 그라데이션 */
+@media (max-width: 1024px) {
+  .about-ca .acard--4 .acard__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(255 255 255 / 0) 12%, rgb(255 255 255 / .86) 48%, rgb(255 255 255 / .92) 100%); }
+}
