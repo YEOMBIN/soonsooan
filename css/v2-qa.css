@@ -588,3 +588,12 @@
   .doctor__lead br { display: inline; }
   .doctor__lead { white-space: nowrap; font-size: clamp(15px, 4.6vw, 18px); }
 }
+
+/* About 모바일: 국문 타이틀 = 카드 오른쪽 아래, 우측 정렬 (첫 줄 보통 굵기 / 강조 줄 굵은 블루) */
+@media (max-width: 767px) {
+  .about-ca .acard__title, .about-ca .acard--2 .acard__title, .about-ca .acard--3 .acard__title, .about-ca .acard--4 .acard__title { left: 24px; right: 24px; bottom: 24px; text-align: right; font-weight: 400; color: var(--v2-ink, #1a1a1a); }
+  .about-ca .acard__title strong { font-weight: 700; color: var(--v2-blue); }
+  .about-ca .acard__bg::after { background: linear-gradient(200deg, rgb(255 255 255 / 0) 45%, rgb(255 255 255 / .35) 100%); }
+  .about-ca .acard--4 .acard__bg::after { background: linear-gradient(180deg, rgb(255 255 255 / 0) 25%, rgb(255 255 255 / .6) 62%, rgb(255 255 255 / .85) 100%); }
+}
+@media (max-width: 767px) { .about-ca :is(.acard--2, .acard--3) .acard__bg::after { background: linear-gradient(180deg, rgb(255 255 255 / 0) 35%, rgb(255 255 255 / .55) 70%, rgb(255 255 255 / .8) 100%); } }
