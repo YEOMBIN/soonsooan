@@ -1,0 +1,321 @@
+/* =====================================================================
+   Figma 대조 QA 2차 (2026-11-20) — V2 1920 마스터 실측값
+   css/v2.css 다음에 로드. Figma 'V2 · 02 MAIN PAGE' Wide 1920 / PC 1440 / Tablet 768 / Mobile 390
+   ===================================================================== */
+@font-face { font-family: 'Bookk Hero'; font-weight: 300; font-display: swap; src: url('../assets/fonts/BookkMyungjo-Light-hero.woff2') format('woff2'); }
+@font-face { font-family: 'Bookk Hero'; font-weight: 700; font-display: swap; src: url('../assets/fonts/BookkMyungjo-Bold-hero.woff2') format('woff2'); }
+
+/* ----- HEADER: 1920 높이 96 · 로고 166 · 메뉴 16 SemiBold / 간격 52 · 상담 예약 14 ----- */
+@media (min-width: 1025px) {
+  :root { --gnb-h: clamp(80px, calc(80px + 16 * (100vw - 1440px) / 480), 96px); }
+  .gnb__logo { width: 166px; }
+  .gnb__list { gap: clamp(36px, calc(36px + 16 * (100vw - 1440px) / 480), 52px); }
+  .gnb__link { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+  .gnb__cta { height: 42px; font-size: 14px; }
+}
+/* 드롭다운: 세로 1열 (Figma V2 · 05 NAV) */
+.gnb__drop--wide ul { display: block; }
+.gnb__drop ul { padding: 14px 12px; border-radius: 16px; border-color: var(--v2-line); }
+.gnb__drop a { font-size: 16px; font-weight: 400; color: #4b5866; }
+
+/* ----- HERO (V2 / Hero): 문구 Bookk 명조 · 버튼 하늘색 · 하단 흰 캡슐 컨트롤 ----- */
+.hero__eyebrow { font-family: var(--f-en); font-size: 20px; line-height: 24px; letter-spacing: .08em; color: var(--v2-sky); }
+.hero__title { font-family: 'Bookk Hero', var(--f-serif); letter-spacing: -0.03em; }
+.hero__slide--1 .hero__title { font-weight: 300; font-size: min(44px, 3.06vw); line-height: 1.4545; color: var(--v2-navy); margin-top: 18px; }
+.hero__slide--1 .hero__title em { font-weight: 700; color: var(--v2-sky); }
+.hero__slide--2 .hero__title { font-weight: 700; font-size: min(56px, 3.89vw); line-height: 1.2857; margin-top: 18px; }
+.hero__title--grad { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: var(--v2-sky); padding: 0; }
+.hero__copy--s3 .hero__title, .hero__copy--s4 .hero__title { font-weight: 700; font-size: min(52px, 3.61vw); line-height: 1.3077; margin-top: 18px; }
+.hero__copy--s3 .hero__title { color: var(--v2-navy); }
+.hero__copy--s4 .hero__title { color: #fff; }
+.hero__copy--s4 .hero__title .pale, .hero__copy--s4 .hero__eyebrow { color: #a8d8f5; }
+.hero__sub { font-family: var(--f-sans); font-weight: 500; font-size: min(22px, 1.53vw) !important; line-height: 1.59 !important; letter-spacing: -0.02em; color: var(--v2-navy); margin-top: 18px !important; }
+.hero__desc { width: auto !important; font-weight: 400; font-size: min(18px, 1.25vw); line-height: 1.72; letter-spacing: -0.02em; color: #1d3e6b; margin-top: 18px !important; }
+.hero__desc strong { font-weight: 600; color: var(--v2-sky); }
+.hero__copy--s4 .hero__desc, .hero__copy--s4 .hero__desc strong { color: #fff; }
+.hero__line { width: 1px; height: 48px; margin-top: 18px; background: rgb(255 255 255 / .8); }
+.hero__badge { width: 120px; margin-top: 18px; }
+.hero__btn { display: inline-flex; gap: .5em; width: auto; min-width: 0; height: 55px; margin-top: 18px !important; padding: 0 30px; border-radius: 999px; background: var(--v2-sky); color: #fff; font-weight: 600; font-size: 16px; letter-spacing: -0.01em; }
+.hero__btn i { font-style: normal; transition: transform .45s var(--ease-inout); }
+.hero__btn:hover { background: var(--v2-sky-d); }
+.hero__btn:hover i { transform: translateX(4px); }
+@media (min-width: 1025px) {
+  .hero__slide--1 .hero__copy { top: clamp(150px, calc(150px + 54 * (100vw - 1440px) / 480), 204px); left: 0; right: 0; }
+  .hero__copy--s3 { top: clamp(190px, calc(190px + 38 * (100vw - 1440px) / 480), 228px); }
+  .hero__slide--2 .hero__copy, .hero__copy--s4 { top: clamp(210px, calc(210px + 42 * (100vw - 1440px) / 480), 252px); left: calc((100% - var(--cw)) / 2); width: min(760px, 52vw); }
+  /* 하단 컨트롤: 흰 캡슐 390×64, 아래 56 */
+  .hero__controls { bottom: 56px; transform: translateX(-50%); width: 390px; height: 64px; padding: 0 28px; gap: 18px; justify-content: center; border-radius: 999px; box-shadow: 0 12px 32px rgb(11 37 71 / .12), 0 2px 6px rgb(11 37 71 / .06); }
+}
+.hero__controls[data-tone] { --c: var(--v2-navy); --track: #d7e6f2; background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.hero__num { font-family: var(--f-en); font-weight: 400; font-size: 18px; letter-spacing: .08em; }
+.hero__num--total { opacity: 1; }
+.hero__progress { width: 140px; }
+.hero__actions { gap: 6px; padding-left: 18px; border-left: 1px solid rgb(11 37 71 / .25); }
+.hero__btn-ctrl { width: 30px; height: 30px; }
+.hero__btn-ctrl svg { width: 8px; }
+.hero__btn-ctrl[data-hero="toggle"] svg { width: 16px; }
+@media (max-width: 1024px) {
+  .hero__eyebrow { font-size: 16px; line-height: 1.3; }
+  .hero__slide--1 .hero__title { font-size: 30px; }
+  .hero__slide--2 .hero__title { font-size: 36px; }
+  .hero__copy--s3 .hero__title, .hero__copy--s4 .hero__title { font-size: 34px; }
+  .hero__sub { font-size: 18px !important; }
+  .hero__desc { font-size: 16px; }
+  .hero__slide--2 .hero__copy, .hero__copy--s4 { left: 40px; }
+  .hero__controls { bottom: 32px; transform: translateX(-50%); height: 56px; padding: 0 22px; gap: 14px; border-radius: 999px; box-shadow: 0 10px 28px rgb(11 37 71 / .12); }
+  .hero__progress { width: 110px; }
+}
+/* 모바일 (V2 / Hero Mobile 390×740): 'PURE FLOW'만, 제목 Bookk 22~28, 문구 가운데 */
+@media (max-width: 767px) {
+  .hero { height: min(calc(100vw * 740 / 390), 900px); max-height: none; }
+  .hero__eyebrow { font-size: 14px; line-height: 17px; }
+  .hero__eyebrow-more { display: none; }
+  .hero__slide--1 .hero__copy { top: calc(100vw * 92 / 390); padding-inline: 20px; }
+  .hero__slide--1 .hero__title { font-size: 22px; line-height: 1.5; margin-top: 12px; }
+  .hero__slide--2 .hero__copy { top: auto; bottom: calc(100vw * 104 / 390); left: 20px; width: calc(100% - 40px); }
+  .hero__slide--2 .hero__title { font-size: 28px; margin-top: 12px; }
+  .hero__copy--s3 { top: calc(100vw * 96 / 390); padding-inline: 20px; }
+  .hero__copy--s3 .hero__title, .hero__copy--s4 .hero__title { font-size: 28px; line-height: 1.36; margin-top: 12px; }
+  .hero__copy--s4 { top: calc(100vw * 117 / 390); left: 20px; width: calc(100% - 40px); }
+  .hero__sub { font-size: 16px !important; line-height: 1.625 !important; margin-top: 12px !important; }
+  .hero__desc { font-size: 15px; line-height: 1.73; margin-top: 12px !important; }
+  .hero__desc br { display: none; }
+  .hero__badge { display: block; width: 84px; margin-top: 12px; }
+  .hero__line { height: 32px; margin-top: 12px; }
+  .hero__btn { height: 41px; padding: 0 20px; font-size: 14px; margin-top: 12px !important; }
+  .hero__controls { bottom: 28px; height: 53px; width: calc(100% - 68px); max-width: 324px; padding: 0 18px; gap: 12px; justify-content: center; }
+  .hero__num { font-size: 15px; }
+  .hero__progress { width: 84px; }
+  .hero__actions { padding-left: 12px; }
+}
+
+/* ----- 순수안 소식: 탭 20 · 설명 18/31 #6c7888 · 제목→카드 56 ----- */
+.news__body { margin-top: clamp(48px, calc(48px + 8 * (100vw - 1440px) / 480), 56px); }
+.news__tabs { gap: 40px; }
+.news__tabs button { font-size: 20px; color: #6c7888; }
+.news .sec-desc { font-size: 18px; line-height: 31px; color: #6c7888; }
+.ncard-more__label { font-size: 19px; color: var(--v2-blue); }
+@media (max-width: 1024px) { .news__body { margin-top: 32px; } .news__tabs button { font-size: 17px; } .news .sec-desc { font-size: 16px; line-height: 1.7; } }
+@media (max-width: 767px) { .news__body { margin-top: 24px; } .news__tabs { gap: 24px; } .news__tabs button { font-size: 16px; } .news .sec-desc { font-size: 15px; } }
+
+/* ----- 프리미엄: 가운데 무대 700×528 · 양옆 600×444 · 화살표 60 · 장비명 36 / 설명 22 · 번호 숨김 · 버튼은 hover 시 ----- */
+.premium { --sw: min(700px, 36.46vw); }
+.pslide__media { height: calc(var(--sw) * 0.7543); border-radius: 24px; background: linear-gradient(180deg, rgb(245 251 255 / 0) 0%, #e2f1fc 62%, #cfe8fa 100%); transform: scale(.857); }
+.pslide__media::after { display: none; }
+.pslide__no { display: none; }
+.pslide__cap { padding-top: clamp(28px, calc(28px + 12 * (100vw - 1440px) / 480), 40px); }
+.pslide__name { margin-top: 0; font-weight: 600; font-size: clamp(30px, calc(30px + 6 * (100vw - 1440px) / 480), 36px); line-height: 1.39; letter-spacing: -0.03em; color: var(--v2-navy); }
+.pslide__desc { margin-top: 12px; font-weight: 500; font-size: clamp(19px, calc(19px + 3 * (100vw - 1440px) / 480), 22px); line-height: 1.59; color: #6c7888; }
+.pslide__cta { margin-top: 0; max-height: 0; padding-top: 0; padding-bottom: 0; opacity: 0; overflow: hidden; background: var(--v2-sky); font-size: 15px; transition: opacity .45s var(--ease-inout), max-height .45s var(--ease-inout), margin .45s var(--ease-inout), padding .45s var(--ease-inout); }
+.pslide.swiper-slide-active:hover .pslide__cta, .pslide.swiper-slide-active:focus-within .pslide__cta { max-height: 60px; margin-top: 18px; padding: 12px 26px; opacity: 1; }
+.pslide__cta:hover { background: var(--v2-sky-d); }
+.pslider__arrow { width: 60px; height: 60px; min-width: 60px; min-height: 60px; margin-top: -30px; top: calc(var(--sw) * 0.3771); }
+.pslider__arrow svg { stroke-width: 2; }
+.pslider__arrow--prev { left: calc(50% - var(--sw) / 2 - 30px); }
+.pslider__arrow--next { right: calc(50% - var(--sw) / 2 - 30px); }
+.pslider__bar { width: min(880px, calc(100% - 40px)); margin-top: clamp(30px, calc(30px + 10 * (100vw - 1440px) / 480), 40px); }
+.pslider__count { font-size: 20px; letter-spacing: .08em; color: var(--v2-navy); }
+.pslider__count span { color: var(--v2-navy); }
+.pslider__progress { background: #d7e6f2; }
+@media (max-width: 1024px) {
+  .premium { --sw: 60vw; }
+  .pslide__media { height: calc(var(--sw) * 0.7543); border-radius: 20px; }
+  .pslide__name { font-size: 26px; } .pslide__desc { font-size: 17px; }
+  .pslider__arrow { width: 52px; height: 52px; min-width: 52px; min-height: 52px; margin-top: -26px; top: calc(var(--sw) * 0.377); }
+  .pslider__arrow--prev { left: 12px; } .pslider__arrow--next { right: 12px; }
+  .pslider__count { font-size: 17px; }
+}
+@media (max-width: 767px) {
+  .premium { --sw: 72vw; }
+  .pslide__media { height: calc(var(--sw) * 0.92); border-radius: 18px; transform: scale(.88); }
+  .pslide__name { font-size: 22px; } .pslide__desc { font-size: 15px; }
+  .pslider__arrow { width: 44px; height: 44px; min-width: 44px; min-height: 44px; margin-top: -22px; top: calc(var(--sw) * 0.46); }
+  .pslider__arrow--prev { left: 4px; } .pslider__arrow--next { right: 4px; }
+  .pslider__count { font-size: 15px; }
+}
+
+/* ----- 시그니처 (V2 / Program card): 제목 32/45 SemiBold · 번호 KMU80 18 · 태블릿 2열 × 3행 ----- */
+.tgcard__no { left: 22px; top: 18px; font-size: 18px; letter-spacing: .08em; }
+.tgcard__title { order: 0; font-size: 32px; line-height: 1.406; letter-spacing: -0.03em; }
+.tgcard__body { gap: 12px; padding: 20px 24px; }
+.tgcard__body::before { content: ""; order: 1; width: 160px; height: 1px; background: rgb(255 255 255 / .9); max-height: 0; opacity: 0; transition: opacity .45s var(--ease-inout), max-height .45s var(--ease-inout); }
+.tgcard__desc { order: 2; font-size: 17px; line-height: 1.7; }
+.tgcard__more { order: 3; font-size: 14px; }
+@media (hover: hover) and (pointer: fine) { .tgcard:hover .tgcard__body::before, .tgcard:focus-visible .tgcard__body::before { max-height: 1px; opacity: 1; } }
+@media (max-width: 1440px) and (min-width: 1025px) { .tgcard__title { font-size: clamp(26px, 2.23vw, 32px); } }
+@media (max-width: 1024px) {
+  .tgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .tgcard { border-radius: 16px; }
+  .tgcard__img { aspect-ratio: 334 / 207; }
+  .tgcard__body { padding: 16px 20px; gap: 10px; }
+  .tgcard__no { left: 18px; top: 14px; font-size: 15px; }
+  .tgcard__title { font-size: 24px; line-height: 1.375; }
+  .tgcard__desc { font-size: 15px; } .tgcard__more { font-size: 13px; }
+  .tgcard__body::before { width: 120px; }
+}
+@media (max-width: 767px) {
+  .tgrid { gap: 24px 12px; }
+  .tgcard { border-radius: 12px; }
+  .tgcard__img { aspect-ratio: 169 / 120; }
+  .tgcard__body { padding: 10px; }
+  .tgcard__no { left: 10px; top: 8px; font-size: 14px; }
+  .tgcard__title { font-size: 16px; font-weight: 500; line-height: 1.625; }
+}
+
+/* ----- 브랜드 메시지: 영문 22.5/30 #c8eafe · 국문 37.5/45 ----- */
+.brand__eyebrow { font-family: var(--f-en); line-height: 1.333; letter-spacing: .05em; color: #c8eafe; }
+.brand__title { margin-top: 15px; font-weight: 600; letter-spacing: -0.02em; }
+
+/* ----- 의료진 소개 (Figma 1920: 이름 52.5 · 직함 22.5 · 리드 30/45 · 설명 22.5/34.5 #767676) ----- */
+.doctor__text { margin-top: 86px; }
+.doctor__name { font-size: clamp(44px, calc(44px + 8.5 * (100vw - 1440px) / 480), 52.5px); line-height: 1; letter-spacing: -0.015em; }
+.doctor__name small { margin-left: 20px; font-size: clamp(19px, calc(19px + 3.5 * (100vw - 1440px) / 480), 22.5px); }
+.doctor__lead { margin-top: 48px; font-size: clamp(26px, calc(26px + 4 * (100vw - 1440px) / 480), 30px); line-height: 1.5; letter-spacing: -0.027em; }
+.doctor__lead b { font-weight: 900; color: var(--v2-blue); }
+.doctor__desc { margin-top: 36px; font-size: clamp(19px, calc(19px + 3.5 * (100vw - 1440px) / 480), 22.5px); line-height: 1.533; color: #767676; }
+.doctor__text .btn { margin-top: 40px; height: 44px; padding: 0 30px; font-weight: 500; font-size: 15px; }
+.doc-marquee { opacity: 1; margin-top: 60px; }
+.doc-marquee__track span { font-size: clamp(52px, calc(52px + 12 * (100vw - 1440px) / 480), 64px); background: none; -webkit-background-clip: border-box; background-clip: border-box; color: #a8d8f5; -webkit-text-fill-color: #a8d8f5; }
+@media (max-width: 1024px) {
+  .doctor__text { margin-top: 32px; }
+  .doctor__name { font-size: 34px; } .doctor__name small { font-size: 17px; }
+  .doctor__lead { margin-top: 22px; font-size: 21px; } .doctor__desc { margin-top: 18px; font-size: 16px; }
+  .doctor__text .btn { margin-top: 24px; }
+  .doc-marquee { margin-top: 36px; } .doc-marquee__track span { font-size: 40px; }
+}
+@media (max-width: 767px) {
+  .doctor__name { font-size: 30px; } .doctor__lead { font-size: 18px; } .doctor__desc { font-size: 15px; }
+  .doc-marquee__track span { font-size: 30px; }
+}
+
+/* ----- ABOUT: Figma 07 섹션은 흰 배경 (의료진 배경 이미지가 이어지지 않게) ----- */
+.about { position: relative; background: #fff; }
+/* 약도 안내 문구: Figma 시안에 없음 → PC는 마우스를 올렸을 때만 표시 */
+@media (hover: hover) and (pointer: fine) { .map__hint { opacity: 0; } .map:hover .map__hint, .map:focus-visible .map__hint { opacity: 1; } }
+
+/* ABOUT 모바일 카드 글자 정렬: Figma 390 최종 시안(왼쪽 정렬) 우선 — 예전 '우측 정렬' 요청과 충돌 시 Figma 기준 */
+
+/* ----- 빠른상담신청 (Figma: 하늘색 그라데이션 패널 · 폼 r24 패딩 28 간격 14 · 입력 52 r16 #d7e6f2) ----- */
+.contact .sec-desc--pale { font-weight: 500; font-size: clamp(19px, calc(19px + 3 * (100vw - 1440px) / 480), 22px); line-height: 1.59; color: #fff; }
+.contact__tel { margin-top: 14px; font-size: clamp(24px, calc(24px + 4 * (100vw - 1440px) / 480), 28px); }
+.contact__form { gap: 14px; padding: 28px; box-shadow: none; }
+.contact .field input, .contact .field textarea { border-color: #d7e6f2; border-radius: 16px; font-size: 14px; }
+.contact .field input::placeholder, .contact .field textarea::placeholder { color: #6c7888; }
+.contact__agree { font-size: 15px; color: #6c7888; }
+.contact__submit .btn-v2 { height: 50px; padding: 0 28px; }
+@media (max-width: 1024px) { .contact .sec-desc--pale { font-size: 17px; } .contact__tel { font-size: 22px; } }
+@media (max-width: 767px) { .contact .sec-desc--pale { font-size: 15px; } .contact__tel { font-size: 20px; } .contact__form { padding: 20px; } }
+
+/* ----- 오시는 길: 진료시간 28 · 행 18/31 · 주소 Medium 22/35 ----- */
+.loc-title { font-size: clamp(24px, calc(24px + 4 * (100vw - 1440px) / 480), 28px); }
+.hours > div { padding: 8.5px 0; font-size: 18px; line-height: 31px; }
+.hours dt { color: var(--v2-navy); }
+.hours dd { color: #2a2f37; }
+.addr { font-weight: 500; font-size: clamp(20px, calc(20px + 2 * (100vw - 1440px) / 480), 22px); line-height: 1.59; }
+@media (max-width: 1024px) { .loc-title { font-size: 22px; } .hours > div { font-size: 16px; line-height: 1.8; } .addr { font-size: 18px; } }
+@media (max-width: 767px) { .hours > div { font-size: 15px; } .addr { font-size: 17px; } }
+
+/* ----- 대표상담전화 띠: 100 · 라벨 Medium 22 · 번호 KMU80 64 ----- */
+.callbar { gap: 20px; }
+.callbar__label { font-weight: 500; font-size: clamp(19px, calc(19px + 3 * (100vw - 1440px) / 480), 22px); color: #fff; }
+.callbar__num { font-family: var(--f-en); font-weight: 400; font-size: clamp(52px, calc(52px + 12 * (100vw - 1440px) / 480), 64px); line-height: 1.08; letter-spacing: -0.01em; }
+@media (max-width: 1024px) { .callbar__num { font-size: 40px; } .callbar__label { font-size: 17px; } }
+@media (max-width: 767px) { .callbar__num { font-size: 30px; } .callbar__label { font-size: 13px; } }
+
+/* ----- FOOTER (V2 / Footer 1920: 워드마크 KMU80 52 · 정보 14 흰색 · 하단 14/13) ----- */
+.foot__inner { padding: 96px 0 48px; grid-template-columns: minmax(0, 389px) minmax(0, 1fr) auto; column-gap: 0; }
+.foot__word { font-size: clamp(44px, calc(44px + 8 * (100vw - 1440px) / 480), 52px); line-height: 1.077; }
+.foot__sub { margin-top: 4px; font-size: 14px; letter-spacing: -0.01em; color: #a8d8f5; }
+.foot address { font-size: 14px; line-height: 2.07; color: #fff; }
+.foot__bottom { margin-top: 64px; font-size: 13px; color: #fff; }
+.foot__links { font-weight: 400; font-size: 14px; }
+@media (max-width: 1024px) { .foot__inner { grid-template-columns: 1fr auto; padding: 56px 0 36px; } .foot__word { font-size: 40px; } .foot__bottom { margin-top: 28px; } }
+@media (max-width: 767px) { .foot__inner { padding: 44px 0 32px; } .foot__word { font-size: 32px; } }
+
+/* ----- 우측 퀵 메뉴 (V2 / Quick menu: 흰 캡슐 100×436 · 라벨 13 · TOP 캡슐 네이비) ----- */
+@media (min-width: 768px) {
+  .quick { right: 24px; width: 100px; gap: 0; padding: 18px 0 20px; border-radius: 100px; background: #fff; box-shadow: 0 16px 40px rgb(11 37 71 / .14), 0 2px 8px rgb(11 37 71 / .06); }
+  .quick__menu { border-radius: 0; background: none; box-shadow: none; }
+  .quick__item { height: 70px; padding: 8px 0; gap: 6px; border: 0; font-weight: 400; font-size: 13px; line-height: 20px; color: var(--v2-navy); }
+  .quick__item img { height: 26px; }
+  .quick__item:hover, .quick__item:focus-visible { background: none; color: var(--v2-sky); }
+  .quick__top { width: 70px; height: 40px; margin-top: 10px; font-weight: 400; font-size: 13px; box-shadow: none; background: var(--v2-sky); }
+  .quick__top:hover { background: var(--v2-sky-d); }
+}
+@media (max-width: 1024px) and (min-width: 768px) {
+  .quick { right: 16px; width: 84px; }
+  .quick__item { height: 60px; font-size: 11.5px; } .quick__item img { height: 22px; }
+  .quick__top { width: 60px; height: 34px; font-size: 11.5px; }
+}
+
+/* ===== QA 3차: Figma 768 / 390 프레임 대조 보정 ===== */
+/* 히어로: 모바일은 문구 위치를 화면 맨 위 기준으로 (헤더가 배너 위에 겹침) */
+@media (max-width: 1024px) {
+  .hero__copy { margin-top: 0; }
+  .hero__eyebrow-more { display: none; }
+}
+/* 태블릿 히어로 (Figma 768×960): 세로형 무대, 문구 위쪽 가운데 */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .hero { height: min(calc(100vw * 960 / 768), 100svh); }
+  .hero__slide--1 .hero__copy { top: calc(100vw * 170 / 768); }
+  .hero__slide--1 .hero__title { font-size: 26px; }
+  .hero__copy--s3 { top: calc(100vw * 200 / 768); }
+  .hero__slide--2 .hero__copy, .hero__copy--s4 { top: auto; bottom: calc(100vw * 150 / 768); }
+}
+/* 프리미엄: 태블릿·모바일은 장비 번호(01) 표시, 진행 바는 무대 폭 */
+@media (max-width: 1024px) {
+  .pslide__no { display: block; font-family: var(--f-en); font-size: 17px; letter-spacing: .08em; color: var(--v2-sky); margin-bottom: 8px; }
+  .pslide__media { height: calc(var(--sw) * 0.66); }
+  .pslider__bar { width: var(--sw); }
+}
+@media (max-width: 767px) {
+  .pslide__media { height: calc(var(--sw) * 0.925); }
+  .pslide__no { font-size: 15px; margin-bottom: 6px; }
+}
+/* 상담: 태블릿·모바일 Figma = 하늘색 그라데이션 패널, 모바일도 이름·연락처 2열 */
+@media (max-width: 1024px) {
+  .contact { background: linear-gradient(135deg, #5bb1e8 0%, #2e8fd6 100%); }
+}
+@media (max-width: 767px) {
+  .contact__row { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .contact__submit { gap: 10px; }
+  .contact .field input, .contact .field textarea { height: 50px; padding: 12px 14px; }
+  .contact .field textarea { height: 100px; }
+}
+/* 의료진: 모바일 Figma 크기 (이름 24 · 리드 17 · 설명 14) */
+@media (max-width: 767px) {
+  .doctor__name { font-size: 24px; } .doctor__name small { margin-left: 8px; font-size: 14px; }
+  .doctor__lead { margin-top: 16px; font-size: 17px; line-height: 1.65; }
+  .doctor__desc { margin-top: 14px; font-size: 14px; line-height: 1.6; }
+  .doctor__text .btn { margin-top: 20px; height: 42px; font-size: 14px; }
+  .doc-marquee__track span { font-size: 30px; }
+}
+/* 푸터 모바일: 워드마크 → 정보 → SNS → 구분선 → 링크·저작권 (Figma 390) */
+@media (max-width: 767px) {
+  .foot__inner { grid-template-columns: 1fr; row-gap: 22px; }
+  .foot__brand { grid-row: 1; }
+  .foot__info { grid-row: 2; }
+  .foot__sns { grid-row: 3; justify-self: start; }
+  .foot__bottom { grid-row: 4; margin-top: 6px; }
+  .foot__sub { font-size: 13px; }
+  .sns { width: 40px; height: 40px; }
+}
+
+/* 태블릿 히어로: 세로형 배너 이미지를 위쪽 기준으로 (Figma 768: 장비가 문구 아래에서 시작) */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .hero__media img { object-position: center top; }
+  .doctor__desc { font-size: 14.5px; }
+  .doctor__desc br { display: inline; }
+}
+
+/* PC 1440 구간 (1025~1440): Figma 1440 프레임 기준 — 상담 하늘색 패널, 프리미엄 무대 47.2vw·비율 0.6·번호 표시 */
+@media (max-width: 1440px) {
+  .contact { background: linear-gradient(135deg, #5bb1e8 0%, #2e8fd6 100%); }
+}
+@media (max-width: 1440px) and (min-width: 1025px) {
+  .premium { --sw: 47.2vw; }
+  .pslide__media { height: calc(var(--sw) * 0.6); }
+  .pslider__arrow { top: calc(var(--sw) * 0.3); }
+  .pslide__no { display: block; font-family: var(--f-en); font-size: 17px; letter-spacing: .08em; color: var(--v2-sky); margin-bottom: 8px; }
+  .pslider__bar { width: var(--sw); }
+}

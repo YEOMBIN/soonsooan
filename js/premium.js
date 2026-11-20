@@ -37,7 +37,7 @@
     slideToClickedSlide: true,
     keyboard: { enabled: true, onlyInViewport: true },
     navigation: { prevEl: stage.querySelector('.pslider__arrow--prev'), nextEl: stage.querySelector('.pslider__arrow--next') },
-    breakpoints: { 768: { spaceBetween: 32 }, 1025: { spaceBetween: 48 } },
+    breakpoints: { 768: { spaceBetween: 32 }, 1025: { spaceBetween: 48 }, 1441: { spaceBetween: Math.round(130 * Math.min(1, window.innerWidth / 1920)) } },
     on: { afterInit: function (sw) { sw.slideToLoop(0, 0, false); sync(sw); }, realIndexChange: sync }
   });
 
