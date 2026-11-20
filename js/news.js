@@ -27,8 +27,10 @@
   function ext(url) { return /^https?:/.test(url) ? ' target="_blank" rel="noopener"' : ''; }
 
   function card(key, it) {
+    var src = it.thumb + (window.SS_FEEDS.version ? '?v=' + window.SS_FEEDS.version : '');
+    var abs = new URL(src, document.baseURI).href; // CSS 변수 안 url()은 스타일시트 기준으로 풀리므로 절대 주소로
     return '<a class="ncard ncard--' + key + '" href="' + esc(it.url) + '"' + ext(it.url) + '>' +
-      '<span class="ncard__thumb"><img src="' + esc(it.thumb + (window.SS_FEEDS.version ? '?v=' + window.SS_FEEDS.version : '')) + '" alt="" loading="lazy" draggable="false"></span>' +
+      '<span class="ncard__thumb" style="--thumb:url(' + esc(abs) + ')"><img src="' + esc(src) + '" alt="" loading="lazy" draggable="false"></span>' +
       '<span class="ncard__title">' + esc(it.title) + '</span>' +
       (it.date ? '<span class="ncard__date">' + esc(it.date) + '</span>' : '') + '</a>';
   }

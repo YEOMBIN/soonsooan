@@ -306,3 +306,48 @@
   .hero__controls { transform: translateX(-50%) scale(.9); }
   .hero__num { font-size: 14px; }
 }
+
+/* ===== 2026-11-21 ① HERO CTA: 화살표 아이콘 + hover/press (버튼 전체 클릭 영역, 기존 색·높이 유지) ===== */
+.hero__btn { width: auto; min-width: calc(196 * var(--s)); gap: 10px; padding-inline: calc(26 * var(--s)); white-space: nowrap; transition: background-color .35s ease-out, box-shadow .35s ease-out, transform .2s ease-out; }
+.hero__btn > span { pointer-events: none; }
+.hero__btn-arrow { flex: none; width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform .35s ease-out; pointer-events: none; }
+@media (hover: hover) and (pointer: fine) {
+  .hero__btn:hover { background: #0f3a7a; box-shadow: 0 10px 24px rgb(20 72 149 / .22); }
+  .hero__btn:hover .hero__btn-arrow { transform: translateX(6px); }
+}
+.hero__btn:active { transform: translateY(1px); background: #0c3168; box-shadow: none; }
+.hero__btn:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; }
+@media (max-width: 1024px) { .hero__btn { min-width: 0; padding-inline: 22px; } .hero__btn-arrow { width: 17px; height: 17px; } }
+@media (max-width: 767px) { .hero__btn { gap: 8px; padding-inline: 18px; } .hero__btn-arrow { width: 16px; height: 16px; } }
+@media (prefers-reduced-motion: reduce) { .hero__btn, .hero__btn-arrow { transition: none; } .hero__btn:active { transform: none; } }
+
+/* ===== ② 순수안 소식 카드: 이미지 영역 높이 통일 (모든 카테고리 정사각 칸, 라운드·카드 폭 유지) =====
+   블로그(사진형) = cover / 공지·칼럼(문서형)·유튜브(세로 커버, 글자 포함) = contain + 같은 이미지를 흐리게 깐 배경으로 여백 처리 */
+.ncard__thumb, .ncard--youtube .ncard__thumb { position: relative; display: block; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 20px; background: #eaf3fb; isolation: isolate; }
+.ncard__thumb::before { content: ""; position: absolute; inset: -12%; z-index: -1; background: var(--thumb) center / cover no-repeat; filter: blur(22px) saturate(1.05); opacity: .55; }
+.ncard__thumb img, .ncard--youtube .ncard__thumb img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; border-radius: 0; object-fit: contain; object-position: center; }
+.ncard--blog .ncard__thumb img { object-fit: cover; }
+.ncard--blog .ncard__thumb::before { display: none; }
+.news.is-youtube { height: auto; }
+@media (max-width: 1024px) { .ncard__thumb, .ncard--youtube .ncard__thumb { border-radius: 18px; } }
+@media (max-width: 767px) { .ncard__thumb, .ncard--youtube .ncard__thumb { border-radius: 14px; } }
+
+/* ===== ③ Premium / Signature 배경 Glow: 항상 정원(1:1) — 폭·높이를 따로 주던 타원 왜곡 제거 ===== */
+.v2-glow { width: clamp(560px, 86vw, 1650px); height: auto; aspect-ratio: 1 / 1; top: 50%; right: auto; left: auto; transform: translate(-50%, -50%); opacity: .55; filter: none;
+  background: radial-gradient(closest-side, rgb(255 255 255 / .95) 0%, #ddf1fd 30%, rgb(166 214 244 / .75) 58%, rgb(166 214 244 / .28) 78%, rgb(255 255 255 / 0) 100%); }
+.v2-glow--l { left: 8%; top: 42%; }
+.v2-glow--r { left: 92%; top: 50%; }
+@media (max-width: 1024px) { .v2-glow { width: 110vw; } .v2-glow--l { left: 4%; } .v2-glow--r { left: 96%; } }
+@media (max-width: 767px) { .v2-glow { width: 150vw; } .v2-glow--l { left: 0; top: 30%; } .v2-glow--r { left: 100%; top: 40%; } }
+
+/* HERO 4번 배너 설명: 문장 전체 굵기·크기·컬러 통일 ("맨 얼굴" 강조 해제) */
+.hero__copy--s4 .hero__desc strong { font-weight: inherit; font-size: inherit; color: inherit; }
+
+/* Glow 크기·위치 보정: 원이 섹션 묶음(.treat) 경계에서 잘려 띠처럼 보이지 않도록, 경계 전에 완전히 사라지게 */
+.v2-glow { width: clamp(560px, 72vw, 1380px); }
+.v2-glow--l { top: 58%; }
+.v2-glow--r { top: 45%; }
+@media (max-width: 1024px) { .v2-glow { width: 100vw; } }
+@media (max-width: 767px) { .v2-glow { width: 140vw; } .v2-glow--l { top: 40%; } .v2-glow--r { top: 45%; } }
+.v2-glow--r { top: 25%; }
+@media (max-width: 767px) { .v2-glow--r { top: 40%; } }
