@@ -322,3 +322,7 @@
 
 /* 프리미엄 소개 문구: 움직임 줄이기 설정 시 바로 표시 */
 @media (prefers-reduced-motion: reduce) { .js-on [data-cover-head] > .premium__intro { opacity: 1 !important; transform: none !important; } }
+
+/* 치료 프로그램 hover: [프로그램 보기 →] 화살표가 이동할 때 오른쪽이 잘리지 않도록 좌우 여유 */
+.tgcard__more { padding-inline: 12px; }
+.tgcard__more i { display: inline-block; }
