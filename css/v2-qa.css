@@ -288,3 +288,21 @@
   .news__more.btn-v2 i { order: -1; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--v2-blue); color: #fff; font-size: 16px; }
   .news__more.btn-v2:hover { background: var(--v2-blue); color: #fff; }
 }
+
+/* ===== HERO 문구 글꼴: 이전 Bookk 서브셋에 없는 글자(슬라이드 3 '상담과 시술' 일부)가 다른 글꼴로 대체되던 문제
+   → 히어로 문구 전체 글자를 담은 Bookk 서브셋(Bookk Hero) 사용. 크기·굵기·배치는 이전 디자인(hero.css) 그대로 ===== */
+.hero__title, .hero__sub { font-family: 'Bookk Hero', var(--f-serif); }
+
+/* ===== HERO Controls: 1번 배너 디자인(흰 반투명 캡슐)으로 4장 모두 통일 + 약 18% 축소 + 숫자는 영문 타이틀 글꼴 ===== */
+.hero__controls, .hero__controls[data-tone] {
+  --c: var(--navy); --track: rgb(20 72 149 / .25);
+  background: rgb(255 255 255 / .78); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border: 0; box-shadow: none;
+}
+.hero__num { display: inline-block; min-width: 1.45em; font-family: var(--f-en); font-weight: 400; font-size: calc(16 * var(--s)); line-height: 1; letter-spacing: .04em; text-align: center; font-variant-numeric: tabular-nums; }
+.hero__num--total { opacity: .5; }
+@media (min-width: 1025px) { .hero__controls { transform: translateX(-50%) scale(1.8); } }
+@media (max-width: 1024px) {
+  .hero__controls { transform: translateX(-50%) scale(.9); }
+  .hero__num { font-size: 14px; }
+}

@@ -20,7 +20,7 @@
   var moreBtn = section.querySelector('.news__more');
   var tabs = Array.from(section.querySelectorAll('[role="tab"]'));
   var mq = window.matchMedia('(max-width: 767px)');
-  var MAX = 5, MAX_M = 4;
+  var MAX = 6, MAX_M = 4;
   var swiper = null, current = 'notice', busy = false;
 
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
